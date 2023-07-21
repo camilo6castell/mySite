@@ -1,0 +1,56 @@
+.myimg-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: yellowgreen; development*/
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+  animation-delay: 2.1s, 3.1s;
+}
+  
+.myimg-circle span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(red, white);
+  border-radius: 50%;
+
+  animation: circleRotate 5s linear infinite;
+}
+
+.myimg-circle span:nth-child(1) {
+  filter: blur(10px);
+}
+
+.myimg-circle::after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: rgb(51, 23, 10);
+  border-radius: 50%;
+}
+
+.image {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  /* background: red; development*/
+  border-radius: 50%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.image img {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 350px;
+  object-fit: cover;
+}
