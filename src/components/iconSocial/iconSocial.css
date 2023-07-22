@@ -14,7 +14,7 @@
   z-index: 1;
 }
 
-.welcome-social a:nth-child(1) {
+/* .welcome-social a:nth-child(1) {
   opacity: 0;
   animation: slideBottom 1s ease forwards;
   animation-delay: 2.1s;
@@ -24,7 +24,21 @@
   opacity: 0;
   animation: slideTop 1s ease forwards;
   animation-delay: 2.1s;
+} */
+
+.slideBottom {
+  opacity: 0;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 2.1s;
 }
+
+.slideTop {
+  opacity: 0;
+  animation: slideTop 1s ease forwards;
+  animation-delay: 2.1s;
+}
+
+/* TEST */
 
 .welcome-social a::before {
   content: "";

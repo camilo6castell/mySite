@@ -1,8 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import reportWebVitals from "./reportWebVitals";
 
+// CONTEXT
+
+import { DataProvider } from "./dataContext/data";
+
+// COMPONENTS
+
 import App from "./App";
+
+// STYLES
 
 import "./reset.css";
 import "./App.css";
@@ -16,7 +25,9 @@ import "./components/welcome/welcome.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <DataProvider>
+      <App />
+    </DataProvider>
   </React.StrictMode>
 );
 
