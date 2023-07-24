@@ -7,25 +7,23 @@ import reportWebVitals from "./reportWebVitals";
 
 import { DataProvider } from "./dataContext/data";
 
+// STYLES
+
+import GlobalStyle from "./UI/gobalStyle";
+
 // COMPONENTS
 
 import App from "./App";
 
 // STYLES
 
-import "./reset.css";
 import "./App.css";
-import "./components/header/header.css";
-import "./components/avatar/avatar.css";
-import "./components/btnAlfa/btnAlfa.css";
-import "./components/iconSocial/iconSocial.css";
-import "./components/presentation/presentation.css";
-import "./components/welcome/welcome.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <DataProvider>
+      <GlobalStyle />
       <App />
     </DataProvider>
   </React.StrictMode>

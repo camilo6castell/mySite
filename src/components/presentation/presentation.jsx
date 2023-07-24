@@ -1,11 +1,12 @@
+import { DivPStyled } from "../../UI/styledComponents/StyledComponents";
+
 function Presentation({ data }) {
-    console.log(data)
     return(
-        <>
-        <h1>{data.nombre}</h1>
-        <h3>{data.role}</h3>
-        <p>{data.description}</p>
-        </>
+        <DivPStyled>
+            <h1>{data.name}</h1>
+            <h3>{data.role}</h3>
+            <p>{data.description}</p>
+        </DivPStyled>
     )
 }
 

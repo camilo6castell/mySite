@@ -1,16 +1,14 @@
-import { useContext } from "react";
-import { DataContext } from "../../dataContext/data";
+import { DivStyled } from "../../UI/styledComponents/StyledComponents";
 
-function Avatar() {
-    const dataContext = useContext(DataContext);
+function Avatar({ data, mode }) {
     return(
-        <div className="myimg-circle">
+        <DivStyled data={data} mode={mode} className="myimg-circle">
             <span></span>
             <span></span>
             <div className="image">
-                <img src={dataContext.avatar} alt="caTEST" />
+                <img src={data.photo} alt="caTEST" />
             </div>
-        </div>
+        </DivStyled>
     )
 }
 

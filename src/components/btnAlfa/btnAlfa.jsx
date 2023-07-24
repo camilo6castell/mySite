@@ -1,6 +1,8 @@
-function BtnAlfa() {
+import { BStyled } from "../../UI/styledComponents/StyledComponents";
+
+function BtnAlfa({ data }) {
     return(
-        <a href="/" className="btn">Contrátame!</a>
+        <BStyled href="#connect" data={data} onClick={() => console.log("conectado")}>Contrátame!</BStyled>
     )
 }
 

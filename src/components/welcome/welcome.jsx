@@ -1,28 +1,27 @@
-import { useContext } from "react";
-import { DataContext } from "../../dataContext/data"
-
 import Avatar from "../avatar/avatar";
 import BtnAlfa from "../btnAlfa/btnAlfa";
 import IconSocial from "../iconSocial/iconSocial";
 import Presentation from "../presentation/presentation";
 
-function Welcome() {
-    const dataContext = useContext(DataContext)
+import { SectionWStyled } from "../../UI/styledComponents/StyledComponents";
+
+function Welcome({ dataContext }) {
+    
     return (
-        <section className="welcome">
+        <SectionWStyled id="home">
             <div className="welcome-social">
                 {
-                    dataContext.social.map((data) => <IconSocial key={data.name} data={data}/> )
+                    dataContext.social.map((data) => <IconSocial key={data.name} data={data} mode={dataContext.theme}/> )
                 }
             </div>
             <div className="welcome-content">
                 <Presentation data={dataContext.info}/>
-                <BtnAlfa/>
+                <BtnAlfa data={dataContext.theme}/>
             </div>
             <div className="myimg">
-               <Avatar/>
+               <Avatar data={dataContext.info} mode={dataContext.theme}/>
             </div>
-        </section>
+        </SectionWStyled>
     )
 }
 
