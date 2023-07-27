@@ -1,12 +1,15 @@
-import { DivPStyled } from "../../UI/styledComponents/StyledComponents";
+import { StyledPresentation } from "../../UI/styledComponents/StyledComponents";
+
+// EFFECT TO TEXT THANKS TO Philip Zastrow
+
 
 function Presentation({ data }) {
     return(
-        <DivPStyled>
+        <StyledPresentation>
             <h1>{data.name}</h1>
-            <h3>{data.role}</h3>
+            <h3 className="nightsStyle">{data.role}</h3>
             <p>{data.description}</p>
-        </DivPStyled>
+        </StyledPresentation>
     )
 }
 

@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header data={dataContext.theme} />
       <Welcome dataContext={dataContext} />
-      <Skills />
+      <Skills data={dataContext.skills} />
     </div>
   );
 }
