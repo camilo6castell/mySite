@@ -2,7 +2,6 @@ import { StyledPresentation } from "../../UI/styledComponents/StyledComponents";
 
 // EFFECT TO TEXT THANKS TO Philip Zastrow
 
-
 function Presentation({ data }) {
     return(
         <StyledPresentation>

@@ -2,7 +2,7 @@ const mainConfig = {
   info: {
     photo: "https://pngimg.com/d/cat_PNG50514.png",
     name: "Camilo Castellanos",
-    role: "Web developer",
+    role: "Web developer and psychologist",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati tempore similique ut. Assumenda expedita tenetur porro tempora pariatur minima eaque?",
     avatar: ["rgb(204, 204, 204)", "rgb(251, 253, 144)"],
@@ -46,7 +46,7 @@ const mainConfig = {
     },
     {
       icon: "https://icon-icons.com/downloadimage.php?id=146528&root=2415/PNG/512/&file=express_original_wordmark_logo_icon_146528.png",
-      name: "Express.js",
+      name: "Express.Js",
     },
     {
       icon: "https://icon-icons.com/downloadimage.php?id=130142&root=2107/PNG/512/&file=file_type_styled_icon_130142.png",
@@ -95,6 +95,115 @@ const mainConfig = {
     {
       icon: "https://icon-icons.com/downloadimage.php?id=158716&root=2622/PNG/512/&file=brand_scrum_icon_158716.png",
       name: "SCRUM",
+    },
+    {
+      icon: "",
+      name: "Docker",
+    },
+    {
+      icon: "",
+      name: "Vite",
+    },
+  ],
+  projects: [
+    {
+      type: "FrontEnd",
+      name: "Instaya Frontend",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/Instaya-frontend",
+      deployment:
+        "https://instaya-frontend-cacastellanosh-unaleduco.vercel.app/",
+      tools: [
+        "React",
+        "Node.Js",
+        "Vite",
+        "JavaScript",
+        "Linux",
+        "SCRUM",
+        "CSS3",
+        "HTML5",
+        "Git",
+      ],
+    },
+    {
+      type: "Backend",
+      name: "Instaya Backend",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/Instaya-backend",
+      deployment: "https://instaya-backend.onrender.com/",
+      tools: [
+        "Docker",
+        "JavaScript",
+        "Node.Js, Express.Js, MongoDB, Mongoose",
+        "Git",
+        "Linux",
+      ],
+    },
+    {
+      type: "Fullstack",
+      name: "Gevora",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/Gevora",
+      deployment: "http://r4d3o.pythonanywhere.com/",
+      tools: [
+        "Pyhton",
+        "Flask",
+        "MySQL",
+        "Linux",
+        "SCRUM",
+        "CSS3",
+        "HTML5",
+        "Git",
+      ],
+    },
+    {
+      type: "Software",
+      name: "WaterQualityApp",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/WaterQualityApp",
+      deployment:
+        "El código de esta aplicación puede ejecutarse en cualquier dispositivo que corra la maquina virtual de Java.",
+      tools: ["Java", "Git", "Linux"],
+    },
+    {
+      type: "Backend",
+      name: "Health-api",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/health-api",
+      deployment: "https://health-api-wuip.onrender.com/",
+      tools: [
+        "Node.Js",
+        "JavaScript",
+        "Express.Js",
+        "MongoDB",
+        "Mongoose",
+        "Git",
+        "Linux",
+      ],
+    },
+    {
+      type: "Frontend",
+      name: "Encrypt-Decrypt-application",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/Encrypt-Decrypt-application",
+      deployment:
+        "https://camilo6castell.github.io/Encrypt-Decrypt-application/",
+      tools: ["JavaScript", "Linux", "SCRUM", "CSS3", "HTML5", "Git", "Linux"],
+    },
+    {
+      type: "Frontend",
+      name: "RutineSch",
+      description: "",
+      image: "",
+      github: "https://github.com/camilo6castell/RutineSch",
+      deployment: "https://camilo6castell.github.io/RutineSch/",
+      tools: ["JavaScript", "Linux", "CSS3", "HTML5", "Git"],
     },
   ],
 };
