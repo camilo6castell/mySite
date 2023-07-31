@@ -17,6 +17,13 @@ const mainConfig = {
   },
   social: [
     {
+      name: "GitHub",
+      icon: "bx bxl-github",
+      link: "https://github.com/camilo6castell",
+      animation: "slideTop",
+      color: ["rgb(255, 28, 179)", "rgb(190, 190, 190)"],
+    },
+    {
       name: "LinkedIn",
       icon: "bx bxl-linkedin-square",
       link: "https://www.linkedin.com/in/camilocastell/",
@@ -24,11 +31,25 @@ const mainConfig = {
       color: ["rgb(58, 173, 250)", "rgb(190, 190, 190)"],
     },
     {
-      name: "GitHub",
-      icon: "bx bxl-github",
-      link: "https://github.com/camilo6castell",
+      name: "Whatsapp",
+      icon: "bx bxl-whatsapp",
+      link: " https://wa.me/573223990733",
       animation: "slideTop",
-      color: ["rgb(255, 28, 179)", "rgb(190, 190, 190)"],
+      color: ["rgb(106, 252, 66)", "rgb(190, 190, 190)"],
+    },
+    {
+      name: "Facebook",
+      icon: "bx bxl-facebook",
+      link: "https://www.facebook.com/XXYYXXYYXXYYXXYY/",
+      animation: "slideTop",
+      color: ["rgb(6, 53, 184)", "rgb(190, 190, 190)"],
+    },
+    {
+      name: "Instagram",
+      icon: "bx bxl-instagram-alt",
+      link: "https://www.instagram.com/dmente.acida/",
+      animation: "slideTop",
+      color: ["rgb(252, 61, 192)", "rgb(190, 190, 190)"],
     },
   ],
   skills: [
@@ -97,15 +118,30 @@ const mainConfig = {
       name: "SCRUM",
     },
     {
-      icon: "",
+      icon: "https://icon-icons.com/downloadimage.php?id=146557&root=2415/PNG/512/&file=docker_original_wordmark_logo_icon_146557.png",
       name: "Docker",
-    },
-    {
-      icon: "",
-      name: "Vite",
     },
   ],
   projects: [
+    {
+      type: "Frontend",
+      name: "My portfolio",
+      description: "",
+      image: "",
+      github: "",
+      deployment: "",
+      tools: [
+        "React",
+        "Node.Js",
+        "JavaScript",
+        "Linux",
+        "SCRUM",
+        "CSS3",
+        "HTML5",
+        "Git",
+        "Styled components",
+      ],
+    },
     {
       type: "FrontEnd",
       name: "Instaya Frontend",
@@ -117,7 +153,6 @@ const mainConfig = {
       tools: [
         "React",
         "Node.Js",
-        "Vite",
         "JavaScript",
         "Linux",
         "SCRUM",
@@ -209,3 +244,5 @@ const mainConfig = {
 };
 
 export default mainConfig;
+
+<i class="bx bxl-facebook"></i>;
