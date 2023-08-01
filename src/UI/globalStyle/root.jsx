@@ -6,7 +6,7 @@ const colors = mainConfig.theme
 const root = () => 
     `
     :root {
-        font-family: 'Lora', serif;
+        font-family: 'Roboto', sans-serif;
     }
         
     html {
@@ -17,7 +17,7 @@ const root = () =>
     body {
         background-color: ${colors.backgroundColor};
         background-image: url(${background});
-        background-size: 100vh 100vw;
+        background-size: 100vw 100vh;
         color: white;
         
         overflow-x: hidden;

@@ -1,3 +1,8 @@
+import backgroundImage from "./assets/background/background.jpg";
+
+import aboutMe from "../src/assets/aboutCard/aboutMe.jpg";
+import myPortfolio from "../src/assets/projectCard/myPortfolio.jpg";
+
 const mainConfig = {
   info: {
     photo: "https://pngimg.com/d/cat_PNG50514.png",
@@ -7,6 +12,26 @@ const mainConfig = {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati tempore similique ut. Assumenda expedita tenetur porro tempora pariatur minima eaque?",
     avatar: ["rgb(204, 204, 204)", "rgb(251, 253, 144)"],
   },
+  about: [
+    {
+      image: aboutMe,
+      title: "My self",
+      description:
+        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
+    },
+    {
+      image: aboutMe,
+      title: "My self",
+      description:
+        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
+    },
+    {
+      image: aboutMe,
+      title: "My self",
+      description:
+        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
+    },
+  ],
   theme: {
     backgroundColor: "rgb(8, 0, 0)",
     interfaceColor: [
@@ -14,6 +39,7 @@ const mainConfig = {
       "rgb(255, 255, 255)",
       "rgb(255, 219, 58)",
     ],
+    backgroundImage: backgroundImage,
   },
   social: [
     {
@@ -126,10 +152,11 @@ const mainConfig = {
     {
       type: "Frontend",
       name: "My portfolio",
-      description: "",
-      image: "",
-      github: "",
-      deployment: "",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum cum odio distinctio soluta eius commodi dolore repudiandae reiciendis odit. Fugit doloribus dolores similique debitis unde non sapiente consequuntur harum totam, autem voluptates! Mollitia, dolores maxime architecto blanditiis",
+      image: myPortfolio,
+      github: "https://github.com/camilo6castell",
+      deployment: "https://github.com/camilo6castell",
       tools: [
         "React",
         "Node.Js",

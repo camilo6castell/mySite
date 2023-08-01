@@ -11,6 +11,8 @@ export const StyledSimpleCard = styled.div`
   border-radius: 3vw;
   height: fit-content;
 
+  transition: all 1s ease-in-out 0.2s;
+
   /* background: green; */
 }
 .card-tag {
@@ -23,30 +25,32 @@ export const StyledSimpleCard = styled.div`
   z-index: 0;
 }
 
+.big-card-tag {
+  
+  /* padding-left: 3vw; */
+  display: block;
+  color: aliceblue;
+  font-size: 1.5vw;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 0;
+}
+
 `;
 
-export const StyledCard = styled(StyledSimpleCard)`
+export const StyledCarrete = styled(StyledSimpleCard)`
 & {
-  transition: all 1s ease-in-out 0.2s;
-  box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.98);
-  height: fit-content;
-  margin: 1vw 0;
+  padding: 4vh 0 0 0;
+  display: flex;
+  flex-direction: column;
 }
+`
 
-&::before {
-  inset: 0;
-  position: absolute;
-  content: "";
-  z-index: -1;
-
-  border-radius: 3vw;
-  backdrop-filter: blur(4vw);
-  /* background: green; */
-  padding: 2vw;
+export const StyledCinta = styled(StyledSimpleCard)`
+& {
+  padding: 1vh;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
 }
-
-/* &:hover {
-  transform: scale(0.998);
-  box-shadow: 0px 0px 12px -3px rgba(0, 0, 0, 0.98);
-} */
-`;
+`

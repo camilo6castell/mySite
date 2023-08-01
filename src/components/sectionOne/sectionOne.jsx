@@ -26,15 +26,15 @@ function SectionOne() {
                 <span className="card-tag">Roles</span>
                 <StyledSimpleCard>
                     <StyledCardRol>
-                        <i class='bx bx-code-alt'></i>
+                        <i className='bx bx-code-alt'></i>
                         <span>Web developer</span>
                     </StyledCardRol>
                     <StyledCardRol>
-                        <i class='bx bx-code-curly'></i>
+                        <i className='bx bx-code-curly'></i>
                         <span>Software developer</span>
                         </StyledCardRol>
                     <StyledCardRol>
-                        <i class='bx bxs-brain'></i>
+                        <i className='bx bxs-brain'></i>
                         <span>Psychologist</span>
                     </StyledCardRol>
                 </StyledSimpleCard>
@@ -43,7 +43,7 @@ function SectionOne() {
                 <span className="card-tag">Social Networks</span>
                 <StyledCardSocial>
                     {data.social.map(data => 
-                    <div className="social-container">
+                    <div className="social-container" key={data.name}>
                         <IconSocial key={data.name} data={data} mode={mode}/>
                     </div>
                     )}
@@ -57,8 +57,8 @@ function SectionOne() {
 const StyledSectionAppOne = styled(StyledSectionApp)`
   & {
     width: 20vw;
-    justify-content: space-between;
-
+    justify-content: flex-start;
+    z-index: 10;
   }
 `;
 
@@ -70,7 +70,7 @@ const StyledSectionAvatar = styled(StyledSimpleCard)`
         flex: 0 0 auto;
     }
     .avatar-container {
-        padding: 3vw 3vw;
+        padding: 1vw 2vw;
     }
 
     .title-container {
@@ -134,7 +134,7 @@ const StyledCardRol = styled(StyledSimpleCard)`
    }
 `
 
-// TARJETA SOCIAL
+// TARJETA SOCIAL CONTAINER
 
 const StyledCardSocial = styled(StyledSimpleCard)`
     & {
@@ -150,7 +150,7 @@ const StyledCardSocial = styled(StyledSimpleCard)`
     .social-container {
 
         display: inline-flex;
-        padding: .2vw;
+        padding: .4vw;
     }
     
 `

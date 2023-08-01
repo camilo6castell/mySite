@@ -8,7 +8,6 @@ export const StyledSectionApp = styled.div`
     justify-content: flex-start;
 
     height: 100vh;
-    z-index: 1;
 
     padding: 1vw;
 
@@ -21,6 +20,7 @@ export const StyledSectionApp = styled.div`
     /* transition: 1s ease-in-out; */
 
     box-shadow: inset 0px 0px 4px 1px #00000032;
+    border: .1vw solid #00000029;
 
   }
 
