@@ -1,10 +1,10 @@
 import mainConfig from "../../config";
-import background from "../../assets/background/background.jpg"
+import background from "../../assets/background/background.jpg";
 
-const colors = mainConfig.theme
+const colors = mainConfig.theme;
 
-const root = () => 
-    `
+const root = () =>
+  `
     :root {
         font-family: 'Roboto', sans-serif;
     }
@@ -28,7 +28,6 @@ const root = () =>
         width: 100vw;
         height: 100vh;
     }
+  `;
 
-  `
-
-  export default root
+export default root;

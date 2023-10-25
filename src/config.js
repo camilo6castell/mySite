@@ -1,7 +1,15 @@
 import backgroundImage from "./assets/background/background.jpg";
 
-import aboutMe from "../src/assets/aboutCard/aboutMe.jpg";
+/* import aboutMe from "../src/assets/aboutCard/aboutMe.jpg";
+ */
 import myPortfolio from "../src/assets/projectCard/myPortfolio.jpg";
+import instaya from "../src/assets/projectCard/instaya.jpg";
+import instayaBackend from "../src/assets/projectCard/instayaBackend.jpg";
+import gevora from "../src/assets/projectCard/gevora.jpg";
+import waterQualityApp from "../src/assets/projectCard/waterQualityApp.jpg";
+import healthApi from "../src/assets/projectCard/healthApi.jpg";
+import encryptDecryptapplication from "../src/assets/projectCard/encryptDecryptapplication.jpg";
+import rutineSch from "../src/assets/projectCard/rutineSch.jpg";
 
 const mainConfig = {
   info: {
@@ -12,26 +20,6 @@ const mainConfig = {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati tempore similique ut. Assumenda expedita tenetur porro tempora pariatur minima eaque?",
     avatar: ["rgb(204, 204, 204)", "rgb(251, 253, 144)"],
   },
-  about: [
-    {
-      image: aboutMe,
-      title: "My self",
-      description:
-        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
-    },
-    {
-      image: aboutMe,
-      title: "My self",
-      description:
-        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
-    },
-    {
-      image: aboutMe,
-      title: "My self",
-      description:
-        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
-    },
-  ],
   theme: {
     backgroundColor: "rgb(8, 0, 0)",
     interfaceColor: [
@@ -41,26 +29,46 @@ const mainConfig = {
     ],
     backgroundImage: backgroundImage,
   },
+  /*   about: [
+    {
+      image: aboutMe,
+      title: "My self",
+      description:
+        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
+    },
+    {
+      image: aboutMe,
+      title: "My self",
+      description:
+        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
+    },
+    {
+      image: aboutMe,
+      title: "My self",
+      description:
+        "Estoy tremendamente agradecido por la familia a la que pertenezco, ella le dan sentido a todo.",
+    },
+  ], */
   social: [
     {
       name: "GitHub",
       icon: "bx bxl-github",
       link: "https://github.com/camilo6castell",
-      animation: "slideTop",
+      animation: "slideRight",
       color: ["rgb(255, 28, 179)", "rgb(190, 190, 190)"],
     },
     {
       name: "LinkedIn",
       icon: "bx bxl-linkedin-square",
       link: "https://www.linkedin.com/in/camilocastell/",
-      animation: "slideBottom",
+      animation: "slideTop",
       color: ["rgb(58, 173, 250)", "rgb(190, 190, 190)"],
     },
     {
       name: "Whatsapp",
       icon: "bx bxl-whatsapp",
       link: " https://wa.me/573223990733",
-      animation: "slideTop",
+      animation: "slideBottom",
       color: ["rgb(106, 252, 66)", "rgb(190, 190, 190)"],
     },
     {
@@ -74,7 +82,7 @@ const mainConfig = {
       name: "Instagram",
       icon: "bx bxl-instagram-alt",
       link: "https://www.instagram.com/dmente.acida/",
-      animation: "slideTop",
+      animation: "slideLeft",
       color: ["rgb(252, 61, 192)", "rgb(190, 190, 190)"],
     },
   ],
@@ -153,7 +161,7 @@ const mainConfig = {
       type: "Frontend",
       name: "My portfolio",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum cum odio distinctio soluta eius commodi dolore repudiandae reiciendis odit. Fugit doloribus dolores similique debitis unde non sapiente consequuntur harum totam, autem voluptates! Mollitia, dolores maxime architecto blanditiis",
+        "The app you see right now is my portfolio. It is made with the help of React and the tools you see on this card on the right side. Its goal is to show the work I can do, as well as my contact information.",
       image: myPortfolio,
       github: "https://github.com/camilo6castell",
       deployment: "https://github.com/camilo6castell",
@@ -172,8 +180,9 @@ const mainConfig = {
     {
       type: "FrontEnd",
       name: "Instaya Frontend",
-      description: "",
-      image: "",
+      description:
+        "Frontend application made in React for a courier company. It has user registration, packages, tracking. In addition to the encryption measures necessary for users, it has a connection to a non-relational database. The tools used are on the right side of this card.",
+      image: instaya,
       github: "https://github.com/camilo6castell/Instaya-frontend",
       deployment:
         "https://instaya-frontend-cacastellanosh-unaleduco.vercel.app/",
@@ -191,8 +200,9 @@ const mainConfig = {
     {
       type: "Backend",
       name: "Instaya Backend",
-      description: "",
-      image: "",
+      description:
+        "Backend application made in Node.js with the help of express and the tools shown on the right for a courier company. This application has decryptors and security measures for user records. In addition, it queries the mongoDB database for data persistence.",
+      image: instayaBackend,
       github: "https://github.com/camilo6castell/Instaya-backend",
       deployment: "https://instaya-backend.onrender.com/",
       tools: [
@@ -206,8 +216,9 @@ const mainConfig = {
     {
       type: "Fullstack",
       name: "Gevora",
-      description: "",
-      image: "",
+      description:
+        "Full stack application made in Python with the help of Flask. It is an application for the administration of a hotel with the ability to make reservations and rate the stay, in addition to being able to make comments on the rooms. It incorporates different levels of users for administration. Gevora uses MySQL as a database.",
+      image: gevora,
       github: "https://github.com/camilo6castell/Gevora",
       deployment: "http://r4d3o.pythonanywhere.com/",
       tools: [
@@ -224,8 +235,9 @@ const mainConfig = {
     {
       type: "Software",
       name: "WaterQualityApp",
-      description: "",
-      image: "",
+      description:
+        "Application made in Java for the classification of water quality in different places in Colombia. I used object-oriented programming as the main foundation for the construction of this software, so the use of classes was recurring. This application can be run on any device that can run the Java virtual machine. This application uses MySQL as a database.",
+      image: waterQualityApp,
       github: "https://github.com/camilo6castell/WaterQualityApp",
       deployment:
         "El código de esta aplicación puede ejecutarse en cualquier dispositivo que corra la maquina virtual de Java.",
@@ -234,8 +246,9 @@ const mainConfig = {
     {
       type: "Backend",
       name: "Health-api",
-      description: "",
-      image: "",
+      description:
+        "Backend application made in Node.JS with the help of Express.JS for the administration of hospitals, doctors, patients and medical records of a health system. This application connects to MongoDB as a database and does the corresponding validations for each user when they register in the system.",
+      image: healthApi,
       github: "https://github.com/camilo6castell/health-api",
       deployment: "https://health-api-wuip.onrender.com/",
       tools: [
@@ -251,8 +264,9 @@ const mainConfig = {
     {
       type: "Frontend",
       name: "Encrypt-Decrypt-application",
-      description: "",
-      image: "",
+      description:
+        "Application made as part of an encryption and decryption exercise as part of my training in creating web applications. This application is made in html5 css3 and javascript, for the background I use a canvas to achieve the drawing effect.",
+      image: encryptDecryptapplication,
       github: "https://github.com/camilo6castell/Encrypt-Decrypt-application",
       deployment:
         "https://camilo6castell.github.io/Encrypt-Decrypt-application/",
@@ -261,8 +275,9 @@ const mainConfig = {
     {
       type: "Frontend",
       name: "RutineSch",
-      description: "",
-      image: "",
+      description:
+        "Application made to help my mom with her gym routine in html5 and css3 :)",
+      image: rutineSch,
       github: "https://github.com/camilo6castell/RutineSch",
       deployment: "https://camilo6castell.github.io/RutineSch/",
       tools: ["JavaScript", "Linux", "CSS3", "HTML5", "Git"],
@@ -271,5 +286,3 @@ const mainConfig = {
 };
 
 export default mainConfig;
-
-<i class="bx bxl-facebook"></i>;

@@ -9,7 +9,7 @@ import { DataProvider } from "./dataContext/data";
 
 // STYLES
 
-import GlobalStyle from "./UI/globalStyle/gobalStyle";
+import GlobalStyle from "./UI/globalStyle/globalStyle";
 
 // COMPONENTS
 
