@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { DataContext } from "./dataContext/data";
 
 import IconSocial from "./components/iconSocial/iconSocial";
-import welcomeCard from "./assets/card/welcomeCard.jpg";
+
 import Avatar from "./components/avatar/avatar";
 
 import avatarCard from "./assets/card/avatarCard.png";
@@ -85,18 +85,16 @@ const StyledApp = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    /* align-items: center; */
     align-items: stretch;
 
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    flex: 1 1 auto;
+
     backdrop-filter: blur(50px) brightness(35%);
 
     scroll-behavior: smooth;
     overflow-y: hidden;
-    /* backdrop-filter: blur(50px); */
   }
 
   .main-container {
@@ -125,9 +123,11 @@ const StyledApp = styled.div`
 
 const StyledWelcomeCard = styled(StyledSimpleCard)`
   & {
-    position: relative;
+    position: sticky;
     top: 0;
     left: 0;
+
+    z-index: 2000;
 
     display: flex;
     justify-content: space-between;
@@ -138,13 +138,6 @@ const StyledWelcomeCard = styled(StyledSimpleCard)`
     padding: 0.5vw;
     border-radius: 0;
 
-    background-image: url(${welcomeCard});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    /* border: 1vw solid #b5b5b529; */
-    box-shadow: 0px 0px 12px 3px #000000;
     transition: all 1s ease-in-out 0.2s;
 
     animation: 3s linear 1s both appear;
@@ -192,7 +185,7 @@ const StyledCardRol = styled(StyledSimpleCard)`
 
     padding: 0.2vw;
 
-    animation: appear 1s ease forwards;
+    animation: 1s ease 0s forwards appear;
 
     /* background: #b5b5b529;
     box-shadow: inset 0px 0px 4px 2px #b5b5b53d; */
@@ -242,6 +235,7 @@ const StyledCardSocial = styled(StyledSimpleCard)`
 
 const StyledSectionAvatar = styled(StyledSimpleCard)`
   & {
+    /* animation: infinite 3s ease floatImage; */
     /*     background: black; */
   }
 
@@ -261,7 +255,7 @@ const StyledSectionAvatar = styled(StyledSimpleCard)`
     filter: blur(1px);
     z-index: -1;
 
-    animation: 3s linear 1s both appear;
+    animation: 3s linear 0s both appear;
   }
 
   .title-container {

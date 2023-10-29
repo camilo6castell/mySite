@@ -26,12 +26,11 @@ const StyledAvatar = styled.div`
     align-items: center;
 
     opacity: 0;
-    animation: zoomIn 1s ease forwards;
+    animation: 0.7s ease 0.1s forwards zoomIn;
 
     transition: all 2s;
     transform: translate(0, -7px);
 
-    animation-delay: 2.1s;
     mix-blend-mode: hard-light;
   }
   &::after {
@@ -88,6 +87,7 @@ const StyledAvatar = styled.div`
     transform: translateX(-50%);
     max-width: 100%;
     object-fit: cover;
+    animation: 1s ease 0s forwards appear;
   }
 `;
 

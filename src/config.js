@@ -1,5 +1,3 @@
-import backgroundImage from "./assets/background/background.jpg";
-
 /* import aboutMe from "../src/assets/aboutCard/aboutMe.jpg";
  */
 import myPortfolio from "../src/assets/projectCard/myPortfolio.jpg";
@@ -27,7 +25,6 @@ const mainConfig = {
       "rgb(255, 255, 255)",
       "rgb(255, 219, 58)",
     ],
-    backgroundImage: backgroundImage,
   },
   /*   about: [
     {

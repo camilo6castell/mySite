@@ -66,22 +66,6 @@ const StyledProjectCard = styled(StyledSimpleCard)`
     overflow: hidden;
   }
 
-  &&::after {
-    inset: 0;
-    content: "";
-    position: absolute;
-
-    border-radius: 3vw;
-
-    /* opacity: .7; */
-
-    //   background: linear-gradient(45deg, #eab1ff67, #fbdc6b5e);
-    backdrop-filter: blur(20px) brightness(70%);
-
-    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.98);
-    z-index: -1;
-  }
-
   img {
     flex: auto;
     position: absolute;
