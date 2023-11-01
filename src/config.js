@@ -13,9 +13,6 @@ const mainConfig = {
   info: {
     photo: "https://pngimg.com/d/cat_PNG50514.png",
     name: "Camilo Castellanos",
-    role: "Web developer and psychologist",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati tempore similique ut. Assumenda expedita tenetur porro tempora pariatur minima eaque?",
     avatar: ["rgb(204, 204, 204)", "rgb(251, 253, 144)"],
   },
   theme: {

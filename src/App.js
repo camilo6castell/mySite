@@ -3,12 +3,12 @@ import { styled } from "styled-components";
 import { StyledSimpleCard } from "./UI/styledCards";
 import { StyledCarrete, StyledCinta } from "./UI/styledCards";
 
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DataContext } from "./dataContext/data";
 
 import IconSocial from "./components/iconSocial/iconSocial";
-
 import Avatar from "./components/avatar/avatar";
+import { Resume } from "./components/resume/resume";
 
 import avatarCard from "./assets/card/avatarCard.png";
 
@@ -16,36 +16,76 @@ import avatarCard from "./assets/card/avatarCard.png";
 import ProjectCard from "./components/projectCard/projectCard";
 
 function App() {
+  const [showResume, setShowResume] = useState(false);
+  const [displayR, setDisplayR] = useState(["hidden", "disappear"]);
+  const [scrolled, setScrolled] = useState(false);
+
   const data = useContext(DataContext);
   const mode = data.theme;
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        console.log(window.scrollY);
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrolled]);
+
+  useEffect(() => {
+    if (showResume) {
+      setDisplayR(["visible", "appear"]);
+    } else {
+      setDisplayR(["hidden", "disappear"]);
+    }
+  }, [showResume]);
   return (
     <StyledApp className="App">
-      <StyledWelcomeCard>
-        <div className="rol-container">
-          <StyledCardRol>
-            <i className="bx bx-code-alt"></i>
-            <span>Web developer</span>
-          </StyledCardRol>
-          <StyledCardRol>
-            <i className="bx bx-code-curly"></i>
-            <span>Software developer</span>
-          </StyledCardRol>
-          <StyledCardRol>
-            <i className="bx bxs-brain"></i>
-            <span>Psychologist</span>
-          </StyledCardRol>
-        </div>
+      <div className={scrolled ? "nav-container scrolled" : "nav-container"}>
+        <StyledWelcomeCard>
+          <div className="rol-container">
+            <StyledCardRol>
+              <i className="bx bx-code-alt"></i>
+              <span>Web developer</span>
+            </StyledCardRol>
+            <StyledCardRol>
+              <i className="bx bx-code-curly"></i>
+              <span>Software developer</span>
+            </StyledCardRol>
+            <StyledCardRol>
+              <i className="bx bxs-brain"></i>
+              <span>Psychologist</span>
+            </StyledCardRol>
+          </div>
 
-        <div className="nav-social">
-          <StyledCardSocial>
-            {data.social.map((data) => (
-              <div className="social-container" key={data.name}>
-                <IconSocial key={data.name} data={data} mode={mode} />
-              </div>
-            ))}
-          </StyledCardSocial>
-        </div>
-      </StyledWelcomeCard>
+          <div
+            className="resume-container"
+            onClick={() => setShowResume(!showResume)}
+          >
+            <span className="see-resume">See my resume</span>
+            <Resume
+              showResume={displayR}
+              onClick={() => setShowResume(!showResume)}
+            />
+          </div>
+
+          <div className="nav-social">
+            <StyledCardSocial>
+              {data.social.map((data) => (
+                <div className="social-container" key={data.name}>
+                  <IconSocial key={data.name} data={data} mode={mode} />
+                </div>
+              ))}
+            </StyledCardSocial>
+          </div>
+        </StyledWelcomeCard>
+      </div>
 
       <div className="main-container">
         <StyledSectionAvatar>
@@ -91,8 +131,6 @@ const StyledApp = styled.div`
     width: 100vw;
     height: 100vh;
 
-    backdrop-filter: blur(50px) brightness(35%);
-
     scroll-behavior: smooth;
     overflow-y: hidden;
   }
@@ -109,6 +147,24 @@ const StyledApp = styled.div`
     /* background: yellow; */
   }
 
+  .nav-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: fit-content;
+
+    transition: all 0.5s ease-in-out 0.2s;
+    z-index: 9999;
+  }
+
+  .scrolled {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.7);
+  }
+
   @media only screen and (max-width: 768px) {
     && {
       overflow: visible;
@@ -123,10 +179,6 @@ const StyledApp = styled.div`
 
 const StyledWelcomeCard = styled(StyledSimpleCard)`
   & {
-    position: sticky;
-    top: 0;
-    left: 0;
-
     z-index: 2000;
 
     display: flex;
@@ -153,6 +205,26 @@ const StyledWelcomeCard = styled(StyledSimpleCard)`
     display: flex;
   }
 
+  .resume-container {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 600;
+
+    align-items: center;
+
+    margin: 0.4vw 1rem;
+    border-radius: 0.5vw;
+
+    padding: 0.2vw;
+
+    animation: 1s ease 0s forwards appear;
+  }
+
+  .see-resume {
+    animation: 3.5s ease 0s infinite lights;
+    cursor: pointer;
+  }
+
   @media only screen and (max-width: 768px) {
     & {
       flex-direction: column;
@@ -161,6 +233,10 @@ const StyledWelcomeCard = styled(StyledSimpleCard)`
 
     .rol-container {
       margin-bottom: 1rem;
+    }
+
+    .resume-container {
+      padding: 0 1rem 1rem;
     }
   }
 `;
@@ -246,7 +322,7 @@ const StyledSectionAvatar = styled(StyledSimpleCard)`
 
     border-radius: 2rem;
     /* opacity: 0.5; */
-    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.98);
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.7);
 
     background-image: url(${avatarCard});
     background-size: cover;
@@ -255,7 +331,7 @@ const StyledSectionAvatar = styled(StyledSimpleCard)`
     filter: blur(1px);
     z-index: -1;
 
-    animation: 3s linear 0s both appear;
+    animation: 3s linear 1s both appear;
   }
 
   .title-container {
@@ -275,7 +351,7 @@ const StyledSectionAvatar = styled(StyledSimpleCard)`
     pointer-events: none;
 
     opacity: 0;
-    animation: slideTop 1s ease forwards;
+    animation: 1s ease 0s forwards slideTop;
   }
 
   .avatar-container {

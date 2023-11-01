@@ -15,8 +15,11 @@ const root = () =>
         //     linear-gradient(336deg, rgb(255, 255, 255), rgba(255, 255, 255, 0.8) 70.71%);
         // background-size: 100vw 100vh;
 
-        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	      background-size: 400% 400%;
+        // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        // background-size: 400% 400%;
+        
+        background: linear-gradient(-45deg, #aa2525, #b94848, #136e8f, #52c7c7);
+        background-size: 800vw 800vh;
 	      animation: gradient 15s ease infinite;
 	      height: 100vh;
         

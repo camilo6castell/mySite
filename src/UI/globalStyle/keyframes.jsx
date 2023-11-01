@@ -95,6 +95,32 @@ const keyframes = () => `
       
     }
   }
+  @keyframes disappear {
+    0%{
+    
+      opacity: 1;
+      
+    }
+    20%{
+    
+        opacity: 0.5;
+        
+      }
+    35%{
+    
+        opacity: 0.3;
+        
+      }
+    50%{
+      opacity: 0.2;
+      
+    }
+    100%{
+      
+      opacity: 0;
+      
+    }
+  }
 
 
   @keyframes lights {

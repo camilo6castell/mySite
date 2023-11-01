@@ -59,7 +59,7 @@ const StyledProjectCard = styled(StyledSimpleCard)`
 
     padding: 0;
 
-    box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.98);
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.6);
 
     transition: all 1s ease-in-out 0.2s;
 
@@ -103,29 +103,32 @@ const StyledProjectCard = styled(StyledSimpleCard)`
   .card-type {
     flex: auto;
     padding-left: 2vw;
-    background: linear-gradient(45deg, #ffee00, #ffffff, #ffee00, #ffffff);
+    background: linear-gradient(45deg, #ffee00, #ffd65a, #ffee00, #b98b01);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
+    animation: 3.5s ease 0s infinite lights;
   }
 
   .card-github {
     flex: auto;
     padding-left: 2vw;
-    background: linear-gradient(45deg, #ff00c8, #ffffff, #ff00c8, #ffffff);
+    background: linear-gradient(45deg, #ff00c8, #7b0000, #ff00c8, #7b0000);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
+    animation: 3.5s ease 0s infinite lights;
   }
 
   .card-deployment {
     flex: auto;
     padding-left: 2vw;
 
-    background: linear-gradient(45deg, #1cc6ff, #ffffff, #1cc6ff, #ffffff);
+    background: linear-gradient(45deg, #1cc6ff, #0f6c14, #1cc6ff, #0f6c14);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
+    animation: 3.5s ease 0s infinite lights;
   }
 
   .card-description {
