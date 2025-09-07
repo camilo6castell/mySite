@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 // Styles
 import StyledComponentsRegistry from '../lib/registry'
 import GlobalStyle from '../styles/GlobalStyle'

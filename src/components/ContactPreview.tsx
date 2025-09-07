@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client'
 import { useState } from 'react'
 import { contactContent_contact } from '@/app/config/content'
@@ -8,6 +7,7 @@ import { FadeBox } from '@/styles/keyframes'
 import { useInView } from '@/hooks/useInView'
 import { themeConfig } from '@/app/config/theme'
 import styled from 'styled-components'
+import { ContactSocial } from '@/types/content'
 
 /* ============================
    Estilos de ContactSection
@@ -97,7 +97,7 @@ export const SocialCard = styled.a`
   align-items: center;
   justify-content: space-evenly;
   border-radius: 12px;
-  background: ${({ theme }) => theme.projectCard.bg};
+  background: ${({ theme }) => theme.bgCard};
   border: 1px solid rgba(255,255,255,0.03);
   transition: border .5s ease;
   cursor: pointer;
@@ -124,7 +124,7 @@ export const SocialSub = styled.span`
 `
 
 
-const ICONS: Record<string, JSX.Element> = {
+const ICONS: Record<string, React.ReactNode> = {
   Github: <FaGithub />,
   LinkedIn: <FaLinkedin />,
   WhatsApp: <FaWhatsapp />,
@@ -190,7 +190,7 @@ const ContactSection: React.FC = () => {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <SocialButton data={s} isSocialHovered={hoveredIndex === index}>
+                <SocialButton data={s as ContactSocial} isSocialHovered={hoveredIndex === index}>
                   {ICONS[s.label]}
                 </SocialButton>
                 <div>

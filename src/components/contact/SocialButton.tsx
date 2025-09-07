@@ -1,11 +1,10 @@
-// @ts-nocheck
 import { styled } from "styled-components";
+import { ContactSocial } from "@/types/content";
 
-export default function SocialButton({ data, children, isSocialHovered }: { data: any; children?: React.ReactNode; isSocialHovered: boolean }) {
+export default function SocialButton({ data, children, isSocialHovered }: { data: ContactSocial; children?: React.ReactNode; isSocialHovered: boolean }) {
   return (
     <StyledIconSocial
       data={data}
-      target="_blank"
       rel="noreferrer"
       className={isSocialHovered ? 'hovered' : ''}
     >
@@ -14,7 +13,7 @@ export default function SocialButton({ data, children, isSocialHovered }: { data
   );
 }
 
-const StyledIconSocial = styled.span`
+const StyledIconSocial = styled.span<{ data: ContactSocial }>`
   &:before {
     content: "";
     position: absolute;

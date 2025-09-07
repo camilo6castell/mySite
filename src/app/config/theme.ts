@@ -1,8 +1,4 @@
-// @ts-nocheck
-
-import { waves } from "@/styles/keyframes";
-
-export const themeConfig = {
+export const themeConfig: ThemeConfigType = {
   colors: {
     lightTheme: {
       bg: '#f8fafc',
@@ -112,3 +108,69 @@ export const themeConfig = {
     contact: '#007442ff'
   }
 }
+
+export interface Badge {
+  bg: string;
+  text: string;
+  border: string;
+}
+
+export interface HeroImage {
+  height: string;
+}
+
+export interface ProjectCard {
+  hoverShadow: string;
+  title: string;
+  summary: string;
+  tech: string;
+  link: string;
+  linkHover: string;
+}
+
+export interface Wave {
+  bg: string;
+  top: string;
+  left: string;
+  width: string;
+  height: string;
+  blur: string;
+  opacity: number;
+}
+
+export interface ThemeColors {
+  bg: string;
+  text: string;
+  muted: string;
+  shadowColor: string;
+  bgCard: string;
+  borderCard: string;
+  shadowCard: string;
+  badge: Badge;
+  heroImage: HeroImage;
+  projectCard: ProjectCard;
+  waves: {
+    a: Wave;
+    b: Wave;
+  };
+}
+
+export interface ThemeConfigType {
+  colors: {
+    lightTheme: ThemeColors;
+    darkTheme: ThemeColors;
+  };
+  animation: {
+    general_duration: number;
+    general_fade_rem_traslation: number;
+    waves_duration: {
+      a: number;
+      b: number;
+    };
+  };
+  fonts: {
+    body: string;
+  };
+  sectionColors: Record<string, string>;
+}
+

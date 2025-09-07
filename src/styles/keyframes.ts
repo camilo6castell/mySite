@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { keyframes, styled, css } from "styled-components"
 
 import { themeConfig } from '@/app/config/theme'

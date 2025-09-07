@@ -1,8 +1,8 @@
-// @ts-nocheck
 'use client'
 import { createGlobalStyle } from 'styled-components'
 import resetCSS from './ResetCss'
 import { themeConfig } from '@/app/config/theme'
+import { ThemeColors } from '@/app/config/theme'
 
 const GlobalStyle = createGlobalStyle`
   ${resetCSS()}
@@ -12,25 +12,25 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root{
-    --bg: ${({ theme }: { theme: any }) => theme.bg};
-    --text: ${({ theme }: { theme: any }) => theme.text};
+    --bg: ${({ theme }) => theme.bg};
+    --text: ${({ theme }) => theme.text};
     --text-night: ${themeConfig.colors.darkTheme.text};
-    --muted: ${({ theme }: { theme: any }) => theme.muted};
-    --wave-color-a: ${({ theme }: { theme: any }) => theme.waves.a.bg};
-    --wave-color-b: ${({ theme }: { theme: any }) => theme.waves.b.bg};
+    --muted: ${({ theme }) => theme.muted};
+    --wave-color-a: ${({ theme }) => theme.waves.a.bg};
+    --wave-color-b: ${({ theme }) => theme.waves.b.bg};
     --section-accent: transparent;
-    --wave-top-a: ${({ theme }: { theme: any }) => theme.waves.a.top};
-    --wave-left-a: ${({ theme }: { theme: any }) => theme.waves.a.left};
-    --wave-width-a: ${({ theme }: { theme: any }) => theme.waves.a.width};
-    --wave-height-a: ${({ theme }: { theme: any }) => theme.waves.a.height};
-    --wave-blur-a: ${({ theme }: { theme: any }) => theme.waves.a.blur};
-    --wave-opacity-a: ${({ theme }: { theme: any }) => theme.waves.a.opacity};
-    --wave-top-b: ${({ theme }: { theme: any }) => theme.waves.b.top};
-    --wave-left-b: ${({ theme }: { theme: any }) => theme.waves.b.left};
-    --wave-width-b: ${({ theme }: { theme: any }) => theme.waves.b.width};
-    --wave-height-b: ${({ theme }: { theme: any }) => theme.waves.b.height};
-    --wave-blur-b: ${({ theme }: { theme: any }) => theme.waves.b.blur};
-    --wave-opacity-b: ${({ theme }: { theme: any }) => theme.waves.b.opacity};
+    --wave-top-a: ${({ theme }) => theme.waves.a.top};
+    --wave-left-a: ${({ theme }) => theme.waves.a.left};
+    --wave-width-a: ${({ theme }) => theme.waves.a.width};
+    --wave-height-a: ${({ theme }) => theme.waves.a.height};
+    --wave-blur-a: ${({ theme }) => theme.waves.a.blur};
+    --wave-opacity-a: ${({ theme }) => theme.waves.a.opacity};
+    --wave-top-b: ${({ theme }) => theme.waves.b.top};
+    --wave-left-b: ${({ theme }) => theme.waves.b.left};
+    --wave-width-b: ${({ theme }) => theme.waves.b.width};
+    --wave-height-b: ${({ theme }) => theme.waves.b.height};
+    --wave-blur-b: ${({ theme }) => theme.waves.b.blur};
+    --wave-opacity-b: ${({ theme }) => theme.waves.b.opacity};
   }
 
   html, body, #__next { height:100%; }
@@ -58,9 +58,6 @@ const GlobalStyle = createGlobalStyle`
   section {
     scroll-snap-align: start;
   }
-
-  a:focus { outline: 2px solid #dbeafe; outline-offset: 2px; }
-
   .content-surface { position: relative; z-index: 10; }
 
 `

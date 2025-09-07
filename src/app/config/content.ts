@@ -1,14 +1,9 @@
-// @ts-nocheck
-
-import { color } from "framer-motion"
-import { a } from "framer-motion/client"
-
-export const metadataContent_layout: Metadata = {
+export const metadataContent_layout = {
   title: "Camilo's portfolio",
   description: "Made to show my work",
   openGraph: {
     title: "Camilo's portfolio",
-    description: "Explora mis proyectos y experiencia",
+    description: "Explore my projects and experience",
     url: "https://miportfolio.com",
     siteName: "Camilo's portfolio",
     images: [
