@@ -2,7 +2,6 @@
 import { createGlobalStyle } from 'styled-components'
 import resetCSS from './ResetCss'
 import { themeConfig } from '@/app/config/theme'
-import { ThemeColors } from '@/app/config/theme'
 
 const GlobalStyle = createGlobalStyle`
   ${resetCSS()}

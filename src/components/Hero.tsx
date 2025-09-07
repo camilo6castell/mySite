@@ -1,5 +1,5 @@
 'use client'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { FadeBox } from '@/styles/keyframes'
 import { useInView } from '@/hooks/useInView'
 import { themeConfig } from '@/app/config/theme'
@@ -29,9 +29,9 @@ const Badge = styled(FadeBox)`
   align-items:center;
   padding:8px 12px;
   border-radius:999px;
-  background: ${({ theme }: { theme: any }) => theme.badge.bg};
-  color: ${({ theme }: { theme: any }) => theme.badge.text};
-  border: ${({ theme }: { theme: any }) => theme.badge.border};
+  background: ${({ theme }) => theme.badge.bg};
+  color: ${({ theme }) => theme.badge.text};
+  border: ${({ theme }) => theme.badge.border};
   width: fit-content;
 `
 
@@ -63,13 +63,13 @@ const HeroImage = styled(FadeBox)`
   margin: 0 3rem;
   border-radius: 12px;
   overflow: hidden;           /* para que el border-radius funcione con background-image o <Image> */
-  box-shadow: 0 4px 12px ${({ theme }: { theme: any }) => theme.shadowColor};
+  box-shadow: 0 4px 12px ${({ theme }) => theme.shadowColor};
   background-image: url(${heroContent_hero.heroImage});
   background-size: cover;
   background-position: center;
   z-index: 1000;
   width: 100%;
-  height: ${({ theme }: { theme: any }) => theme.heroImage.height};     /* asegura que no colapse a 0px */
+  height: ${({ theme }) => theme.heroImage.height};     /* asegura que no colapse a 0px */
 `
 
 export default function Hero() {

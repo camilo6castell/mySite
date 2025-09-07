@@ -60,9 +60,9 @@ const Card = styled.article`
   justify-content: space-between;
   padding: 16px;
   border-radius: 12px;
-  background: ${({ theme }: { theme: any }) => theme.bgCard};
-  border: 1px solid ${({ theme }: { theme: any }) => theme.borderCard};
-  box-shadow: 0 0 5px ${({ theme }: { theme: any }) => theme.shadowCard};
+  background: ${({ theme }) => theme.bgCard};
+  border: 1px solid ${({ theme }) => theme.borderCard};
+  box-shadow: 0 0 5px ${({ theme }) => theme.shadowCard};
   transition: box-shadow 0.5s ease, background 3s ease, transform 0.3s ease;
   h3 {
     color: var(--text);
@@ -99,7 +99,7 @@ const Card = styled.article`
     }
   }  
   &:hover {
-    box-shadow: 0 0 12px ${({ theme }: { theme: any }) => theme.projectCard.hoverShadow};
+    box-shadow: 0 0 12px ${({ theme }) => theme.projectCard.hoverShadow};
     transform: scale(1.02);
   }
 `
@@ -129,7 +129,7 @@ const Arrow = styled.button<{ $hidden?: boolean; $side: 'left' | 'right' }>`
   `}
 
   &:hover {
-    box-shadow: 0 4px 12px ${({ theme }: { theme: any }) => theme.shadowColor};
+    box-shadow: 0 4px 12px ${({ theme }) => theme.shadowColor};
   }
 `
 

@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import styled, { keyframes, css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { themeConfig } from '@/app/config/theme'
 import { pulse } from '@/styles/keyframes'
 
