@@ -1,56 +1,36 @@
-# MySite: Developer Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+## Getting Started
 
-## About
+First, run the development server:
 
-**MySite** is a personal portfolio website designed to showcase my projects as a developer. It includes sections for my projects, my skills, and various ways to contact me through different social media platforms.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-This project was created to provide a professional online presence where potential employers or collaborators can view my work and get in touch with me.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Features
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-1. **Responsive Design**: Adapts to different screen sizes for a seamless experience on any device.
-2. **Projects Showcase**: Displays detailed information about my projects with links to their respective repositories.
-3. **Skills Section**: Highlights my technical skills and expertise.
-4. **Contact Information**: Provides various ways to reach me through social media and email.
-5. **Interactive UI**: Smooth transitions and interactive elements for an engaging user experience.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Installation
+## Learn More
 
-To run this project locally, follow these steps:
+To learn more about Next.js, take a look at the following resources:
 
-1. **Clone the repository:**
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-   ```bash
-   git clone https://github.com/camilo6castell/mySite.git
-   cd mySite
-   ```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-2. **Install dependencies:**
+## Deploy on Vercel
 
-   ```bash
-   npm install
-   ```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-3. **Run the application:**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser and navigate to:**
-   ```bash
-   http://localhost:3000
-   ```
-
-### Contact
-
-[GitHub](https://github.com/camilo6castell?tab=repositories)
-
-[LinkedIn](https://www.linkedin.com/in/camilocastell/)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
