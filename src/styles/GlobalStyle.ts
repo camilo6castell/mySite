@@ -15,6 +15,8 @@ const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     font-family: ${inter.style.fontFamily}, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto;
     transition: all ${themeConfig.animation.general_duration}s ease-in-out;
+    letter-spacing: normal;
+    word-spacing: normal;
   }
 
   :root{

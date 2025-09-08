@@ -229,7 +229,7 @@ function _templateObject() {
         "\n  ",
         "\n\n  *, *::before, *::after {\n    font-family: ",
         ", ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto;\n    transition: all ",
-        "s ease-in-out;\n  }\n\n  :root{\n    --bg: ",
+        "s ease-in-out;\n    letter-spacing: normal;\n    word-spacing: normal;\n  }\n\n  :root{\n    --bg: ",
         ";\n    --text: ",
         ";\n    --text-night: ",
         ";\n    --muted: ",

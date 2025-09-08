@@ -297,6 +297,8 @@ const GlobalStyle = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules
   *, *::before, *::after {
     font-family: ${__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$inter_f14c47b8$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].style.fontFamily}, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto;
     transition: all ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$config$2f$theme$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["themeConfig"].animation.general_duration}s ease-in-out;
+    letter-spacing: normal;
+    word-spacing: normal;
   }
 
   :root{
