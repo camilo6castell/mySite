@@ -2,11 +2,18 @@
 import { createGlobalStyle } from 'styled-components'
 import resetCSS from './ResetCss'
 import { themeConfig } from '@/app/config/theme'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '500', '600', '700'],
+})
 
 const GlobalStyle = createGlobalStyle`
   ${resetCSS()}
 
   *, *::before, *::after {
+    font-family: ${inter.style.fontFamily}, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto;
     transition: all ${themeConfig.animation.general_duration}s ease-in-out;
   }
 
