@@ -97,13 +97,13 @@ export const SocialCard = styled.a`
   align-items: center;
   justify-content: space-evenly;
   border-radius: 12px;
-  background: ${({ theme }) => theme.bgCard};
+  background: transparent;
   border: 1px solid rgba(255,255,255,0.03);
   transition: border .5s ease;
   cursor: pointer;
 
   &:hover {
-    border: 1px solid rgba(255, 255, 255, 0.098);
+    border: 1px solid rgba(255, 255, 255, 0.37);
   }
 `
 

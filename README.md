@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Camilo's Portfolio
 
-## Getting Started
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Styled Components](https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-First, run the development server:
+---
+
+## 🎯 Overview
+
+This repository contains the **frontend of my professional portfolio** as a developer.
+In it, you'll find:
+
+- A personal introduction (who I am and what I do).
+- Project presentations with links to GitHub repositories and active deployments.
+- Technical information on how to run the project locally.
+---
+
+## ✨ Demo
+
+- **Deployment:** [🔗 View online portfolio](https://TU-DEPLOY-URL)
+- **Captures:** 
+
+![Screenshot 1](./path/to/screenshot1.png) 
+![Screenshot 2](./path/to/screenshot2.png)
+
+---
+
+## 🧩 Features
+
+- Personal presentation and professional goals.
+- Cards for each project with:
+- Brief description
+- Technologies used
+- Link to GitHub
+- Link to online demo
+- Responsive design (desktop and mobile).
+- Links to professional networks (GitHub, LinkedIn, Email).
+
+---
+
+## 🛠️ Tech stack
+
+- **Framework:** React
+- **Tooling/Bundler:** Vite
+- **Language:** TypeScript
+- **Styles:** Styled Components
+
+---
+
+## 🚀 Install and run locally
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/your-username/your-repo.git
+cd your-repo

@@ -56,6 +56,7 @@ const Slide = styled.div`
 
 const Card = styled.article`
   display: flex;
+  max-height: 15rem;
   flex-direction: column;
   justify-content: space-between;
   padding: 16px;
@@ -212,16 +213,18 @@ export default function ProjectsPreview() {
                   <Card key={p.title}>
                     <h3>{p.title}</h3>
                     <p>{p.summary}</p>
-                    {p.repo && (
-                      <div >
+                    <div >
+                      {p.repo && (
                         <a className="repo-link" href={p.repo} target="_blank" rel="noreferrer">
                           Repo <FaExternalLinkAlt />
                         </a>
+                      )}
+                      {p.demo != '' && (
                         <a className="deployment-link" href={p.demo} target="_blank" rel="noreferrer">
                           Deployment <FaExternalLinkAlt />
                         </a>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </Card>
                 ))}
               </Slide>

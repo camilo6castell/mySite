@@ -448,39 +448,70 @@ const heroContent_hero = {
 const projectsContent_projectList = {
     projects: [
         {
-            title: 'CryptoMessage',
-            summary: 'Aplicación de mensajería con cifrado RSA. Backend en Spring Boot, frontend en React + TS.',
-            stack: [
-                'React',
-                'TypeScript',
-                'Spring Boot',
-                'MySQL'
-            ],
-            repo: 'https://github.com/camilo6castell/cryptomessage',
-            demo: '#'
+            title: 'This portfolio :)',
+            summary: 'Portfolio to show a little about me and my projects. Made in Next.js with React + TS and Styled-components con modelos ARIMA y visualización.',
+            repo: 'https://github.com/camilo6castell/mySite',
+            demo: ''
         },
         {
-            title: 'Library Provider Backend',
-            summary: 'Servicio para gestión de bibliotecas con Event Sourcing y DDD.',
-            stack: [
-                'Java',
-                'Spring Boot',
-                'MySQL',
-                'Kafka'
-            ],
+            title: 'CryptoMessage - Frontend',
+            summary: 'Messaging app with RSA encryption in React + TS.',
+            repo: 'https://github.com/camilo6castell/cryptomessage-client',
+            demo: 'cryptomessage-client.vercel.app'
+        },
+        {
+            title: 'Bingo Gran Buda - Frontend',
+            summary: 'Bingo game frontend made in Next.js with React and styled components',
+            repo: 'https://github.com/camilo6castell/elBingoGranBuda-Frontend',
+            demo: 'https://el-bingo-gran-buda-frontend.vercel.app'
+        },
+        {
+            title: 'Bingo Gran Buda - Backend',
+            summary: 'Bingo game backend made in Express.js with Node.js and MongoDB with Mongoose',
+            repo: 'https://github.com/camilo6castell/elBingoGranBuda-Backend',
+            demo: ''
+        },
+        {
+            title: 'Library provider - Frontend',
+            summary: 'Library provider frontend project built with enterprise architecture, Angular with TypeScript and RXJS',
+            repo: 'https://github.com/camilo6castell/library-provider-frontend',
+            demo: 'https://library-provider-frontend.netlify.app'
+        },
+        {
+            title: 'Library provider - Backend',
+            summary: 'A library provider project built with hexagonal architecture, event sourcing, DDD, Springboot, and MongoDB.',
             repo: 'https://github.com/camilo6castell/library-provider-backend',
-            demo: '#'
+            demo: ''
         },
         {
-            title: 'Fractal Edge Predictor',
-            summary: 'Predicción de series temporales con modelos ARIMA y visualización.',
-            stack: [
-                'Python',
-                'pmdarima',
-                'Plotly'
-            ],
-            repo: 'https://github.com/camilo6castell/FractalEdge',
-            demo: '#'
+            title: 'WaterQualityApp - Desktop application',
+            summary: 'Application in Java, using OOP and using SQLite and Java Swing. Its purpose is to perform internal processing and display it to the user via a graphical interface.',
+            repo: 'https://github.com/camilo6castell/water-quality-app',
+            demo: ''
+        },
+        {
+            title: 'Gevora - Fullstack (Flask)',
+            summary: 'Gevora is a hotel management system web application developed using Python and the Flask library. It covers both frontend and backend, utilizing MySQL as the relational database, and is deployed on PythonAnywhere.',
+            repo: 'https://github.com/camilo6castell/Gevora',
+            demo: 'http://r4d3o.pythonanywhere.com/'
+        },
+        {
+            title: 'Instaya - Frontend',
+            summary: "Frontend application for managing package delivery services by email. It's built in JavaScript with Node, React, and Vite.",
+            repo: 'https://github.com/camilo6castell/Instaya-frontend',
+            demo: 'https://instaya-frontend-cacastellanosh-unaleduco.vercel.app/'
+        },
+        {
+            title: 'Instaya - Backend',
+            summary: "Backend application for managing package delivery services by email. It's built in Node.js with the help of Express and MongoDB as a non-relational database.",
+            repo: 'https://github.com/camilo6castell/Instaya-backend',
+            demo: ''
+        },
+        {
+            title: 'health-api',
+            summary: "API for centralized medical records management system.It is developed in Node, with the help of Express, MongoDB, Mongoose, BCrypt, Morgan, NodeMailer.",
+            repo: 'https://github.com/camilo6castell/health-api',
+            demo: ''
         }
     ]
 };

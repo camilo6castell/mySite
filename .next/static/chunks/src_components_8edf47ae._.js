@@ -379,7 +379,7 @@ function _templateObject3() {
 }
 function _templateObject4() {
     const data = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$swc$2f$helpers$2f$esm$2f$_tagged_template_literal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["_"])([
-        "\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding: 16px;\n  border-radius: 12px;\n  background: ",
+        "\n  display: flex;\n  max-height: 15rem;\n  flex-direction: column;\n  justify-content: space-between;\n  padding: 16px;\n  border-radius: 12px;\n  background: ",
         ";\n  border: 1px solid ",
         ";\n  box-shadow: 0 0 5px ",
         ";\n  transition: box-shadow 0.5s ease, background 3s ease, transform 0.3s ease;\n  h3 {\n    color: var(--text);\n    font-size: 1.25rem;\n    padding-bottom: .3rem;\n  }\n  p {\n    color: var(--muted);\n    padding-left: .3rem;\n  }  \n  div {\n    display: flex;\n    justify-content: space-between;\n    margin-top: .5rem;\n    padding-left: .3rem;\n    a {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-weight: 500;\n    color: var(--link);\n   }\n    .repo-link {\n      color: #d44cbe;\n      svg {\n        fill: #d44cbe;\n      }\n    }\n    .deployment-link {\n      color: #4ca2d4;\n      svg {\n        fill: #4ca2d4;\n      }\n    }\n  }  \n  &:hover {\n    box-shadow: 0 0 12px ",
@@ -510,12 +510,12 @@ function ProjectsPreview() {
                     children: "Projects"
                 }, void 0, false, {
                     fileName: "[project]/src/components/ProjectsPreview.tsx",
-                    lineNumber: 188,
+                    lineNumber: 189,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/ProjectsPreview.tsx",
-                lineNumber: 181,
+                lineNumber: 182,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(OuterWrapper, {
@@ -532,7 +532,7 @@ function ProjectsPreview() {
                         children: "‹"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProjectsPreview.tsx",
-                        lineNumber: 198,
+                        lineNumber: 199,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CarouselWrapper, {
@@ -549,19 +549,19 @@ function ProjectsPreview() {
                                                     children: p.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                                    lineNumber: 213,
+                                                    lineNumber: 214,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: p.summary
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                                    lineNumber: 214,
+                                                    lineNumber: 215,
                                                     columnNumber: 21
                                                 }, this),
-                                                p.repo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        p.repo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                             className: "repo-link",
                                                             href: p.repo,
                                                             target: "_blank",
@@ -570,16 +570,16 @@ function ProjectsPreview() {
                                                                 "Repo ",
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaExternalLinkAlt"], {}, void 0, false, {
                                                                     fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                                                    lineNumber: 218,
+                                                                    lineNumber: 219,
                                                                     columnNumber: 32
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                                            lineNumber: 217,
+                                                            lineNumber: 218,
                                                             columnNumber: 25
                                                         }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        p.demo != '' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                             className: "deployment-link",
                                                             href: p.demo,
                                                             target: "_blank",
@@ -588,40 +588,40 @@ function ProjectsPreview() {
                                                                 "Deployment ",
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaExternalLinkAlt"], {}, void 0, false, {
                                                                     fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                                                    lineNumber: 221,
+                                                                    lineNumber: 224,
                                                                     columnNumber: 38
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                                            lineNumber: 220,
+                                                            lineNumber: 223,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/ProjectsPreview.tsx",
                                                     lineNumber: 216,
-                                                    columnNumber: 23
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, p.title, true, {
                                             fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                            lineNumber: 212,
+                                            lineNumber: 213,
                                             columnNumber: 19
                                         }, this))
                                 }, idx, false, {
                                     fileName: "[project]/src/components/ProjectsPreview.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 211,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/components/ProjectsPreview.tsx",
-                            lineNumber: 208,
+                            lineNumber: 209,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProjectsPreview.tsx",
-                        lineNumber: 202,
+                        lineNumber: 203,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Arrow, {
@@ -631,19 +631,19 @@ function ProjectsPreview() {
                         children: "›"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ProjectsPreview.tsx",
-                        lineNumber: 232,
+                        lineNumber: 235,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ProjectsPreview.tsx",
-                lineNumber: 191,
+                lineNumber: 192,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ProjectsPreview.tsx",
-        lineNumber: 180,
+        lineNumber: 181,
         columnNumber: 5
     }, this);
 }
@@ -855,8 +855,7 @@ function _templateObject8() {
 }
 function _templateObject9() {
     const data = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$swc$2f$helpers$2f$esm$2f$_tagged_template_literal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["_"])([
-        "\n  display: flex;\n  gap: 1rem;\n  padding: 2rem;\n  margin: 2rem 1rem;\n  align-items: center;\n  justify-content: space-evenly;\n  border-radius: 12px;\n  background: ",
-        ";\n  border: 1px solid rgba(255,255,255,0.03);\n  transition: border .5s ease;\n  cursor: pointer;\n\n  &:hover {\n    border: 1px solid rgba(255, 255, 255, 0.098);\n  }\n"
+        "\n  display: flex;\n  gap: 1rem;\n  padding: 2rem;\n  margin: 2rem 1rem;\n  align-items: center;\n  justify-content: space-evenly;\n  border-radius: 12px;\n  background: transparent;\n  border: 1px solid rgba(255,255,255,0.03);\n  transition: border .5s ease;\n  cursor: pointer;\n\n  &:hover {\n    border: 1px solid rgba(255, 255, 255, 0.37);\n  }\n"
     ]);
     _templateObject9 = function() {
         return data;
@@ -922,10 +921,7 @@ const SubTitle = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f
 _c7 = SubTitle;
 const Grid = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div(_templateObject8());
 _c8 = Grid;
-const SocialCard = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].a(_templateObject9(), (param)=>{
-    let { theme } = param;
-    return theme.bgCard;
-});
+const SocialCard = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].a(_templateObject9());
 _c9 = SocialCard;
 const SocialLabel = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$browser$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].div(_templateObject10());
 _c10 = SocialLabel;
