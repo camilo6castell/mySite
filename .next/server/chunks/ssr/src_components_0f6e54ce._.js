@@ -308,7 +308,7 @@ const Slide = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$st
 `;
 const Card = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$components$2f$dist$2f$styled$2d$components$2e$esm$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].article`
   display: flex;
-  max-height: 15rem;
+  height: fit-content;
   flex-direction: column;
   justify-content: space-between;
   padding: 16px;

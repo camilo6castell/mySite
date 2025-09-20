@@ -379,7 +379,7 @@ function _templateObject3() {
 }
 function _templateObject4() {
     const data = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$swc$2f$helpers$2f$esm$2f$_tagged_template_literal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["_"])([
-        "\n  display: flex;\n  max-height: 15rem;\n  flex-direction: column;\n  justify-content: space-between;\n  padding: 16px;\n  border-radius: 12px;\n  background: ",
+        "\n  display: flex;\n  height: fit-content;\n  flex-direction: column;\n  justify-content: space-between;\n  padding: 16px;\n  border-radius: 12px;\n  background: ",
         ";\n  border: 1px solid ",
         ";\n  box-shadow: 0 0 5px ",
         ";\n  transition: box-shadow 0.5s ease, background 3s ease, transform 0.3s ease;\n  h3 {\n    color: var(--text);\n    font-size: 1.25rem;\n    padding-bottom: .3rem;\n  }\n  p {\n    color: var(--muted);\n    padding-left: .3rem;\n  }  \n  div {\n    display: flex;\n    justify-content: space-between;\n    margin-top: .5rem;\n    padding-left: .3rem;\n    a {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-weight: 500;\n    color: var(--link);\n   }\n    .repo-link {\n      color: #d44cbe;\n      svg {\n        fill: #d44cbe;\n      }\n    }\n    .deployment-link {\n      color: #4ca2d4;\n      svg {\n        fill: #4ca2d4;\n      }\n    }\n  }  \n  &:hover {\n    box-shadow: 0 0 12px ",

@@ -56,7 +56,7 @@ const Slide = styled.div`
 
 const Card = styled.article`
   display: flex;
-  max-height: 15rem;
+  height: fit-content;
   flex-direction: column;
   justify-content: space-between;
   padding: 16px;
