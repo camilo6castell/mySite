@@ -1,10 +1,10 @@
 'use client'
 import styled from 'styled-components'
-import { FadeBox } from '@/styles/keyframes'
+import { FadeBox } from '@/ui/styles/keyframes'
 import { useInView } from '@/hooks/useInView'
-import { themeConfig } from '@/app/config/theme'
-import { heroContent_hero } from '@/app/config/content'
-import { raleway, montserrat, ephesis } from '@/styles/fonts'
+import { themeConfig } from '@/config/theme'
+import { heroContent_hero } from '@/config/content'
+import { raleway, montserrat, ephesis } from '@/ui/styles/fonts'
 
 
 const Inner = styled.div`

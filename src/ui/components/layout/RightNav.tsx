@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { pulse } from '@/styles/keyframes'
-import { themeConfig } from '@/app/config/theme'
+import { pulse } from '@/ui/styles/keyframes'
+import { themeConfig } from '@/config/theme'
 
 const Container = styled.aside`
   position: fixed;

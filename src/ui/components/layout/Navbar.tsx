@@ -7,10 +7,10 @@ import { BsFillSunFill, BsMoonStarsFill } from "react-icons/bs";
 import { FaHome, FaProjectDiagram } from "react-icons/fa";
 import { IoMdContact } from "react-icons/io";
 import { useThemeContext } from '@/lib/providers'
-import { navbarContent_navbar } from '../../app/config/content'
+import { navbarContent_navbar } from '../../../config/content'
 import { useInView } from '@/hooks/useInView'
-import { FadeBox } from '@/styles/keyframes'
-import { themeConfig } from '@/app/config/theme'
+import { FadeBox } from '@/ui/styles/keyframes'
+import { themeConfig } from '@/config/theme'
 
 const Bar = styled(FadeBox)`
   position: fixed;

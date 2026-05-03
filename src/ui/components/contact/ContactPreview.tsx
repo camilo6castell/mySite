@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
-import { contactContent_contact } from '@/app/config/content'
+import { contactContent_contact } from '@/config/content'
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa"
-import SocialButton from '../components/contact/SocialButton'
-import { FadeBox } from '@/styles/keyframes'
+import SocialButton from './atoms/SocialButton'
+import { FadeBox } from '@/ui/styles/keyframes'
 import { useInView } from '@/hooks/useInView'
-import { themeConfig } from '@/app/config/theme'
+import { themeConfig } from '@/config/theme'
 import styled from 'styled-components'
 import { ContactSocial } from '@/types/content'
 

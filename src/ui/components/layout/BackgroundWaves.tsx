@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
-import { waves } from '@/styles/keyframes'
-import { themeConfig } from '@/app/config/theme'
+import { waves } from '@/ui/styles/keyframes'
+import { themeConfig } from '@/config/theme'
 
 const Wrap = styled.div`
   pointer-events: none;

@@ -1,7 +1,7 @@
 'use client'
 import { createGlobalStyle } from 'styled-components'
 import resetCSS from './ResetCss'
-import { themeConfig } from '@/app/config/theme'
+import { themeConfig } from '@/config/theme'
 import {  inter } from './fonts'
 
 const GlobalStyle = createGlobalStyle`

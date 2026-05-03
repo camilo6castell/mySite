@@ -8,7 +8,6 @@ const Wrap = styled.section`
   align-items: center;
   scroll-snap-align: start;
   padding: 2rem;
-  box-sizing: border-box;
 `
 
 export default function Section({ children, id }: { children: React.ReactNode, id?: string }) {

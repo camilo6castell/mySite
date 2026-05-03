@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { themeConfig } from "../app/config/theme";
+import { themeConfig } from "../config/theme";
 
 type ThemeMode = "light" | "dark";
 

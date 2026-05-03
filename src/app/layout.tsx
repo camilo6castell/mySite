@@ -1,13 +1,13 @@
 // Styles
 import StyledComponentsRegistry from '../lib/registry'
-import GlobalStyle from '../styles/GlobalStyle'
+import GlobalStyle from '../ui/styles/GlobalStyle'
 import { ThemeProvider } from '../lib/providers'
 // Components
-import Navbar from '../components/layout/Navbar'
-import BackgroundWaves from '../components/BackgroundWaves'
-import RightNav from '../components/RightNav'
+import Navbar from '../ui/components/layout/Navbar'
+import BackgroundWaves from '../ui/components/layout/BackgroundWaves'
+import RightNav from '../ui/components/layout/RightNav'
 // Content
-import { metadataContent_layout } from './config/content'
+import { metadataContent_layout } from '../config/content'
 //
 
 export const metadata = metadataContent_layout

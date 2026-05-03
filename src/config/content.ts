@@ -34,7 +34,7 @@ export const heroContent_hero = {
   heroImage: "/images/home-photo.jpg",
 }
 
-export const projectsContent_projectList = {
+export const projectsContent_projectLists = {
   projects: [
     {
       title: 'This portfolio :)',
@@ -117,4 +117,90 @@ export const contactContent_contact = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/camilocastell/', color: ['#0077b5', '#00a0dc'] },
     { label: 'WhatsApp', href: 'https://wa.me/573223990733', color: ['#25D366', '#128C7E'] },
   ],
+}
+
+export const projectsContent_projectList = {
+  projects: [
+    {
+      title: "CryptoMessage",
+      summary:
+        "End-to-end encrypted messaging platform built with a privacy-first architecture. The server never has access to plaintext messages, enforcing true client-side encryption.",
+
+      preview: "/previews/cryptomessage.png", // puedes cambiarlo luego
+
+      highlights: [
+        "Stateless REST API secured with JWT authentication",
+        "Client-side RSA encryption using per-recipient ciphertext model",
+        "Server acts strictly as a relay — zero plaintext visibility",
+        "Layered architecture with Spring Boot and strict domain boundaries",
+        "Secure key lifecycle: encrypted private key + bcrypt passphrase"
+      ],
+
+      repos: [
+        {
+          name: "Backend (Spring Boot)",
+          description:
+            "Stateless API handling authentication, chats and encrypted message exchange. Built with Spring Security, JWT and MariaDB.",
+          tech: [
+            "Java 17",
+            "Spring Boot",
+            "Spring Security",
+            "JWT",
+            "MariaDB",
+            "Docker",
+            "BouncyCastle"
+          ],
+          repo: "https://github.com/your-username/cryptomessage-backend",
+          demo: "" // opcional
+        },
+        {
+          name: "Frontend (React)",
+          description:
+            "Client application responsible for key generation, encryption/decryption and secure communication with the backend API.",
+          tech: [
+            "React",
+            "TypeScript",
+            "Web Crypto API",
+            "Styled Components",
+            "Vite"
+          ],
+          repo: "https://github.com/your-username/cryptomessage-frontend",
+          demo: "https://cryptomessage-demo.vercel.app"
+        }
+      ]
+    },
+
+    {
+      title: "Gymbot",
+      summary:
+        "AI-powered workout assistant that generates personalized training routines based on user goals, progress tracking and adaptive feedback.",
+
+      preview: "/previews/gymbot.png",
+
+      highlights: [
+        "Dynamic workout generation based on user profile and goals",
+        "Progress tracking with adaptive difficulty adjustments",
+        "REST API with modular service design",
+        "Lightweight AI logic for recommendations",
+        "Clean UI focused on usability and quick interaction"
+      ],
+
+      repos: [
+        {
+          name: "Fullstack App",
+          description:
+            "Single repository containing backend services and frontend UI for managing workouts, tracking progress and generating routines.",
+          tech: [
+            "Node.js",
+            "Express",
+            "React",
+            "MongoDB",
+            "TailwindCSS"
+          ],
+          repo: "https://github.com/your-username/gymbot",
+          demo: "https://gymbot-demo.vercel.app"
+        }
+      ]
+    }
+  ]
 }

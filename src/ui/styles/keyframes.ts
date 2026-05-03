@@ -1,6 +1,6 @@
 import { keyframes, styled, css } from "styled-components"
 
-import { themeConfig } from '@/app/config/theme'
+import { themeConfig } from '@/config/theme'
 
 export const fade = {
   up: keyframes`
