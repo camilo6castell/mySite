@@ -1,6 +1,22 @@
 'use client'
+
 import styled from 'styled-components'
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaReact,
+  FaNodeJs,
+  FaJava
+} from 'react-icons/fa'
+import {
+  SiTypescript,
+  SiSpringboot,
+  SiMongodb,
+  SiMariadb,
+  SiDocker
+} from 'react-icons/si'
+
+/* ================= TYPES ================= */
 
 type Repo = {
   name: string
@@ -18,19 +34,38 @@ type Project = {
   repos: Repo[]
 }
 
+/* ================= ICON MAP ================= */
+
+const techIcons: Record<string, any> = {
+  React: FaReact,
+  TypeScript: SiTypescript,
+  Node: FaNodeJs,
+  Java: FaJava,
+  'Spring Boot': SiSpringboot,
+  MongoDB: SiMongodb,
+  MariaDB: SiMariadb,
+  Docker: SiDocker,
+}
+
+/* ================= COMPONENT ================= */
+
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Card>
       <Left>
-        <h2>{project.title}</h2>
+        <Header>
+          <h2>{project.title}</h2>
+          <Badge>Featured</Badge>
+        </Header>
+
         <p className="summary">{project.summary}</p>
 
         {project.highlights && (
-          <ul>
+          <Highlights>
             {project.highlights.map((h, i) => (
               <li key={i}>{h}</li>
             ))}
-          </ul>
+          </Highlights>
         )}
 
         <Repos>
@@ -40,19 +75,25 @@ export default function ProjectCard({ project }: { project: Project }) {
               <p>{repo.description}</p>
 
               <Tech>
-                {repo.tech.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
+                {repo.tech.map((t) => {
+                  const Icon = techIcons[t]
+                  return (
+                    <span key={t}>
+                      {Icon && <Icon />}
+                      {t}
+                    </span>
+                  )
+                })}
               </Tech>
 
               <Links>
                 {repo.repo && (
-                  <a href={repo.repo} target="_blank">
+                  <a href={repo.repo} target="_blank" rel="noreferrer">
                     <FaGithub /> Code
                   </a>
                 )}
                 {repo.demo && (
-                  <a href={repo.demo} target="_blank">
+                  <a href={repo.demo} target="_blank" rel="noreferrer">
                     <FaExternalLinkAlt /> Live
                   </a>
                 )}
@@ -64,12 +105,15 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <Right>
         {project.preview ? (
-          <img src={project.preview} alt={project.title} />
+          <Preview>
+            <img src={project.preview} alt={project.title} />
+            <Overlay>View Project</Overlay>
+          </Preview>
         ) : (
           <CodePreview>
-{`// preview
-function secureMessage(msg, pubKey) {
-  return encrypt(msg, pubKey)
+{`// encryption example
+function encrypt(msg, pubKey) {
+  return secure(msg, pubKey)
 }`}
           </CodePreview>
         )}
@@ -78,24 +122,34 @@ function secureMessage(msg, pubKey) {
   )
 }
 
+/* ================= STYLES ================= */
+
 const Card = styled.div`
   width: 100%;
   max-width: 1200px;
   height: 80%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
 
   background: ${({ theme }) => theme.bgCard};
   border: 1px solid ${({ theme }) => theme.borderCard};
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 2rem;
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 40px ${({ theme }) => theme.shadowColor};
+  }
 
   @media (max-width: 900px) {
-  grid-template-columns: 1fr;
-}
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 `
 
 const Left = styled.div`
@@ -110,10 +164,30 @@ const Left = styled.div`
   .summary {
     color: var(--muted);
   }
+`
 
-  ul {
-    padding-left: 1rem;
-    color: var(--text);
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Badge = styled.span`
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: ${({ theme }) => theme.badge.bg};
+  color: ${({ theme }) => theme.badge.text};
+  border: ${({ theme }) => theme.badge.border};
+`
+
+const Highlights = styled.ul`
+  padding-left: 1rem;
+  color: var(--text);
+
+  li {
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
   }
 `
 
@@ -125,10 +199,17 @@ const Repos = styled.div`
 
 const RepoBlock = styled.div`
   flex: 1;
-  min-width: 220px;
+  min-width: 240px;
   padding: 1rem;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 
   h4 {
     margin-bottom: 0.3rem;
@@ -144,26 +225,39 @@ const Tech = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 
   span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 0.75rem;
-    padding: 4px 8px;
+    padding: 5px 9px;
     border-radius: 999px;
     background: rgba(255,255,255,0.08);
+  }
+
+  svg {
+    font-size: 0.8rem;
   }
 `
 
 const Links = styled.div`
   display: flex;
   gap: 10px;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 
   a {
     display: flex;
     gap: 6px;
     align-items: center;
     font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--text);
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 `
 
@@ -171,11 +265,35 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+const Preview = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
 
   img {
     width: 100%;
-    border-radius: 12px;
+    height: 100%;
     object-fit: cover;
+  }
+`
+
+const Overlay = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  ${Preview}:hover & {
+    opacity: 1;
   }
 `
 
