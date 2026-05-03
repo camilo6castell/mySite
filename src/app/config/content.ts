@@ -29,7 +29,8 @@ export const heroContent_hero = {
   Title: "Camilo Castellanos",
   role: "Software developer",
   DescOne: "Happy since childhood. Motivated by technology and taking things apart and understanding them.",
-  DescTwo: "Software developer with more than 3 years of experience in full-stack development and process automation.Expert in Java (Spring Boot, WebFlux), JavaScript - TypeScript (React, Node.js), and Python, with a mastery ofscalable architectures (Hexagonal, DDD) and DevOps practices (Docker, CI/CD, Kubernetes). Quick to learn newprogramming languages, frameworks, and tools, and passionate about creating efficient, secure, and maintainablesolutions, integrating automation and web development to optimize operations.",
+  DescTwo: "I’m a software developer driven by a deep curiosity for how systems work and how they can be improved. I build full-stack applications using Java, Python, and JavaScript, with a strong focus on backend development, automation, and practical problem solving.\nI enjoy designing solutions that eliminate repetitive work and make processes more efficient — from workflow automation and browser bots to AI-assisted systems like RAG pipelines.",
+  DescThree: "For me, programming is not just about writing code, but about understanding problems deeply and creating tools that have real impact.\nI’m particularly interested in scalable backend systems, clean architecture, and open-source technologies. I’m constantly learning, experimenting, and building — always looking for better ways to solve real-world problems through software.",
   heroImage: "/images/home-photo.jpg",
 }
 

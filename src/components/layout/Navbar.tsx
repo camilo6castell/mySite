@@ -112,8 +112,8 @@ export default function Navbar() {
         <IconTransition
           ariaLabel="Ir al inicio"
           isDark={isDark}
-          day={<Image src={navbarContent_navbar.logo_day} alt="logo day" fill style={{ objectFit: 'cover' }} />}
-          night={<Image src={navbarContent_navbar.logo_night} alt="logo night" fill style={{ objectFit: 'cover' }} />}
+          day={<Image src={navbarContent_navbar.logo_day} sizes='16px' alt="logo day" fill style={{ objectFit: 'cover' }} />}
+          night={<Image src={navbarContent_navbar.logo_night} sizes='16px' alt="logo night" fill style={{ objectFit: 'cover' }} />}
           href="#home"
           iconSize={'2.6rem'}
         />

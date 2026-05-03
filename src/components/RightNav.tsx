@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { themeConfig } from '@/app/config/theme'
 import { pulse } from '@/styles/keyframes'
+import { themeConfig } from '@/app/config/theme'
 
 const Container = styled.aside`
   position: fixed;
@@ -16,23 +16,30 @@ const Container = styled.aside`
   align-items: center;
 `
 
-const Dot = styled.button<{ $active?: boolean; $color?: string }>`
+const Dot = styled.button<{ $active?: boolean }>`
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  border: 2px solid ${p => p.$color || 'rgba(255,255,255,0.7)'};
-  background: ${p =>
-    p.$active ? p.$color : 'transparent'};
+
+  border: 2px solid ${({ theme }) => theme.rightNavDotsColor};
+  background: ${({ $active, theme }) =>
+    $active ? theme.rightNavDotsColor : 'transparent'};
+
   cursor: pointer;
-  transition: transform 200ms ease, background 300ms ease;
 
-  &:hover { transform: scale(1.08); }
+  transition: 
+    transform 200ms ease,
+    background 300ms ease,
+    border-color 300ms ease;
 
-  ${p =>
-    p.$active &&
-    p.$color &&
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  ${({ $active, theme }) =>
+    $active &&
     css`
-      animation: ${pulse(p.$color)} 1.6s infinite;
+      animation: ${pulse(theme.rightNavDotsColor)} 1.6s infinite;
     `}
 `
 
@@ -42,17 +49,28 @@ export default function RightNav() {
   const [active, setActive] = useState<string>(SECTIONS[0])
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const id = e.target.getAttribute('id') || ''
-          setActive(id)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const id = e.target.getAttribute('id') || ''
+            setActive(id)
 
-          const color = themeConfig.sectionColors[id as keyof typeof themeConfig.sectionColors] || 'transparent'
-          document.documentElement.style.setProperty('--section-accent', color)
-        }
-      })
-    }, { threshold: 0.6 })
+            // opcional: mantener accent global
+            const color =
+              themeConfig.sectionColors[
+                id as keyof typeof themeConfig.sectionColors
+              ] || 'transparent'
+
+            document.documentElement.style.setProperty(
+              '--section-accent',
+              color
+            )
+          }
+        })
+      },
+      { threshold: 0.6 }
+    )
 
     SECTIONS.forEach(id => {
       const el = document.getElementById(id)
@@ -74,7 +92,6 @@ export default function RightNav() {
           key={s}
           onClick={() => handleClick(s)}
           $active={active === s}
-          $color={themeConfig.sectionColors[s as keyof typeof themeConfig.sectionColors]}
           aria-label={s}
           aria-pressed={active === s}
         />

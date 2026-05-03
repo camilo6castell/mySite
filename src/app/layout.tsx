@@ -20,12 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StyledComponentsRegistry>
           <ThemeProvider>
             <GlobalStyle />
+            <BackgroundWaves />
             <Navbar />
             <RightNav />
             <div id="snap-container">
               {children}
             </div>
-            <BackgroundWaves />
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

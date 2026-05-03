@@ -4,14 +4,20 @@ import { FadeBox } from '@/styles/keyframes'
 import { useInView } from '@/hooks/useInView'
 import { themeConfig } from '@/app/config/theme'
 import { heroContent_hero } from '@/app/config/content'
+import { raleway, montserrat, ephesis } from '@/styles/fonts'
 
 
 const Inner = styled.div`
   display: flex;              
   flex-direction: column;
-  max-width: 900px;
+
   margin: 0 auto;
+  padding: 2rem;
+
+  max-width: 1000px;
   gap: 1rem;
+
+
 `
 
 const HeroSection = styled.div<{ $portion: number, $isColumn?: boolean }>`
@@ -36,9 +42,11 @@ const Badge = styled(FadeBox)`
 `
 
 const Title = styled(FadeBox)`
-  font-size: 3rem;
+  font-size: 4.1rem;
+  font-family: ${ephesis.style.fontFamily}, serif;
   font-weight: 700;
-  margin-top: 1.2rem;
+  flex-wrap: wrap;
+  /* margin-top: 1.2rem; */
   line-height: 1;
   color: var(--text);
 `
@@ -47,15 +55,16 @@ const Role = styled(FadeBox)`
   font-size: 1.6rem;
   font-weight: 300;
   line-height: 1;
-  letter-spacing: 0.4rem;
+  letter-spacing: 0.7rem;
   word-spacing: 0.25rem;
   color: var(--text);
 `
 
 const Desc = styled(FadeBox)`
   margin-top: 1rem;
-  color: var(--muted);
-  font-size: 1.05rem;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-family: ${montserrat.style.fontFamily}, sans-serif;
 `
 
 const HeroImage = styled(FadeBox)`
@@ -77,12 +86,14 @@ export default function Hero() {
   return (
     <Inner className="content-surface">
 
-      <HeroSection $portion={2} >
-
-        <HeroSection $portion={1} $isColumn={true} style={{ gap: '0.5rem' }}>
-          <Badge $inView={inView} $direction='down' $duration={themeConfig.animation.general_duration + 1} $delay={1} ref={ref}>
+                <Badge $inView={inView} $direction='down' $duration={themeConfig.animation.general_duration + 1} $delay={1} ref={ref}>
             {heroContent_hero.badge}
-          </Badge>
+          </Badge>    
+
+      <HeroSection $portion={2} >
+              
+        <HeroSection $portion={1} $isColumn={true} style={{ gap: '0.5rem' }}>
+      
           <Title $inView={inView} $direction='fade' $duration={themeConfig.animation.general_duration + 1} $delay={0} ref={ref}>
             {heroContent_hero.Title}
           </Title>
@@ -103,6 +114,9 @@ export default function Hero() {
         </Desc>
         <Desc $inView={inView} $direction='up' $duration={themeConfig.animation.general_duration + 1} $delay={1.5} ref={ref}>
           {heroContent_hero.DescTwo}
+        </Desc>
+        <Desc $inView={inView} $direction='up' $duration={themeConfig.animation.general_duration + 1} $delay={2} ref={ref}>
+          {heroContent_hero.DescThree}
         </Desc>
       </HeroSection>
 

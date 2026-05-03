@@ -2,12 +2,14 @@ export const themeConfig: ThemeConfigType = {
   colors: {
     lightTheme: {
       bg: '#f8fafc',
+      bgVideoFilter: 'invert(0.9) brightness(1) saturate(1.8) contrast(0.9)',
       text: '#07103a',
       muted: '#334155',
       shadowColor: 'rgba(0, 0, 0, 0.3)',
-      bgCard: 'rgba(255, 255, 255, 0.85)',
+      bgCard: 'rgba(255, 255, 255, 0.75)',
       borderCard: 'rgba(15, 23, 36, 0.06)',
       shadowCard: 'rgba(0, 0, 0, 0.18)',
+      rightNavDotsColor: 'rgba(0, 0, 0, 0.43)',
       badge: {
         bg: 'rgba(28, 255, 191, 0.21);',
         text: '#017a58ff',
@@ -24,35 +26,17 @@ export const themeConfig: ThemeConfigType = {
         link: '#4f46e5',
         linkHover: '#4338ca',
       },
-      waves: {
-        a: {
-          bg: 'rgba(99,102,241,0.35)',
-          top: '5%',
-          left: '-20%',
-          width: '120%',
-          height: '80%',
-          blur: '90px',
-          opacity: 0.8
-        },
-        b: {
-          bg: 'rgba(16,185,129,0.25)',
-          top: '40%',
-          left: '-40%',
-          width: '140%',
-          height: '70%',
-          blur: '120px',
-          opacity: 0.7
-        }
-      },
     },
     darkTheme: {
       bg: '#07103a',
       text: '#e6eef8',
+      bgVideoFilter: 'invert(0) brightness(1.5) saturate(1.5) contrast(0.6)',
       muted: '#a3b4c9',
       shadowColor: 'rgba(255, 255, 255, 0.4)',
-      bgCard: 'rgba(29, 29, 29, 0.83)',
+      bgCard: 'rgba(29, 29, 29, 0.75)',
       borderCard: 'rgba(207, 207, 207, 0.19)',
       shadowCard: 'rgba(221, 221, 221, 0.16)',
+      rightNavDotsColor: 'rgba(255,255,255,0.43)',
       badge: {
         bg: 'rgba(6, 95, 70, 0.33)',
         text: '#57d4b0ff',
@@ -69,42 +53,18 @@ export const themeConfig: ThemeConfigType = {
         link: '#60a5fa',
         linkHover: '#3b82f6',
       },
-      waves: {
-        a: {
-          bg: 'rgba(99,102,241,0.35)',
-          top: '5%',
-          left: '-20%',
-          width: '120%',
-          height: '80%',
-          blur: '90px',
-          opacity: 0.8,
-        },
-        b: {
-          bg: 'rgba(16,185,129,0.25)',
-          top: '40%',
-          left: '-40%',
-          width: '140%',
-          height: '70%',
-          blur: '120px',
-          opacity: 0.7
-        }
-      }
     }
   },
   animation: {
     general_duration: 0.7,
     general_fade_rem_traslation: 3,
-    waves_duration: {
-      a: 40,
-      b: 60,
-    }
   },
   fonts: {
     body: "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto",
   },
   sectionColors: {
-    home: '#4498ffff',
-    projects: '#742c2c',
+    home: 'rgb(255, 255, 255)',
+    projects: '#ffffff',
     contact: '#007442ff'
   }
 }
@@ -128,18 +88,9 @@ export interface ProjectCard {
   linkHover: string;
 }
 
-export interface Wave {
-  bg: string;
-  top: string;
-  left: string;
-  width: string;
-  height: string;
-  blur: string;
-  opacity: number;
-}
-
 export interface ThemeColors {
   bg: string;
+  bgVideoFilter: string;
   text: string;
   muted: string;
   shadowColor: string;
@@ -149,10 +100,7 @@ export interface ThemeColors {
   badge: Badge;
   heroImage: HeroImage;
   projectCard: ProjectCard;
-  waves: {
-    a: Wave;
-    b: Wave;
-  };
+  rightNavDotsColor: string;
 }
 
 export interface ThemeConfigType {
@@ -163,10 +111,6 @@ export interface ThemeConfigType {
   animation: {
     general_duration: number;
     general_fade_rem_traslation: number;
-    waves_duration: {
-      a: number;
-      b: number;
-    };
   };
   fonts: {
     body: string;

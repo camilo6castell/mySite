@@ -79,13 +79,13 @@ export const waves = {
 
 export const pulse = (color: string) => keyframes`
   0% {
-    box-shadow: 0 0 0 0 ${color}66;
+    box-shadow: 0 0 0 0 ${color};
   }
   70% {
-    box-shadow: 0 0 0 8px ${color}00;
+    box-shadow: 0 0 0 8px rgba(0,0,0,0);
   }
   100% {
-    box-shadow: 0 0 0 0 ${color}00;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
   }
 `
 
