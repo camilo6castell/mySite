@@ -4,11 +4,12 @@ export const themeConfig: ThemeConfigType = {
       bg: '#f8fafc',
       bgVideoFilter: 'invert(0.9) brightness(1) saturate(1.8) contrast(0.9)',
       text: '#07103a',
-      muted: '#334155',
+      muted: '#444b56',
       shadowColor: 'rgba(0, 0, 0, 0.3)',
       bgCard: 'rgba(255, 255, 255, 0.75)',
       borderCard: 'rgba(15, 23, 36, 0.06)',
       shadowCard: 'rgba(0, 0, 0, 0.18)',
+      shadowCardHighContrast: 'rgb(0, 0, 0)',
       rightNavDotsColor: 'rgba(0, 0, 0, 0.43)',
       badge: {
         bg: 'rgba(28, 255, 191, 0.21);',
@@ -36,6 +37,7 @@ export const themeConfig: ThemeConfigType = {
       bgCard: 'rgba(29, 29, 29, 0.75)',
       borderCard: 'rgba(207, 207, 207, 0.19)',
       shadowCard: 'rgba(221, 221, 221, 0.16)',
+      shadowCardHighContrast: 'rgba(255, 255, 255, 0.28)',
       rightNavDotsColor: 'rgba(255,255,255,0.43)',
       badge: {
         bg: 'rgba(6, 95, 70, 0.33)',
@@ -97,6 +99,7 @@ export interface ThemeColors {
   bgCard: string;
   borderCard: string;
   shadowCard: string;
+  shadowCardHighContrast: string;
   badge: Badge;
   heroImage: HeroImage;
   projectCard: ProjectCard;

@@ -29,6 +29,7 @@ type Repo = {
 type Project = {
   title: string
   summary: string
+  isFeatured?: boolean
   highlights?: string[]
   preview?: string
   repos: Repo[]
@@ -54,8 +55,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     <Card>
       <Left>
         <Header>
-          <h2>{project.title}</h2>
-          <Badge>Featured</Badge>
+          {project.isFeatured && <Badge>Featured</Badge> }
         </Header>
 
         <p className="summary">{project.summary}</p>
@@ -107,14 +107,14 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.preview ? (
           <Preview>
             <img src={project.preview} alt={project.title} />
-            <Overlay>View Project</Overlay>
+            <Overlay> </Overlay>
           </Preview>
         ) : (
           <CodePreview>
-{`// encryption example
-function encrypt(msg, pubKey) {
-  return secure(msg, pubKey)
-}`}
+            {`// encryption example
+            function encrypt(msg, pubKey) {
+              return secure(msg, pubKey)
+            }`}
           </CodePreview>
         )}
       </Right>
@@ -125,36 +125,31 @@ function encrypt(msg, pubKey) {
 /* ================= STYLES ================= */
 
 const Card = styled.div`
+  padding: 0 8rem 3rem;
   width: 100%;
-  max-width: 1200px;
-  height: 80%;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
+  min-width: 950px;
+  height: 100%;  
+  display: flex;
+  overflow: hidden;
+  gap: 3rem;
 
-  background: ${({ theme }) => theme.bgCard};
-  border: 1px solid ${({ theme }) => theme.borderCard};
-  border-radius: 20px;
-  padding: 2rem;
-
-  backdrop-filter: blur(12px);
-
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: 0 10px 40px ${({ theme }) => theme.shadowColor};
-  }
-
-  @media (max-width: 900px) {
+  /* @media (max-width: 900px) {
     grid-template-columns: 1fr;
     height: auto;
+  } */
+
+  @media (min-width: 1340px) {
+    & {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
   }
 `
 
 const Left = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
 
   h2 {
@@ -183,9 +178,9 @@ const Badge = styled.span`
 
 const Highlights = styled.ul`
   padding-left: 1rem;
-  color: var(--text);
 
   li {
+    color: var(--text); 
     margin-bottom: 0.3rem;
     opacity: 0.9;
   }
@@ -199,20 +194,17 @@ const Repos = styled.div`
 
 const RepoBlock = styled.div`
   flex: 1;
+  margin-top: 1rem;
   min-width: 240px;
+  max-width: 385px;;
   padding: 1rem;
   border-radius: 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
+  background: ${({ theme }) => theme.bgCard};
+  border: 1px solid ${({ theme }) => theme.borderCard};
 
   h4 {
     margin-bottom: 0.3rem;
+    color: var(--text); 
   }
 
   p {
@@ -225,6 +217,7 @@ const Tech = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  padding-top: 1rem;
   margin-top: 0.6rem;
 
   span {
@@ -235,16 +228,20 @@ const Tech = styled.div`
     padding: 5px 9px;
     border-radius: 999px;
     background: rgba(255,255,255,0.08);
+    color: var(--text); 
   }
 
   svg {
+    fill: var(--text); 
     font-size: 0.8rem;
   }
 `
 
 const Links = styled.div`
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
+  padding-top: 1rem;
   margin-top: 0.6rem;
 
   a {
@@ -253,7 +250,11 @@ const Links = styled.div`
     align-items: center;
     font-size: 0.85rem;
     text-decoration: none;
-    color: var(--text);
+    color: var(--text); 
+
+    svg {
+      fill: var(--text);
+    }
 
     &:hover {
       opacity: 0.7;
@@ -265,20 +266,34 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1340px) {
+    & {
+      display: none;
+    }
+  }
 `
 
 const Preview = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 70%;
   border-radius: 16px;
   overflow: hidden;
 
+
+  opacity: 0.8;
+  box-shadow: 2px 10px 10px ${({ theme }) => theme.shadowCardHighContrast};
+  
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
 `
 
 const Overlay = styled.div`
@@ -290,7 +305,6 @@ const Overlay = styled.div`
 
   background: rgba(0,0,0,0.4);
   opacity: 0;
-  transition: opacity 0.3s ease;
 
   ${Preview}:hover & {
     opacity: 1;

@@ -123,10 +123,11 @@ export const projectsContent_projectList = {
   projects: [
     {
       title: "CryptoMessage",
+      isFeatured: true,
       summary:
         "End-to-end encrypted messaging platform built with a privacy-first architecture. The server never has access to plaintext messages, enforcing true client-side encryption.",
 
-      preview: "/previews/cryptomessage.png", // puedes cambiarlo luego
+      preview: "/images/repos/cryptomessage.png",
 
       highlights: [
         "Stateless REST API secured with JWT authentication",
@@ -172,6 +173,7 @@ export const projectsContent_projectList = {
 
     {
       title: "Gymbot",
+      isFeatured: false,
       summary:
         "AI-powered workout assistant that generates personalized training routines based on user goals, progress tracking and adaptive feedback.",
 
@@ -201,6 +203,7 @@ export const projectsContent_projectList = {
           demo: "https://gymbot-demo.vercel.app"
         }
       ]
-    }
+    },
+  
   ]
 }
