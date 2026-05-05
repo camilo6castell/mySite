@@ -1,6 +1,6 @@
 'use client'
 
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import {
   FaGithub,
   FaExternalLinkAlt,
@@ -15,6 +15,7 @@ import {
   SiMariadb,
   SiDocker
 } from 'react-icons/si'
+import StyledSyntaxHighlighter from './StyledSyntaxHighlighter'
 
 /* ================= TYPES ================= */
 
@@ -32,6 +33,10 @@ type Project = {
   isFeatured?: boolean
   highlights?: string[]
   preview?: string
+  code?: {
+    content: string
+    language?: string
+  }
   repos: Repo[]
 }
 
@@ -55,7 +60,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     <Card>
       <Left>
         <Header>
-          {project.isFeatured && <Badge>Featured</Badge> }
+          {project.isFeatured && <Badge>Featured</Badge>}
         </Header>
 
         <p className="summary">{project.summary}</p>
@@ -104,18 +109,30 @@ export default function ProjectCard({ project }: { project: Project }) {
       </Left>
 
       <Right>
-        {project.preview ? (
-          <Preview>
-            <img src={project.preview} alt={project.title} />
-            <Overlay> </Overlay>
-          </Preview>
+        {project.preview || project.code ? (
+          <PreviewContainer>
+
+            {/* IMAGE */}
+            {project.preview && (
+              <ImageLayer className="image">
+                <img src={project.preview} alt={project.title} />
+              </ImageLayer>
+            )}
+
+            {/* CODE */}
+            {project.code && (
+              <CodeLayer className="code">
+                <StyledSyntaxHighlighter
+                  language={project.code.language || 'javascript'}
+                >
+                  {project.code.content}
+                </StyledSyntaxHighlighter>
+              </CodeLayer>
+            )}
+
+          </PreviewContainer>
         ) : (
-          <CodePreview>
-            {`// encryption example
-            function encrypt(msg, pubKey) {
-              return secure(msg, pubKey)
-            }`}
-          </CodePreview>
+          <EmptyState>No preview available</EmptyState>
         )}
       </Right>
     </Card>
@@ -128,21 +145,14 @@ const Card = styled.div`
   padding: 0 8rem 3rem;
   width: 100%;
   min-width: 950px;
-  height: 100%;  
+  height: 100%;
   display: flex;
   overflow: hidden;
   gap: 3rem;
 
-  /* @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    height: auto;
-  } */
-
   @media (min-width: 1340px) {
-    & {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-    }
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
   }
 `
 
@@ -152,10 +162,6 @@ const Left = styled.div`
   justify-content: center;
   gap: 1rem;
 
-  h2 {
-    font-size: 2rem;
-  }
-
   .summary {
     color: var(--muted);
   }
@@ -163,7 +169,6 @@ const Left = styled.div`
 
 const Header = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
 `
 
@@ -180,7 +185,7 @@ const Highlights = styled.ul`
   padding-left: 1rem;
 
   li {
-    color: var(--text); 
+    color: var(--text);
     margin-bottom: 0.3rem;
     opacity: 0.9;
   }
@@ -196,7 +201,7 @@ const RepoBlock = styled.div`
   flex: 1;
   margin-top: 1rem;
   min-width: 240px;
-  max-width: 385px;;
+  max-width: 385px;
   padding: 1rem;
   border-radius: 14px;
   background: ${({ theme }) => theme.bgCard};
@@ -204,7 +209,6 @@ const RepoBlock = styled.div`
 
   h4 {
     margin-bottom: 0.3rem;
-    color: var(--text); 
   }
 
   p {
@@ -218,7 +222,6 @@ const Tech = styled.div`
   flex-wrap: wrap;
   gap: 6px;
   padding-top: 1rem;
-  margin-top: 0.6rem;
 
   span {
     display: flex;
@@ -228,11 +231,9 @@ const Tech = styled.div`
     padding: 5px 9px;
     border-radius: 999px;
     background: rgba(255,255,255,0.08);
-    color: var(--text); 
   }
 
   svg {
-    fill: var(--text); 
     font-size: 0.8rem;
   }
 `
@@ -242,19 +243,12 @@ const Links = styled.div`
   justify-content: flex-end;
   gap: 10px;
   padding-top: 1rem;
-  margin-top: 0.6rem;
 
   a {
     display: flex;
     gap: 6px;
     align-items: center;
     font-size: 0.85rem;
-    text-decoration: none;
-    color: var(--text); 
-
-    svg {
-      fill: var(--text);
-    }
 
     &:hover {
       opacity: 0.7;
@@ -268,55 +262,62 @@ const Right = styled.div`
   justify-content: center;
 
   @media (max-width: 1340px) {
-    & {
-      display: none;
-    }
+    display: none;
   }
 `
 
-const Preview = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ===== PREVIEW SYSTEM ===== */
+
+const PreviewContainer = styled.div`
   position: relative;
   width: 100%;
   height: 70%;
   border-radius: 16px;
   overflow: hidden;
-
-
-  opacity: 0.8;
   box-shadow: 2px 10px 10px ${({ theme }) => theme.shadowCardHighContrast};
-  
+
+  &:hover .image {
+    opacity: 0;
+  }
+
+  &:hover .code {
+    opacity: 1;
+  }
+`
+
+const ImageLayer = styled.div`
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
 `
 
-const Overlay = styled.div`
+const CodeLayer = styled.div`
   position: absolute;
   inset: 0;
+
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
 
-  background: rgba(0,0,0,0.4);
   opacity: 0;
+  transition: opacity 0.4s ease;
 
-  ${Preview}:hover & {
-    opacity: 1;
+  background: ${({ theme }) => theme.bgCard};
+
+  pre {
+    width: 100%;
+    margin: 0 !important;
+    padding: 1.5rem !important;
+    overflow: auto;
   }
 `
 
-const CodePreview = styled.pre`
-  width: 100%;
-  height: 100%;
-  background: #0d1117;
-  color: #58a6ff;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
+const EmptyState = styled.div`
+  opacity: 0.5;
+  font-style: italic;
 `

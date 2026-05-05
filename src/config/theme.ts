@@ -37,7 +37,7 @@ export const themeConfig: ThemeConfigType = {
       bgCard: 'rgba(29, 29, 29, 0.75)',
       borderCard: 'rgba(207, 207, 207, 0.19)',
       shadowCard: 'rgba(221, 221, 221, 0.16)',
-      shadowCardHighContrast: 'rgba(255, 255, 255, 0.28)',
+      shadowCardHighContrast: 'rgba(28, 28, 28, 0.72)',
       rightNavDotsColor: 'rgba(255,255,255,0.43)',
       badge: {
         bg: 'rgba(6, 95, 70, 0.33)',

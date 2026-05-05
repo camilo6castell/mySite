@@ -124,11 +124,38 @@ export const projectsContent_projectList = {
     {
       title: "CryptoMessage",
       isFeatured: true,
-      summary:
-        "End-to-end encrypted messaging platform built with a privacy-first architecture. The server never has access to plaintext messages, enforcing true client-side encryption.",
-
+      summary: "End-to-end encrypted messaging platform built with a privacy-first architecture. The server never has access to plaintext messages, enforcing true client-side encryption.",
       preview: "/images/repos/cryptomessage.png",
+      code: {
+              language: 'javascript',
+              content: `
+    // Client-side encryption-decryption functions used:
+    export const encrypt = async (publicKey: CryptoKey, data: string) => {
+      const encoded = new TextEncoder().encode(data);
 
+      const encrypted = await crypto.subtle.encrypt(
+        { name: 'RSA-OAEP' },
+        publicKey,
+        encoded
+      );
+
+      return arrayBufferToBase64(encrypted);
+    };
+
+    export const decrypt = async (privateKey: CryptoKey, encrypted: string) => {
+      const buffer = base64ToArrayBuffer(encrypted);
+
+      const decrypted = await crypto.subtle.decrypt(
+        { name: 'RSA-OAEP' },
+        privateKey,
+        buffer
+      );
+
+      return new TextDecoder().decode(decrypted);
+    };
+
+              `
+            },
       highlights: [
         "Stateless REST API secured with JWT authentication",
         "Client-side RSA encryption using per-recipient ciphertext model",
@@ -151,8 +178,8 @@ export const projectsContent_projectList = {
             "Docker",
             "BouncyCastle"
           ],
-          repo: "https://github.com/your-username/cryptomessage-backend",
-          demo: "" // opcional
+          repo: "https://cryptomessage-client.vercel.app/login",
+          demo: "" 
         },
         {
           name: "Frontend (React)",
@@ -166,7 +193,7 @@ export const projectsContent_projectList = {
             "Vite"
           ],
           repo: "https://github.com/your-username/cryptomessage-frontend",
-          demo: "https://cryptomessage-demo.vercel.app"
+          demo: "https://cryptomessage-client.vercel.app/login"
         }
       ]
     },
