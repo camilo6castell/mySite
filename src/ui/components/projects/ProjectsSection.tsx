@@ -1,72 +1,49 @@
-'use client'
+"use client";
 
-import styled from 'styled-components'
-import { useRef, useState, useEffect } from 'react'
-import ProjectCard from './atoms/ProjectCard'
-import { projectsContent_projectList } from '@/config/content'
-import { FadeBox } from '@/ui/styles/keyframes'
-import { useInView } from '@/hooks/useInView'
-import { themeConfig } from '@/config/theme'
-import ProjectsStrip from './atoms/ProjectsStrip'
+import styled from "styled-components";
+import { useState, useEffect } from "react";
+import ProjectCard from "./atoms/ProjectCard";
+import { projectsContent_projectList } from "@/config/content";
+import { FadeBox } from "@/ui/styles/keyframes";
+import { useInView } from "@/hooks/useInView";
+import { themeConfig } from "@/config/theme";
+import ProjectsStrip from "./atoms/ProjectsStrip";
 
 export default function ProjectsSection() {
-  const trackRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const { ref, inView } = useInView(0.3)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const { ref, inView } = useInView(0.3);
 
-  const projects = projectsContent_projectList.projects
+  const projects = projectsContent_projectList.projects;
 
   const goTo = (index: number) => {
-    if (!trackRef.current) return
-    const width = trackRef.current.clientWidth
-
-    trackRef.current.scrollTo({
-      left: width * index,
-      behavior: 'smooth',      
-    })
-
-    trackRef.current.style.setProperty('transition', 'all 2s ease') 
-
-    setActiveIndex(index)
-  }
+    setActiveIndex(index);
+  };
 
   const next = () => {
-    if (activeIndex < projects.length - 1) goTo(activeIndex + 1)
-  }
+    if (activeIndex < projects.length - 1) {
+      setActiveIndex((prev) => prev + 1);
+    }
+  };
 
   const prev = () => {
-    if (activeIndex > 0) goTo(activeIndex - 1)
-  }
+    if (activeIndex > 0) {
+      setActiveIndex((prev) => prev - 1);
+    }
+  };
 
   // keyboard navigation
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') next()
-      if (e.key === 'ArrowLeft') prev()
-    }
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    };
 
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [activeIndex])
-
-  // sync con scroll manual
-  useEffect(() => {
-    const el = trackRef.current
-    if (!el) return
-
-    const onScroll = () => {
-      const index = Math.round(el.scrollLeft / el.clientWidth)
-      setActiveIndex(index)
-    }
-
-    el.addEventListener('scroll', onScroll)
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [])
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [activeIndex]);
 
   return (
     <Wrapper id="projects">
-
-      {/* STRIP desacoplado */}
       <ProjectsStrip
         projects={projects}
         activeIndex={activeIndex}
@@ -75,29 +52,38 @@ export default function ProjectsSection() {
         ref={ref}
       />
 
-      {/* CAROUSEL */}
-      <CarouselWrapper>
-        <Arrow onClick={prev} $side="left">‹</Arrow>
+      <CarouselWrapper
+        $inView={inView}
+        $direction="up"
+        $duration={themeConfig.animation.general_duration}
+        $delay={1}
+        ref={ref}
+      >
+        <Arrow onClick={prev} $side="left">
+          ‹
+        </Arrow>
 
-        <Track ref={trackRef}>
-          {projects.map((project) => (
-            <Slide key={project.title}>
+        <SlidesContainer>
+          {projects.map((project, i) => (
+            <Slide key={project.title} $active={i === activeIndex}>
               <FadeBoxForProjectsSection
-                $inView={inView}
+                $inView={i === activeIndex && inView}
                 $direction="fade"
-                $duration={themeConfig.animation.general_duration}
-                $delay={0}
+                $duration={1}
+                $delay={0.1}
               >
                 <ProjectCard project={project} />
               </FadeBoxForProjectsSection>
             </Slide>
           ))}
-        </Track>
+        </SlidesContainer>
 
-        <Arrow onClick={next} $side="right">›</Arrow>
+        <Arrow onClick={next} $side="right">
+          ›
+        </Arrow>
       </CarouselWrapper>
     </Wrapper>
-  )
+  );
 }
 
 /* ================= STYLES ================= */
@@ -109,42 +95,42 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
-const CarouselWrapper = styled.div`
-  height: 70%;
+const CarouselWrapper = styled(FadeBox)`
+  height: 80%;
   position: relative;
   display: flex;
   align-items: center;
-`
+  justify-content: center;
+`;
 
-const Track = styled.div`
-  display: flex;
-  height: 100%;
+/* ⭐ contenedor sin scroll */
+const SlidesContainer = styled.div`
+  position: relative;
   width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  overflow: hidden;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`
-
-const Slide = styled.div`
-  flex: 0 0 100%;
   height: 100%;
-  scroll-snap-align: center;
+`;
+
+/* ⭐ crossfade */
+const Slide = styled.div<{ $active: boolean }>`
+  position: absolute;
+  inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-`
 
-const Arrow = styled.button<{ $side: 'left' | 'right' }>`
+  opacity: ${({ $active }) => ($active ? 1 : 0)};
+  pointer-events: ${({ $active }) => ($active ? "auto" : "none")};
+
+  transition: opacity 0.6s ease;
+`;
+
+const Arrow = styled.button<{ $side: "left" | "right" }>`
   position: absolute;
   top: 50%;
-  ${({ $side }) => ($side === 'left' ? 'left: 20px' : 'right: 20px')};
+  ${({ $side }) => ($side === "left" ? "left: 20px" : "right: 20px")};
   transform: translateY(-50%);
   font-size: 3rem;
   background: none;
@@ -154,16 +140,14 @@ const Arrow = styled.button<{ $side: 'left' | 'right' }>`
   z-index: 10;
   opacity: 0.6;
 
-  /* transition: opacity 0.2s ease, transform 0.2s ease; */
-
   &:hover {
     opacity: 1;
     transform: translateY(-50%) scale(1.1);
   }
-`
+`;
 
 const FadeBoxForProjectsSection = styled(FadeBox)`
   display: flex;
   width: 100%;
   height: 100%;
-`
+`;

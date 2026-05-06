@@ -1,44 +1,44 @@
-'use client'
+"use client";
 
-import styled, { useTheme } from 'styled-components'
+import styled from "styled-components";
 import {
   FaGithub,
   FaExternalLinkAlt,
   FaReact,
   FaNodeJs,
-  FaJava
-} from 'react-icons/fa'
+  FaJava,
+} from "react-icons/fa";
 import {
   SiTypescript,
   SiSpringboot,
   SiMongodb,
   SiMariadb,
-  SiDocker
-} from 'react-icons/si'
-import StyledSyntaxHighlighter from './StyledSyntaxHighlighter'
+  SiDocker,
+} from "react-icons/si";
+import StyledSyntaxHighlighter from "./StyledSyntaxHighlighter";
 
 /* ================= TYPES ================= */
 
 type Repo = {
-  name: string
-  description: string
-  tech: string[]
-  repo?: string
-  demo?: string
-}
+  name: string;
+  description: string;
+  tech: string[];
+  repo?: string;
+  demo?: string;
+};
 
 type Project = {
-  title: string
-  summary: string
-  isFeatured?: boolean
-  highlights?: string[]
-  preview?: string
+  title: string;
+  summary: string;
+  isFeatured?: boolean;
+  highlights?: string[];
+  preview?: string;
   code?: {
-    content: string
-    language?: string
-  }
-  repos: Repo[]
-}
+    content: string;
+    language?: string;
+  };
+  repos: Repo[];
+};
 
 /* ================= ICON MAP ================= */
 
@@ -47,21 +47,21 @@ const techIcons: Record<string, any> = {
   TypeScript: SiTypescript,
   Node: FaNodeJs,
   Java: FaJava,
-  'Spring Boot': SiSpringboot,
+  "Spring Boot": SiSpringboot,
   MongoDB: SiMongodb,
   MariaDB: SiMariadb,
   Docker: SiDocker,
-}
+};
 
 /* ================= COMPONENT ================= */
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const hasPreview = !!project.preview;
+  const hasCode = !!project.code;
   return (
     <Card>
       <Left>
-        <Header>
-          {project.isFeatured && <Badge>Featured</Badge>}
-        </Header>
+        <Header>{project.isFeatured && <Badge>Featured</Badge>}</Header>
 
         <p className="summary">{project.summary}</p>
 
@@ -81,13 +81,13 @@ export default function ProjectCard({ project }: { project: Project }) {
 
               <Tech>
                 {repo.tech.map((t) => {
-                  const Icon = techIcons[t]
+                  const Icon = techIcons[t];
                   return (
                     <span key={t}>
                       {Icon && <Icon />}
                       {t}
                     </span>
-                  )
+                  );
                 })}
               </Tech>
 
@@ -109,34 +109,35 @@ export default function ProjectCard({ project }: { project: Project }) {
       </Left>
 
       <Right>
-        {project.preview || project.code ? (
+        {hasPreview || hasCode ? (
           <PreviewContainer>
-
             {/* IMAGE */}
-            {project.preview && (
+            {hasPreview && (
               <ImageLayer className="image">
-                <img src={project.preview} alt={project.title} />
+                <img src={project.preview!} alt={project.title} />
               </ImageLayer>
             )}
 
             {/* CODE */}
-            {project.code && (
-              <CodeLayer className="code">
+            {hasCode && (
+              <CodeLayer
+                className="code"
+                $visible={!hasPreview} // 👈 importante
+              >
                 <StyledSyntaxHighlighter
-                  language={project.code.language || 'javascript'}
+                  language={project.code!.language || "javascript"}
                 >
-                  {project.code.content}
+                  {project.code!.content}
                 </StyledSyntaxHighlighter>
               </CodeLayer>
             )}
-
           </PreviewContainer>
         ) : (
           <EmptyState>No preview available</EmptyState>
         )}
       </Right>
     </Card>
-  )
+  );
 }
 
 /* ================= STYLES ================= */
@@ -154,7 +155,7 @@ const Card = styled.div`
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
   }
-`
+`;
 
 const Left = styled.div`
   display: flex;
@@ -165,12 +166,12 @@ const Left = styled.div`
   .summary {
     color: var(--muted);
   }
-`
+`;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const Badge = styled.span`
   padding: 6px 12px;
@@ -179,7 +180,7 @@ const Badge = styled.span`
   background: ${({ theme }) => theme.badge.bg};
   color: ${({ theme }) => theme.badge.text};
   border: ${({ theme }) => theme.badge.border};
-`
+`;
 
 const Highlights = styled.ul`
   padding-left: 1rem;
@@ -189,15 +190,18 @@ const Highlights = styled.ul`
     margin-bottom: 0.3rem;
     opacity: 0.9;
   }
-`
+`;
 
 const Repos = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-`
+`;
 
 const RepoBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 1;
   margin-top: 1rem;
   min-width: 240px;
@@ -215,7 +219,7 @@ const RepoBlock = styled.div`
     font-size: 0.9rem;
     color: var(--muted);
   }
-`
+`;
 
 const Tech = styled.div`
   display: flex;
@@ -230,13 +234,13 @@ const Tech = styled.div`
     font-size: 0.75rem;
     padding: 5px 9px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
   }
 
   svg {
     font-size: 0.8rem;
   }
-`
+`;
 
 const Links = styled.div`
   display: flex;
@@ -254,7 +258,7 @@ const Links = styled.div`
       opacity: 0.7;
     }
   }
-`
+`;
 
 const Right = styled.div`
   display: flex;
@@ -264,14 +268,14 @@ const Right = styled.div`
   @media (max-width: 1340px) {
     display: none;
   }
-`
+`;
 
 /* ===== PREVIEW SYSTEM ===== */
 
 const PreviewContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 70%;
+  height: 90%;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 2px 10px 10px ${({ theme }) => theme.shadowCardHighContrast};
@@ -283,7 +287,7 @@ const PreviewContainer = styled.div`
   &:hover .code {
     opacity: 1;
   }
-`
+`;
 
 const ImageLayer = styled.div`
   position: absolute;
@@ -295,16 +299,16 @@ const ImageLayer = styled.div`
     height: 100%;
     object-fit: cover;
   }
-`
+`;
 
-const CodeLayer = styled.div`
+const CodeLayer = styled.div<{ $visible?: boolean }>`
   position: absolute;
   inset: 0;
 
   display: flex;
   align-items: stretch;
 
-  opacity: 0;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transition: opacity 0.4s ease;
 
   background: ${({ theme }) => theme.bgCard};
@@ -315,9 +319,9 @@ const CodeLayer = styled.div`
     padding: 1.5rem !important;
     overflow: auto;
   }
-`
+`;
 
 const EmptyState = styled.div`
   opacity: 0.5;
   font-style: italic;
-`
+`;
