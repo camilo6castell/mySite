@@ -60,12 +60,49 @@ const Wrapper = styled(FadeBox)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 900px) {
+    position: sticky;
+    top: 4.8rem;
+
+    z-index: 30;
+    height: auto;
+    display: block;
+    overflow: visible;
+    padding: 0.8rem 0;
+    /* background: rgba(15, 15, 15, 0.55); */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
 `;
 
 const Track = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 900px) {
+    position: static;
+
+    height: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.75rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 0 1rem;
+
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;
 
 const Item = styled.div<{
@@ -91,4 +128,40 @@ const Item = styled.div<{
 
   cursor: pointer;
   white-space: nowrap;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+
+  @media (max-width: 900px) {
+    position: static;
+
+    transform: none;
+
+    flex: 0 0 auto;
+
+    opacity: 1;
+
+    filter: none;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    line-height: 1;
+
+    padding: 0.85rem 1rem;
+
+    border-radius: 999px;
+
+    background: ${({ $active, theme }) =>
+      $active ? theme.bgCard : "rgba(255,255,255,0.03)"};
+
+    border: 1px solid
+      ${({ $active, theme }) =>
+        $active ? theme.borderCard : "rgba(255,255,255,0.08)"};
+
+    color: ${({ $active }) => ($active ? "var(--text)" : "var(--muted)")};
+
+    white-space: nowrap;
+  }
 `;

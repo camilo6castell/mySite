@@ -1,5 +1,5 @@
-'use client'
-import styled from 'styled-components'
+"use client";
+import styled from "styled-components";
 
 const Wrap = styled.section`
   height: 100vh;
@@ -8,12 +8,15 @@ const Wrap = styled.section`
   align-items: center;
   scroll-snap-align: start;
   padding: 2rem;
-`
+  overflow: hidden;
+`;
 
-export default function Section({ children, id }: { children: React.ReactNode, id?: string }) {
-    return (
-        <Wrap id={id}>
-            {children}
-        </Wrap>
-    )
+export default function Section({
+  children,
+  id,
+}: {
+  children: React.ReactNode;
+  id?: string;
+}) {
+  return <Wrap id={id}>{children}</Wrap>;
 }

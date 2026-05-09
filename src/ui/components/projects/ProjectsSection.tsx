@@ -89,12 +89,19 @@ export default function ProjectsSection() {
 /* ================= STYLES ================= */
 
 const Wrapper = styled.section`
-  height: 100dvh;
+  height: 100%;
   width: 100%;
-  min-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 900px) {
+    min-height: auto;
+    padding-top: 5.5rem;
+    padding-bottom: 4rem;
+
+    justify-content: flex-start;
+  }
 `;
 
 const CarouselWrapper = styled(FadeBox)`
@@ -103,6 +110,12 @@ const CarouselWrapper = styled(FadeBox)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 900px) {
+    height: auto;
+    align-items: stretch;
+    overflow: visible;
+  }
 `;
 
 /* ⭐ contenedor sin scroll */
@@ -110,6 +123,10 @@ const SlidesContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 900px) {
+    min-height: 100%;
+  }
 `;
 
 /* ⭐ crossfade */
@@ -125,6 +142,16 @@ const Slide = styled.div<{ $active: boolean }>`
   pointer-events: ${({ $active }) => ($active ? "auto" : "none")};
 
   transition: opacity 0.6s ease;
+
+  @media (max-width: 900px) {
+    position: relative;
+    inset: auto;
+
+    display: ${({ $active }) => ($active ? "flex" : "none")};
+
+    opacity: 1;
+    pointer-events: auto;
+  }
 `;
 
 const Arrow = styled.button<{ $side: "left" | "right" }>`
@@ -143,6 +170,10 @@ const Arrow = styled.button<{ $side: "left" | "right" }>`
   &:hover {
     opacity: 1;
     transform: translateY(-50%) scale(1.1);
+  }
+
+  @media (max-width: 900px) {
+    display: none;
   }
 `;
 

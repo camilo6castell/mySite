@@ -143,9 +143,9 @@ export default function ProjectCard({ project }: { project: Project }) {
 /* ================= STYLES ================= */
 
 const Card = styled.div`
-  padding: 0 8rem 3rem;
+  padding: 0 5rem 0rem;
   width: 100%;
-  min-width: 950px;
+  max-width: 1700px;
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -154,6 +154,19 @@ const Card = styled.div`
   @media (min-width: 1340px) {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+
+    padding: 1.5rem 1.25rem 3rem;
+
+    gap: 1.5rem;
+
+    overflow: visible;
   }
 `;
 
@@ -165,6 +178,15 @@ const Left = styled.div`
 
   .summary {
     color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    gap: 1.5rem;
+
+    .summary {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
   }
 `;
 
@@ -196,28 +218,42 @@ const Repos = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const RepoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   flex: 1;
-  margin-top: 1rem;
-  min-width: 240px;
-  max-width: 385px;
+
+  min-width: 0;
+  max-width: 100%;
+
   padding: 1rem;
+
   border-radius: 14px;
+
   background: ${({ theme }) => theme.bgCard};
+
   border: 1px solid ${({ theme }) => theme.borderCard};
 
   h4 {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
   p {
     font-size: 0.9rem;
     color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 0;
   }
 `;
 
@@ -258,6 +294,11 @@ const Links = styled.div`
       opacity: 0.7;
     }
   }
+
+  @media (max-width: 900px) {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 `;
 
 const Right = styled.div`
@@ -286,6 +327,18 @@ const PreviewContainer = styled.div`
 
   &:hover .code {
     opacity: 1;
+  }
+
+  @media (max-width: 900px) {
+    height: 320px;
+
+    &:hover .image {
+      opacity: 1;
+    }
+
+    &:hover .code {
+      opacity: 0;
+    }
   }
 `;
 
