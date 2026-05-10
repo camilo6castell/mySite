@@ -186,6 +186,7 @@ const Left = styled.div`
     .summary {
       font-size: 0.95rem;
       line-height: 1.7;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -211,6 +212,7 @@ const Highlights = styled.ul`
     color: var(--text);
     margin-bottom: 0.3rem;
     opacity: 0.9;
+    font-size: 0.8rem;
   }
 `;
 
@@ -220,7 +222,7 @@ const Repos = styled.div`
   flex-wrap: wrap;
 
   @media (max-width: 900px) {
-    flex-direction: column;
+    flex-direction: row;
   }
 `;
 
@@ -271,6 +273,7 @@ const Tech = styled.div`
     padding: 5px 9px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);
+    font-size: 0.7rem;
   }
 
   svg {
