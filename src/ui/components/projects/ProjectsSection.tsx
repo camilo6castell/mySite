@@ -8,8 +8,10 @@ import { FadeBox } from "@/ui/styles/keyframes";
 import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";
 import ProjectsStrip from "./atoms/ProjectsStrip";
+import Section from "../layout/Section";
+import { GenericContainer } from "../layout/GenericContainer";
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ id }: { id: string }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const { ref, inView } = useInView(0.3);
 
@@ -43,69 +45,70 @@ export default function ProjectsSection() {
   }, [activeIndex]);
 
   return (
-    <Wrapper id="projects">
-      <ProjectsStrip
-        projects={projects}
-        activeIndex={activeIndex}
-        onSelect={goTo}
-        inView={inView}
-        ref={ref}
-      />
+    <Section id={id}>
+      <Inner>
+        <ProjectsStrip
+          projects={projects}
+          activeIndex={activeIndex}
+          onSelect={goTo}
+          inView={inView}
+          ref={ref}
+        />
 
-      <CarouselWrapper
-        $inView={inView}
-        $direction="up"
-        $duration={themeConfig.animation.general_duration}
-        $delay={1}
-        ref={ref}
-      >
-        <Arrow onClick={prev} $side="left">
-          ‹
-        </Arrow>
+        <CarouselWrapper
+          $inView={inView}
+          $direction="up"
+          $duration={themeConfig.animation.general_duration}
+          $delay={1}
+          ref={ref}
+        >
+          <Arrow onClick={prev} $side="left">
+            ‹
+          </Arrow>
 
-        <SlidesContainer>
-          {projects.map((project, i) => (
-            <Slide key={project.title} $active={i === activeIndex}>
-              <FadeBoxForProjectsSection
-                $inView={i === activeIndex && inView}
-                $direction="fade"
-                $duration={1}
-                $delay={0.1}
-              >
-                <ProjectCard project={project} />
-              </FadeBoxForProjectsSection>
-            </Slide>
-          ))}
-        </SlidesContainer>
+          <SlidesContainer>
+            {projects.map((project, i) => (
+              <Slide key={project.title} $active={i === activeIndex}>
+                <FadeBoxForProjectsSection
+                  $inView={i === activeIndex && inView}
+                  $direction="fade"
+                  $duration={1}
+                  $delay={0.1}
+                >
+                  <ProjectCard project={project} />
+                </FadeBoxForProjectsSection>
+              </Slide>
+            ))}
+          </SlidesContainer>
 
-        <Arrow onClick={next} $side="right">
-          ›
-        </Arrow>
-      </CarouselWrapper>
-    </Wrapper>
+          <Arrow onClick={next} $side="right">
+            ›
+          </Arrow>
+        </CarouselWrapper>
+      </Inner>
+    </Section>
   );
 }
 
 /* ================= STYLES ================= */
 
-const Wrapper = styled.section`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+const Inner = styled(GenericContainer)`
+  flex: 1;
+  overflow: hidden;
 
   @media (max-width: 900px) {
     min-height: auto;
-    padding-top: 5.5rem;
-    padding-bottom: 4rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
 
     justify-content: flex-start;
+    overflow: hidden;
   }
 `;
 
 const CarouselWrapper = styled(FadeBox)`
   height: 80%;
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
@@ -181,4 +184,5 @@ const FadeBoxForProjectsSection = styled(FadeBox)`
   display: flex;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `;

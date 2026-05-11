@@ -1,6 +1,6 @@
-import { keyframes, styled, css } from "styled-components"
+import { keyframes, styled, css } from "styled-components";
 
-import { themeConfig } from '@/config/theme'
+import { themeConfig } from "@/config/theme";
 
 export const fade = {
   up: keyframes`
@@ -51,7 +51,7 @@ export const fade = {
       opacity: 1;
     }
   `,
-}
+};
 
 export const waves = {
   floatA: keyframes`
@@ -75,7 +75,7 @@ export const waves = {
     88%  { transform: translate3d(-95%,   6%, 0)    rotate(-5deg)  scale(0.96); opacity: 0.66; filter: blur(116px); }
     100% { transform: translate3d(-120%,  28%, 0)   rotate(-7deg)  scale(0.95); opacity: 0.60; filter: blur(120px); }
   `,
-}
+};
 
 export const pulse = (color: string) => keyframes`
   0% {
@@ -87,13 +87,18 @@ export const pulse = (color: string) => keyframes`
   100% {
     box-shadow: 0 0 0 0 rgba(0,0,0,0);
   }
-`
+`;
 
-export const FadeBox = styled.div<{ $inView: boolean; $direction: "up" | "down" | "left" | "right" | "fade"; $duration: number; $delay: number; }>`
+export const FadeBox = styled.div<{
+  $inView: boolean;
+  $direction: "up" | "down" | "left" | "right" | "fade";
+  $duration: number;
+  $delay: number;
+}>`
   opacity: 0;
   ${({ $inView, $direction, $duration, $delay }) =>
     $inView &&
     css`
       animation: ${fade[$direction]} ${$duration}s ${$delay}s ease both;
     `}
-`
+`;

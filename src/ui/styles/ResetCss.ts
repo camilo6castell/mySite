@@ -10,7 +10,8 @@ const resetCSS = () => `
 
   /* 2. Base del documento */
   html, body, #__next {
-    height: 100%;
+    height: 100dvh;
+    width: 100dvw;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -54,6 +55,6 @@ const resetCSS = () => `
     border-collapse: collapse;
     border-spacing: 0;
   }
-`
+`;
 
 export default resetCSS;

@@ -55,6 +55,7 @@ export default ProjectsStrip;
 /* ================= STYLES ================= */
 
 const Wrapper = styled(FadeBox)`
+  width: 100%;
   height: 20%;
   overflow: hidden;
   display: flex;
@@ -63,7 +64,7 @@ const Wrapper = styled(FadeBox)`
 
   @media (max-width: 900px) {
     position: sticky;
-    top: 4.8rem;
+    top: 2rem;
 
     z-index: 30;
     height: auto;

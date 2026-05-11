@@ -5,11 +5,12 @@ import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";
 import { heroContent_hero } from "@/config/content";
 import { raleway, montserrat, ephesis } from "@/ui/styles/fonts";
+import Section from "../layout/Section";
+import { GenericContainer } from "../layout/GenericContainer";
 
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
-
   margin: 0 auto;
   padding: 2rem;
 
@@ -17,16 +18,16 @@ const Inner = styled.div`
   gap: 1rem;
 `;
 
-const HeroSection = styled.div<{ $portion: number; $isColumn?: boolean }>`
-  display: flex;
+const HeroBox = styled(GenericContainer)<{
+  $portion: number;
+  $isColumn?: boolean;
+}>`
   flex-direction: ${({ $isColumn = false }) => ($isColumn ? "column" : "row")};
   align-items: ${({ $isColumn = false }) =>
     $isColumn
       ? "flex-start"
       : "stretch"}; /* stretch para que hijos llenen la altura */
-  justify-content: center;
   flex: ${({ $portion }) => $portion};
-  width: 100%;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -50,7 +51,6 @@ const Title = styled(FadeBox)`
   font-family: ${ephesis.style.fontFamily}, serif;
   font-weight: 700;
   flex-wrap: wrap;
-  /* margin-top: 1.2rem; */
   line-height: 1;
   color: var(--text);
 
@@ -103,83 +103,85 @@ const HeroImage = styled(FadeBox)`
     theme.heroImage.height}; /* asegura que no colapse a 0px */
 `;
 
-export default function Hero() {
+export default function HeroSection({ id }: { id: string }) {
   const { ref, inView } = useInView(0.3);
   return (
-    <Inner className="content-surface">
-      <Badge
-        $inView={inView}
-        $direction="down"
-        $duration={themeConfig.animation.general_duration + 1}
-        $delay={1}
-        ref={ref}
-      >
-        {heroContent_hero.badge}
-      </Badge>
-
-      <HeroSection $portion={2}>
-        <HeroSection $portion={1} $isColumn={true} style={{ gap: "0.5rem" }}>
-          <Title
-            $inView={inView}
-            $direction="fade"
-            $duration={themeConfig.animation.general_duration + 1}
-            $delay={0}
-            ref={ref}
-          >
-            {heroContent_hero.Title}
-          </Title>
-          <Role
-            $inView={inView}
-            $direction="fade"
-            $duration={themeConfig.animation.general_duration + 1}
-            $delay={0.5}
-            ref={ref}
-          >
-            {heroContent_hero.role}
-          </Role>
-        </HeroSection>
-
-        <HeroSection $portion={1} $isColumn={false}>
-          <HeroImage
-            $inView={inView}
-            $direction="left"
-            $duration={themeConfig.animation.general_duration + 1}
-            $delay={0}
-            ref={ref}
-          />
-        </HeroSection>
-      </HeroSection>
-
-      <HeroSection $portion={1} $isColumn={true}>
-        <Desc
+    <Section id={id}>
+      <Inner className="content-surface">
+        {/* <Badge
           $inView={inView}
-          $direction="up"
+          $direction="down"
           $duration={themeConfig.animation.general_duration + 1}
           $delay={1}
           ref={ref}
-          style={{ width: "100%", fontStyle: "italic", textAlign: "center" }}
         >
-          {heroContent_hero.DescOne}
-        </Desc>
-        <Desc
-          $inView={inView}
-          $direction="up"
-          $duration={themeConfig.animation.general_duration + 1}
-          $delay={1.5}
-          ref={ref}
-        >
-          {heroContent_hero.DescTwo}
-        </Desc>
-        <Desc
-          $inView={inView}
-          $direction="up"
-          $duration={themeConfig.animation.general_duration + 1}
-          $delay={2}
-          ref={ref}
-        >
-          {heroContent_hero.DescThree}
-        </Desc>
-      </HeroSection>
-    </Inner>
+          {heroContent_hero.badge}
+        </Badge> */}
+
+        <HeroBox $portion={2}>
+          <HeroBox $portion={1} $isColumn={true} style={{ gap: "0.5rem" }}>
+            <Title
+              $inView={inView}
+              $direction="fade"
+              $duration={themeConfig.animation.general_duration + 1}
+              $delay={0}
+              ref={ref}
+            >
+              {heroContent_hero.Title}
+            </Title>
+            <Role
+              $inView={inView}
+              $direction="fade"
+              $duration={themeConfig.animation.general_duration + 1}
+              $delay={0.5}
+              ref={ref}
+            >
+              {heroContent_hero.role}
+            </Role>
+          </HeroBox>
+
+          <HeroBox $portion={1} $isColumn={false}>
+            <HeroImage
+              $inView={inView}
+              $direction="left"
+              $duration={themeConfig.animation.general_duration + 1}
+              $delay={0}
+              ref={ref}
+            />
+          </HeroBox>
+        </HeroBox>
+
+        <HeroBox $portion={1} $isColumn={true}>
+          <Desc
+            $inView={inView}
+            $direction="up"
+            $duration={themeConfig.animation.general_duration + 1}
+            $delay={1}
+            ref={ref}
+            style={{ width: "100%", fontStyle: "italic", textAlign: "center" }}
+          >
+            {heroContent_hero.DescOne}
+          </Desc>
+          <Desc
+            $inView={inView}
+            $direction="up"
+            $duration={themeConfig.animation.general_duration + 1}
+            $delay={1.5}
+            ref={ref}
+          >
+            {heroContent_hero.DescTwo}
+          </Desc>
+          <Desc
+            $inView={inView}
+            $direction="up"
+            $duration={themeConfig.animation.general_duration + 1}
+            $delay={2}
+            ref={ref}
+          >
+            {heroContent_hero.DescThree}
+          </Desc>
+        </HeroBox>
+      </Inner>
+    </Section>
   );
 }

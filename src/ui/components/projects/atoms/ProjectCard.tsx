@@ -159,14 +159,10 @@ const Card = styled.div`
   @media (max-width: 900px) {
     display: flex;
     flex-direction: column;
-
     height: auto;
-
-    padding: 1.5rem 1.25rem 3rem;
-
+    padding: 3rem 1rem 1rem;
     gap: 1.5rem;
-
-    overflow: visible;
+    overflow: hidden;
   }
 `;
 
@@ -175,6 +171,7 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  overflow: hidden !important;
 
   .summary {
     color: var(--muted);
@@ -185,7 +182,7 @@ const Left = styled.div`
 
     .summary {
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.3;
       font-size: 0.8rem;
     }
   }
@@ -220,6 +217,7 @@ const Repos = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  flex: 1;
 
   @media (max-width: 900px) {
     flex-direction: row;
@@ -230,19 +228,15 @@ const RepoBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   flex: 1;
-
   min-width: 0;
-  max-width: 100%;
-
+  max-width: 480px;
   padding: 1rem;
-
   border-radius: 14px;
-
   background: ${({ theme }) => theme.bgCard};
-
   border: 1px solid ${({ theme }) => theme.borderCard};
+
+  height: fit-content;
 
   h4 {
     margin-bottom: 0.5rem;
@@ -255,7 +249,18 @@ const RepoBlock = styled.div`
   }
 
   @media (max-width: 900px) {
+    padding: 0.7rem;
     margin-top: 0;
+
+    h4 {
+      margin-bottom: 0rem;
+      font-size: 0.9rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      line-height: 1.2;
+    }
   }
 `;
 
@@ -264,6 +269,7 @@ const Tech = styled.div`
   flex-wrap: wrap;
   gap: 6px;
   padding-top: 1rem;
+  overflow: hidden;
 
   span {
     display: flex;
@@ -278,6 +284,15 @@ const Tech = styled.div`
 
   svg {
     font-size: 0.8rem;
+  }
+
+  @media (max-width: 900px) {
+    padding-top: 0.8rem;
+
+    span {
+      font-size: 0.65rem;
+      padding: 4px 7px;
+    }
   }
 `;
 

@@ -1,14 +1,17 @@
 "use client";
 import styled from "styled-components";
+import { GenericContainer } from "./GenericContainer";
 
-const Wrap = styled.section`
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
+const Wrap = styled(GenericContainer)`
   scroll-snap-align: start;
-  padding: 2rem;
+  padding: 1rem;
   overflow: hidden;
+  /* background-color: aliceblue; */
+
+  @media (max-width: 900px) {
+    padding: 3rem 0.5rem 0.5rem 0.5rem;
+    align-items: flex-start;
+  }
 `;
 
 export default function Section({

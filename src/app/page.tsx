@@ -1,14 +1,16 @@
-import Section from '../ui/components/layout/Section'
-import Hero from '../ui/components/hero/Hero'
-import ProjectsSection from '../ui/components/projects/ProjectsSection'
-import ContactPreview from '../ui/components/contact/ContactPreview'
+import Section from "../ui/components/layout/Section";
+import HeroSection from "../ui/components/hero/HeroSection";
+import ProjectsSection from "../ui/components/projects/ProjectsSection";
+import ContactPreview from "../ui/components/contact/ContactSection";
 
 export default function Page() {
   return (
-    <div>
-      <Section id="home"><Hero /></Section>
-      <Section id="projects"><ProjectsSection /></Section>
-      <Section id="contact"><ContactPreview /></Section>
-    </div>
-  )
+    <>
+      <HeroSection id="home" />
+      <ProjectsSection id="projects" />
+      <Section id="contact">
+        <ContactPreview />
+      </Section>
+    </>
+  );
 }

@@ -1,8 +1,8 @@
-'use client'
-import { createGlobalStyle } from 'styled-components'
-import resetCSS from './ResetCss'
-import { themeConfig } from '@/config/theme'
-import {  inter } from './fonts'
+"use client";
+import { createGlobalStyle } from "styled-components";
+import resetCSS from "./ResetCss";
+import { themeConfig } from "@/config/theme";
+import { inter } from "./fonts";
 
 const GlobalStyle = createGlobalStyle`
   ${resetCSS()}
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #snap-container {
-    height: 100dvh;
+    height: 100%;
     width: 100%;    
     
     /* background: var(--bg); */
@@ -44,6 +44,6 @@ const GlobalStyle = createGlobalStyle`
   }
   .content-surface { position: relative; z-index: 10; }
 
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
