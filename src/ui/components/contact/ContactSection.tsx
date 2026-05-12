@@ -9,6 +9,7 @@ import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";
 import SocialButton from "./atoms/SocialButton";
 import { ContactSocial } from "@/types/content";
+import { heroContent_hero } from "@/config/content";
 
 /* ============================
    ICONS
@@ -55,11 +56,12 @@ const ContactSection: React.FC = () => {
                 src={contactContent_contact.avatar}
                 alt={`${contactContent_contact.name} avatar`}
               />
-
-              <MiniStatus>
-                <StatusDot />
-                Open to opportunities
-              </MiniStatus>
+              {heroContent_hero.badge && (
+                <MiniStatus>
+                  <StatusDot />
+                  {heroContent_hero.badge}
+                </MiniStatus>
+              )}
             </LeftColumn>
 
             <Info>

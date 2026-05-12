@@ -35,7 +35,7 @@ export const navbarContent_navbar = {
 };
 
 export const heroContent_hero = {
-  badge: "● Available",
+  badge: "Open to opportunities",
   Title: "Camilo Castellanos",
   role: "Software developer",
   DescOne:
@@ -45,54 +45,6 @@ export const heroContent_hero = {
   DescThree:
     "For me, programming is not just about writing code, but about understanding problems deeply and creating tools that have real impact.\nI’m particularly interested in scalable backend systems, clean architecture, and open-source technologies. I’m constantly learning, experimenting, and building — always looking for better ways to solve real-world problems through software.",
   heroImage: "/images/home-photo.jpg",
-};
-
-export const projectsContent_projectLists = {
-  projects: [
-    {
-      title: "This portfolio :)",
-      summary:
-        "Portfolio to show a little about me and my projects. Made in Next.js with React + TS and Styled-components con modelos ARIMA y visualización.",
-      repo: "https://github.com/camilo6castell/mySite",
-      demo: "",
-    },
-
-    {
-      title: "WaterQualityApp - Desktop application",
-      summary:
-        "Application in Java, using OOP and using SQLite and Java Swing. Its purpose is to perform internal processing and display it to the user via a graphical interface.",
-      repo: "https://github.com/camilo6castell/water-quality-app",
-      demo: "",
-    },
-    {
-      title: "Gevora - Fullstack (Flask)",
-      summary:
-        "Gevora is a hotel management system web application developed using Python and the Flask library. It covers both frontend and backend, utilizing MySQL as the relational database, and is deployed on PythonAnywhere.",
-      repo: "https://github.com/camilo6castell/Gevora",
-      demo: "http://r4d3o.pythonanywhere.com/",
-    },
-    {
-      title: "Instaya - Frontend",
-      summary:
-        "Frontend application for managing package delivery services by email. It's built in JavaScript with Node, React, and Vite.",
-      repo: "https://github.com/camilo6castell/Instaya-frontend",
-      demo: "https://instaya-frontend-cacastellanosh-unaleduco.vercel.app/",
-    },
-    {
-      title: "Instaya - Backend",
-      summary:
-        "Backend application for managing package delivery services by email. It's built in Node.js with the help of Express and MongoDB as a non-relational database.",
-      repo: "https://github.com/camilo6castell/Instaya-backend",
-      demo: "",
-    },
-    {
-      title: "health-api",
-      summary:
-        "API for centralized medical records management system.It is developed in Node, with the help of Express, MongoDB, Mongoose, BCrypt, Morgan, NodeMailer.",
-      repo: "https://github.com/camilo6castell/health-api",
-      demo: "",
-    },
-  ],
 };
 
 export const contactContent_contact = {

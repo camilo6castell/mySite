@@ -94,6 +94,7 @@ export default function ProjectsSection({ id }: { id: string }) {
 
 const Inner = styled(GenericContainer)`
   flex: 1;
+  height: 100%;
   overflow: hidden;
 
   @media (max-width: 900px) {
@@ -113,11 +114,11 @@ const CarouselWrapper = styled(FadeBox)`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   @media (max-width: 900px) {
     height: auto;
     align-items: stretch;
-    overflow: visible;
   }
 `;
 
@@ -140,6 +141,8 @@ const Slide = styled.div<{ $active: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
 
   opacity: ${({ $active }) => ($active ? 1 : 0)};
   pointer-events: ${({ $active }) => ($active ? "auto" : "none")};

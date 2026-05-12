@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
   #snap-container {
     height: 100%;
     width: 100%;    
+
+    min-width: 480px;
+    min-height: 930px;
     
     /* background: var(--bg); */
     backdrop-filter: blur(10px);
@@ -35,6 +38,8 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     -webkit-overflow-scrolling: touch;
+    text-rendering: optimizeLegibility;
+    text-shadow: 0 2px 12px ${({ theme }) => theme.shadowColor};
 
     z-index: -10;
   }

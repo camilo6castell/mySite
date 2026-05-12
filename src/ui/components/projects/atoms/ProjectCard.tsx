@@ -145,7 +145,6 @@ export default function ProjectCard({ project }: { project: Project }) {
 const Card = styled.div`
   padding: 0 5rem 0rem;
   width: 100%;
-  max-width: 1700px;
   height: 100%;
   display: flex;
   overflow: hidden;
@@ -160,7 +159,7 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     height: auto;
-    padding: 3rem 1rem 1rem;
+    padding: 2.5rem 1rem 1rem;
     gap: 1.5rem;
     overflow: hidden;
   }
@@ -172,13 +171,14 @@ const Left = styled.div`
   justify-content: center;
   gap: 1rem;
   overflow: hidden !important;
+  flex: 1;
 
   .summary {
     color: var(--muted);
   }
 
   @media (max-width: 900px) {
-    gap: 1.5rem;
+    gap: 1rem;
 
     .summary {
       font-size: 0.95rem;
@@ -204,6 +204,7 @@ const Badge = styled.span`
 
 const Highlights = styled.ul`
   padding-left: 1rem;
+  overflow: scroll;
 
   li {
     color: var(--text);
@@ -288,8 +289,11 @@ const Tech = styled.div`
 
   @media (max-width: 900px) {
     padding-top: 0.8rem;
+    max-height: 7rem;
+    overflow: scroll;
 
     span {
+      height: fit-content;
       font-size: 0.65rem;
       padding: 4px 7px;
     }
