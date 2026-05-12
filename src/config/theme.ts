@@ -31,7 +31,7 @@ export const themeConfig: ThemeConfigType = {
     darkTheme: {
       bg: "#07103a",
       text: "#e6eef8",
-      bgVideoFilter: "invert(0) brightness(0.2) saturate(4) contrast(1)",
+      bgVideoFilter: "invert(0) brightness(0.4) saturate(4) contrast(0.9)",
       muted: "#a3b4c9",
       shadowColor: "rgba(255, 255, 255, 0.4)",
       bgCard: "rgba(29, 29, 29, 0.75)",
