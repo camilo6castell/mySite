@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import { BsFillSunFill, BsMoonStarsFill } from "react-icons/bs";
-import { FaHome, FaProjectDiagram } from "react-icons/fa";
+import { FaHome, FaLayerGroup, FaFileAlt } from "react-icons/fa";
 import { IoMdContact } from "react-icons/io";
 import { useThemeContext } from "@/lib/providers";
 import { navbarContent_navbar } from "../../../config/content";
@@ -174,8 +174,11 @@ export default function Navbar() {
         <Social href="#home" rel="noreferrer">
           <FaHome /> Home
         </Social>
-        <Social href="#projects" rel="noreferrer">
-          <FaProjectDiagram /> Projects
+        <Social href="#tracks" rel="noreferrer">
+          <FaLayerGroup /> Tracks
+        </Social>
+        <Social href="/cv" rel="noreferrer">
+          <FaFileAlt /> CV
         </Social>
         <Social href="#contact" rel="noreferrer">
           <IoMdContact /> Contact

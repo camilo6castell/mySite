@@ -66,7 +66,7 @@ export const themeConfig: ThemeConfigType = {
   },
   sectionColors: {
     home: "rgb(255, 255, 255)",
-    projects: "#ffffff",
+    tracks: "#ffffff",
     contact: "#007442ff",
   },
 };

@@ -1,6 +1,5 @@
 import { cryptomessage } from "./projectsContent/cryptoMessage/cryptoMessage";
 import { gymbot } from "./projectsContent/gymbot/gymbot";
-import { libraryProvider } from "./projectsContent/libraryProvider/libraryProvider";
 import { ragAiMultiContext } from "./projectsContent/ragAiMultiContext/ragAiMultiContext";
 
 export const metadataContent_layout = {
@@ -73,5 +72,49 @@ export const contactContent_contact = {
 };
 
 export const projectsContent_projectList = {
-  projects: [cryptomessage, ragAiMultiContext, gymbot, libraryProvider],
+  projects: [cryptomessage, ragAiMultiContext, gymbot],
+};
+
+/* ============================
+   TRACKS (roles / competency groupings)
+   Each track maps competencies from the CV to the projects that prove them.
+   `relatedProjectTitles` must match a `title` in projectsContent_projectList.projects.
+============================ */
+export const tracksContent_tracks = {
+  tracks: [
+    {
+      slug: "ai-llm",
+      title: "AI & LLM",
+      competencies: [
+        "Agentic Systems",
+        "AI Engineering",
+        "Applied AI",
+        "LLM Applications",
+      ],
+      pitch:
+        "Diseño e implemento sistemas de IA aplicada de punta a punta: pipelines RAG locales, orquestación multi-modelo con LangGraph, embeddings y recuperación semántica, y arquitecturas donde el modelo de lenguaje es un componente controlado dentro de un sistema mayor — no una caja negra. Trabajo tanto con modelos locales (Ollama, Qwen) como con proveedores en la nube, priorizando privacidad, trazabilidad y control sobre el pipeline completo.",
+      relatedProjectTitles: ["MyAssistant"],
+    },
+    {
+      slug: "automation",
+      title: "Automation",
+      competencies: ["Workflow Automation", "Browser Automation"],
+      pitch:
+        "Construyo sistemas de automatización resilientes que operan sin supervisión: desde bots de navegador con recuperación ante fallos y anti-detección, hasta flujos de trabajo de bajo código en entornos empresariales. Mi enfoque prioriza la observabilidad y la tolerancia a fallos — cada automatización que diseño está pensada para fallar de forma controlada y recuperarse sola.",
+      relatedProjectTitles: ["Gymbot"],
+    },
+    {
+      slug: "fullstack",
+      title: "Fullstack Development",
+      competencies: [
+        "Backend Development",
+        "Frontend Development",
+        "Enterprise Software Development",
+        "API Integrations",
+      ],
+      pitch:
+        "Desarrollo aplicaciones completas de extremo a extremo: APIs seguras en Java/Spring Boot, SPAs en React con arquitecturas de estado bien pensadas, y una atención particular a la seguridad y la integridad de los datos. Me interesa especialmente el diseño zero-trust y la arquitectura limpia por encima de soluciones rápidas y desechables.",
+      relatedProjectTitles: ["CryptoMessage"],
+    },
+  ],
 };

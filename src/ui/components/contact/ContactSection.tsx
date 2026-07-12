@@ -82,13 +82,7 @@ const ContactSection: React.FC = () => {
                   Email me
                 </PrimaryCTA>
 
-                <SecondaryCTA
-                  href="/cv/Camilo-Andres-Castellanos-Herrera_Software-developer_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download Resume
-                </SecondaryCTA>
+                <SecondaryCTA href="/cv">View CV</SecondaryCTA>
               </CTAGroup>
             </Info>
           </Top>
