@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import styled from "styled-components";
 import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import { ephesis, montserrat, raleway } from "@/ui/styles/fonts";
@@ -36,15 +37,29 @@ export default function TrackModal({
   projects: Project[];
   onClose: () => void;
 }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKey);
-    document.body.style.overflow = "hidden";
+
+    // #snap-container (not body) is the real scrollable element, and it has
+    // a backdrop-filter which creates a new containing block for fixed-position
+    // descendants — that's why this modal must be portaled to <body> AND why
+    // we lock scroll on this element specifically, not on body.
+    const scrollEl = document.getElementById("snap-container");
+    const prevOverflow = scrollEl?.style.overflow;
+    if (scrollEl) scrollEl.style.overflow = "hidden";
+
     return () => {
       window.removeEventListener("keydown", handleKey);
-      document.body.style.overflow = "";
+      if (scrollEl) scrollEl.style.overflow = prevOverflow ?? "";
     };
   }, [onClose]);
 
@@ -52,7 +67,9 @@ export default function TrackModal({
     track.relatedProjectTitles.includes(p.title),
   );
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <Overlay
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -114,7 +131,8 @@ export default function TrackModal({
           ))}
         </ProjectList>
       </Panel>
-    </Overlay>
+    </Overlay>,
+    document.body,
   );
 }
 

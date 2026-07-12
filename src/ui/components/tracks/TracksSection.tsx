@@ -30,7 +30,7 @@ export default function TracksSection({ id }: { id: string }) {
           $delay={0}
           ref={ref}
         >
-          ¿Qué puedo resolver por ti?
+          {tracksContent_tracks.sectionHeading}
         </Heading>
 
         <Grid>

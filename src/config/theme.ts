@@ -11,6 +11,11 @@ export const themeConfig: ThemeConfigType = {
       shadowCard: "rgba(0, 0, 0, 0.18)",
       shadowCardHighContrast: "rgb(0, 0, 0)",
       rightNavDotsColor: "rgba(0, 0, 0, 0.43)",
+      paper: {
+        bg: "#eef0f5",
+        border: "rgba(15, 23, 36, 0.08)",
+        shadow: "rgba(15, 23, 42, 0.22)",
+      },
       badge: {
         bg: "rgba(28, 255, 191, 0.21);",
         text: "#017a58ff",
@@ -39,6 +44,11 @@ export const themeConfig: ThemeConfigType = {
       shadowCard: "rgba(221, 221, 221, 0.16)",
       shadowCardHighContrast: "rgba(28, 28, 28, 0.72)",
       rightNavDotsColor: "rgba(255,255,255,0.43)",
+      paper: {
+        bg: "#131f4d",
+        border: "rgba(207, 207, 207, 0.14)",
+        shadow: "rgba(0, 0, 0, 0.45)",
+      },
       badge: {
         bg: "rgba(6, 95, 70, 0.33)",
         text: "#57d4b0ff",
@@ -90,6 +100,12 @@ export interface ProjectCard {
   linkHover: string;
 }
 
+export interface Paper {
+  bg: string;
+  border: string;
+  shadow: string;
+}
+
 export interface ThemeColors {
   bg: string;
   bgVideoFilter: string;
@@ -104,6 +120,7 @@ export interface ThemeColors {
   heroImage: HeroImage;
   projectCard: ProjectCard;
   rightNavDotsColor: string;
+  paper: Paper;
 }
 
 export interface ThemeConfigType {

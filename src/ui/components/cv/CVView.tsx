@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -8,6 +9,14 @@ import { FaDownload, FaArrowLeft } from "react-icons/fa";
 import { ephesis, raleway, montserrat } from "@/ui/styles/fonts";
 
 export default function CVView({ markdown }: { markdown: string }) {
+  useEffect(() => {
+    // #snap-container is shared across routes (the root layout persists),
+    // so it can retain whatever scrollTop it had on '/' — reset it here or
+    // this view can render mid-scroll and look like it "opened inside Home".
+    const scrollEl = document.getElementById("snap-container");
+    if (scrollEl) scrollEl.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, []);
+
   return (
     <Wrapper className="content-surface">
       <TopBar>
@@ -19,9 +28,11 @@ export default function CVView({ markdown }: { markdown: string }) {
         </DownloadLink>
       </TopBar>
 
-      <MarkdownBox>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
-      </MarkdownBox>
+      <Sheet>
+        <MarkdownBox>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+        </MarkdownBox>
+      </Sheet>
     </Wrapper>
   );
 }
@@ -73,6 +84,21 @@ const DownloadLink = styled.a`
 
   &:hover {
     filter: brightness(1.05);
+  }
+`;
+
+const Sheet = styled.div`
+  background: ${({ theme }) => theme.paper.bg};
+  border: 1px solid ${({ theme }) => theme.paper.border};
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px ${({ theme }) => theme.paper.shadow},
+    0 18px 40px ${({ theme }) => theme.paper.shadow};
+  padding: 3rem 3rem 3.5rem;
+
+  @media (max-width: 900px) {
+    padding: 2rem 1.5rem 2.5rem;
+    border-radius: 10px;
   }
 `;
 

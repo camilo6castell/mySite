@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { montserrat, raleway } from "@/ui/styles/fonts";
+import { FaArrowRight } from "react-icons/fa";
 
 type Track = {
   slug: string;
@@ -28,74 +29,105 @@ export default function TrackCard({
       }}
       aria-label={`Ver detalle de ${track.title}`}
     >
+      <Accent />
       <Title>{track.title}</Title>
-      <List>
+
+      <Chips>
         {track.competencies.map((c) => (
-          <li key={c}>{c}</li>
+          <Chip key={c}>{c}</Chip>
         ))}
-      </List>
-      <Cta>Ver detalle →</Cta>
+      </Chips>
+
+      <Cta>
+        Ver detalle <FaArrowRight />
+      </Cta>
     </Card>
   );
 }
 
 const Card = styled.div`
+  position: relative;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  padding: 1.6rem 1.5rem;
-  border-radius: 16px;
+  gap: 1.1rem;
+  padding: 1.8rem 1.6rem 1.5rem;
+  border-radius: 18px;
   background: ${({ theme }) => theme.bgCard};
   border: 1px solid ${({ theme }) => theme.borderCard};
   box-shadow: 0 4px 16px ${({ theme }) => theme.shadowCard};
+  overflow: hidden;
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   outline-offset: 4px;
 
   &:hover,
   &:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px ${({ theme }) => theme.projectCard.hoverShadow};
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px ${({ theme }) => theme.projectCard.hoverShadow};
+    border-color: ${({ theme }) => theme.projectCard.link};
   }
+
+  &:hover svg,
+  &:focus-visible svg {
+    transform: translateX(3px);
+  }
+`;
+
+const Accent = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    ${({ theme }) => theme.projectCard.link},
+    ${({ theme }) => theme.badge.text}
+  );
+  opacity: 0.85;
 `;
 
 const Title = styled.h3`
   font-family: ${raleway.style.fontFamily}, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
   margin: 0;
 `;
 
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
+const Chips = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const Chip = styled.span`
   font-family: ${montserrat.style.fontFamily}, sans-serif;
-  font-size: 0.95rem;
-  color: ${({ theme }) => theme.muted};
-
-  li {
-    position: relative;
-    padding-left: 1rem;
-  }
-
-  li::before {
-    content: "–";
-    position: absolute;
-    left: 0;
-    opacity: 0.6;
-  }
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: ${({ theme }) => theme.badge.bg};
+  color: ${({ theme }) => theme.badge.text};
+  border: ${({ theme }) => theme.badge.border};
+  white-space: nowrap;
 `;
 
 const Cta = styled.span`
   margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ${montserrat.style.fontFamily}, sans-serif;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   color: ${({ theme }) => theme.projectCard.link};
+
+  svg {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+  }
 `;

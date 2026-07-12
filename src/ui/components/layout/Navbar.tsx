@@ -1,6 +1,7 @@
 "use client";
 import { memo } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styled from "styled-components";
 import { BsFillSunFill, BsMoonStarsFill } from "react-icons/bs";
@@ -72,7 +73,7 @@ const Layer = styled.div<{ $isDarkLayer: boolean; $isDark: boolean }>`
   }
 `;
 
-const Social = styled(Link)`
+const Social = styled(Link)<{ $active?: boolean }>`
   color: var(--text);
   font-weight: 700;
   display: flex;
@@ -80,9 +81,14 @@ const Social = styled(Link)`
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+  opacity: ${({ $active }) => ($active ? 1 : 0.7)};
 
   svg {
     fill: var(--text);
+  }
+
+  &:hover {
+    opacity: 1;
   }
 `;
 
@@ -132,6 +138,7 @@ export default function Navbar() {
   const { ref, inView } = useInView(0.3);
   const { theme, toggleTheme } = useThemeContext();
   const isDark = theme === "dark";
+  const pathname = usePathname();
 
   return (
     <Bar
@@ -171,16 +178,16 @@ export default function Navbar() {
       </Left>
 
       <Center>
-        <Social href="#home" rel="noreferrer">
+        <Social href="#home" rel="noreferrer" $active={pathname === "/"}>
           <FaHome /> Home
         </Social>
-        <Social href="#tracks" rel="noreferrer">
-          <FaLayerGroup /> Tracks
+        <Social href="#tracks" rel="noreferrer" $active={pathname === "/"}>
+          <FaLayerGroup /> Skills
         </Social>
-        <Social href="/cv" rel="noreferrer">
+        <Social href="/cv" rel="noreferrer" $active={pathname === "/cv"}>
           <FaFileAlt /> CV
         </Social>
-        <Social href="#contact" rel="noreferrer">
+        <Social href="#contact" rel="noreferrer" $active={pathname === "/"}>
           <IoMdContact /> Contact
         </Social>
       </Center>

@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import styled, { css } from 'styled-components'
 import { pulse } from '@/ui/styles/keyframes'
 import { themeConfig } from '@/config/theme'
@@ -46,9 +47,13 @@ const Dot = styled.button<{ $active?: boolean }>`
 const SECTIONS = Object.keys(themeConfig.sectionColors)
 
 export default function RightNav() {
+  const pathname = usePathname()
+  const isScrollRoute = pathname === '/'
   const [active, setActive] = useState<string>(SECTIONS[0])
 
   useEffect(() => {
+    if (!isScrollRoute) return
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(e => {
@@ -78,12 +83,18 @@ export default function RightNav() {
     })
 
     return () => observer.disconnect()
-  }, [])
+  }, [isScrollRoute])
 
   const handleClick = (id: string) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
+
+  // The dots represent scroll-snap sections of the single-page flow ('/').
+  // On other routes (like /cv, a separate full view) they'd show stale
+  // state from whatever section was active before navigating away, which
+  // reads as "I'm still on Home" — so we just don't render them there.
+  if (!isScrollRoute) return null
 
   return (
     <Container aria-hidden>
