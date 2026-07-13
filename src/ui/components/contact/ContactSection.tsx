@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import styled from "styled-components";
-import { contactContent_contact } from "@/config/content";
-import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { contactContent_contact, heroContent_hero } from "@/config/content";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaWhatsapp,
+  FaEnvelope,
+  FaArrowRight,
+} from "react-icons/fa";
 import { FadeBox } from "@/ui/styles/keyframes";
 import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";
-import SocialButton from "./atoms/SocialButton";
-import { ContactSocial } from "@/types/content";
-import { heroContent_hero } from "@/config/content";
 
 /* ============================
    ICONS
@@ -27,8 +29,6 @@ const ICONS: Record<string, React.ReactNode> = {
 
 const ContactSection: React.FC = () => {
   const { ref, inView } = useInView(0.3);
-
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <Container id="contact">
@@ -72,72 +72,33 @@ const ContactSection: React.FC = () => {
               <Location>{contactContent_contact.location}</Location>
 
               <Bio>
-                Backend and full-stack software engineer focused on scalable
-                systems, secure architectures, modern web applications, and
-                AI-powered solutions.
+                Backend and automation engineer driven by a simple purpose:
+                eliminate friction — through solid backend engineering,
+                intelligent automation, and large language models.
               </Bio>
 
-              <CTAGroup>
-                <PrimaryCTA href={`mailto:${contactContent_contact.email}`}>
-                  Email me
-                </PrimaryCTA>
+              <ButtonRow>
+                <ContactButton href={`mailto:${contactContent_contact.email}`}>
+                  <FaEnvelope /> Email me
+                </ContactButton>
+                {contactContent_contact.socials.map((s) => (
+                  <ContactButton
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {ICONS[s.label]} {s.label}
+                  </ContactButton>
+                ))}
+              </ButtonRow>
 
-                <SecondaryCTA href="/cv">View CV</SecondaryCTA>
-              </CTAGroup>
+              <CVLink href="/cv">
+                View full CV <FaArrowRight />
+              </CVLink>
             </Info>
           </Top>
         </Card>
-
-        <SocialsWrapper>
-          <FadeBox
-            $inView={inView}
-            $direction="up"
-            $duration={themeConfig.animation.general_duration}
-            $delay={0.6}
-            ref={ref}
-          >
-            <SubTitle>Find me online</SubTitle>
-          </FadeBox>
-
-          <Grid>
-            {contactContent_contact.socials.map((s, index) => (
-              <FadeBox
-                key={s.label}
-                $inView={inView}
-                $direction="up"
-                $duration={themeConfig.animation.general_duration}
-                $delay={0.8 + index * 0.1}
-                ref={ref}
-              >
-                <SocialCard
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open ${s.label}`}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <SocialIconWrapper>
-                    <SocialButton
-                      data={s as ContactSocial}
-                      isSocialHovered={hoveredIndex === index}
-                    >
-                      {ICONS[s.label]}
-                    </SocialButton>
-                  </SocialIconWrapper>
-
-                  <SocialInfo>
-                    <SocialLabel>{s.label}</SocialLabel>
-
-                    <SocialSub>
-                      {new URL(s.href).hostname.replace("www.", "")}
-                    </SocialSub>
-                  </SocialInfo>
-                </SocialCard>
-              </FadeBox>
-            ))}
-          </Grid>
-        </SocialsWrapper>
       </Wrapper>
     </Container>
   );
@@ -340,128 +301,57 @@ const Bio = styled.p`
   }
 `;
 
-const CTAGroup = styled.div`
+const ButtonRow = styled.div`
   display: flex;
-  gap: 0.8rem;
+  gap: 0.7rem;
   margin-top: 1.8rem;
   flex-wrap: wrap;
-  @media (max-width: 480px) {
-    width: 100%;
-  }
 `;
 
-const PrimaryCTA = styled.a`
+const ContactButton = styled.a`
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.3rem;
+  gap: 0.55rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 999px;
-  background: var(--text);
-  color: var(--bg);
-  font-weight: 700;
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    opacity: 0.92;
-  }
-
-  @media (max-width: 480px) {
-    flex: 1;
-  }
-`;
-
-const SecondaryCTA = styled.a`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.3rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text);
-  transition:
-    border 0.25s ease,
-    transform 0.25s ease,
-    background 0.25s ease;
-
-  &:hover {
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: rgba(255, 255, 255, 0.03);
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 480px) {
-    flex: 1;
-  }
-`;
-
-const SocialsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const SubTitle = styled.h4`
-  margin: 0;
-  color: var(--text);
-  font-size: 0.95rem;
-  opacity: 0.9;
-  font-weight: 700;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const SocialCard = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 18px;
   background: ${({ theme }) => theme.bgCard};
-  border: 1px solid rgba(255, 255, 255, 0.05);
-
+  border: 1px solid ${({ theme }) => theme.borderCard};
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.92rem;
   transition:
-    transform 0.25s ease,
-    border 0.25s ease,
-    background 0.25s ease;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.projectCard.link};
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  @media (max-width: 480px) {
+    flex: 1 1 calc(50% - 0.35rem);
+    justify-content: center;
   }
 `;
 
-const SocialIconWrapper = styled.div`
-  flex-shrink: 0;
-`;
+const CVLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.3rem;
+  color: ${({ theme }) => theme.projectCard.link};
+  font-weight: 600;
+  font-size: 0.9rem;
+  width: fit-content;
 
-const SocialInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-`;
+  svg {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+  }
 
-const SocialLabel = styled.span`
-  color: var(--text);
-  font-weight: 700;
-  font-size: 0.98rem;
-`;
-
-const SocialSub = styled.span`
-  color: var(--muted);
-  font-size: 0.84rem;
-  margin-top: 0.2rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  &:hover svg {
+    transform: translateX(3px);
+  }
 `;

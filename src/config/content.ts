@@ -36,19 +36,22 @@ export const navbarContent_navbar = {
 export const heroContent_hero = {
   badge: "Open to opportunities",
   Title: "Camilo Castellanos",
-  role: "Software developer",
-  DescOne:
-    "Happy since childhood. Motivated by technology and taking things apart and understanding them.",
+  roles: [
+    "Software Automation Engineer",
+    "AI Developer",
+    "Backend Engineer",
+  ],
+  DescOne: "Automating the routine, so humans can shine.",
   DescTwo:
-    "I’m a software developer driven by a deep curiosity for how systems work and how they can be improved. I build full-stack applications using Java, Python, and JavaScript, with a strong focus on backend development, automation, and practical problem solving.\nI enjoy designing solutions that eliminate repetitive work and make processes more efficient — from workflow automation and browser bots to AI-assisted systems like RAG pipelines.",
+    "I'm a backend and automation engineer driven by a simple purpose: eliminate friction. I enjoy digging into complex workflows and finding creative ways to reduce manual effort, improve reliability, and streamline business processes. My sweet spot sits at the intersection of solid backend engineering, intelligent automation, and large language models.",
   DescThree:
-    "For me, programming is not just about writing code, but about understanding problems deeply and creating tools that have real impact.\nI’m particularly interested in scalable backend systems, clean architecture, and open-source technologies. I’m constantly learning, experimenting, and building — always looking for better ways to solve real-world problems through software.",
+    "With a background in Psychology that evolved naturally into software development, I see automation not just as a technical fix, but a human one — my goal isn't to replace judgment, it's to enhance it. I'm currently looking for new challenges where I can combine backend engineering, automation, and AI to build products or optimize internal systems with real, measurable impact.",
   heroImage: "/images/home-photo.jpg",
 };
 
 export const contactContent_contact = {
   name: "Camilo Castellanos",
-  role: "Software, Web & Automation Developer",
+  role: "Software Automation Engineer · AI & Backend Developer",
   email: "kml107@hotmail.com",
   location: "Uelsen, Germany & Bogotá, Colombia",
   avatar: "/images/contact-photo.jpg",
@@ -81,7 +84,6 @@ export const projectsContent_projectList = {
    `relatedProjectTitles` must match a `title` in projectsContent_projectList.projects.
 ============================ */
 export const tracksContent_tracks = {
-  sectionLabel: "Skills",
   sectionHeading: "¿Qué puedo resolver por ti?",
   tracks: [
     {

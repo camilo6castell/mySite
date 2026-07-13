@@ -18,7 +18,7 @@ const Bar = styled(FadeBox)`
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 60;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +37,10 @@ const Center = styled.div`
   justify-content: center;
   gap: 3rem;
   @media (max-width: 900px) {
-    gap: 1.5rem;
+    gap: 1.4rem;
+  }
+  @media (max-width: 560px) {
+    gap: 1.1rem;
   }
 `;
 const Right = styled.div`
@@ -45,6 +48,23 @@ const Right = styled.div`
   gap: 10px;
   align-items: center;
   flex-wrap: wrap;
+`;
+
+const Divider = styled.span`
+  width: 1px;
+  height: 1.4rem;
+  background: ${({ theme }) => theme.borderCard};
+  opacity: 0.8;
+
+  @media (max-width: 560px) {
+    height: 1.1rem;
+  }
+`;
+
+const NavLabel = styled.span`
+  @media (max-width: 560px) {
+    display: none;
+  }
 `;
 
 const IconContainer = styled.a`
@@ -90,6 +110,13 @@ const Social = styled(Link)<{ $active?: boolean }>`
   &:hover {
     opacity: 1;
   }
+`;
+
+const CVSocial = styled(Social)`
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid ${({ theme }) => theme.borderCard};
+  background: ${({ theme }) => theme.bgCard};
 `;
 
 const Toggle = styled.button`
@@ -139,6 +166,7 @@ export default function Navbar() {
   const { theme, toggleTheme } = useThemeContext();
   const isDark = theme === "dark";
   const pathname = usePathname();
+  const isCv = pathname === "/cv";
 
   return (
     <Bar
@@ -172,24 +200,43 @@ export default function Navbar() {
               style={{ objectFit: "cover" }}
             />
           }
-          href="#home"
+          href="/"
           iconSize={"2.6rem"}
         />
       </Left>
 
       <Center>
-        <Social href="#home" rel="noreferrer" $active={pathname === "/"}>
-          <FaHome /> Home
-        </Social>
-        <Social href="#tracks" rel="noreferrer" $active={pathname === "/"}>
-          <FaLayerGroup /> Skills
-        </Social>
-        <Social href="/cv" rel="noreferrer" $active={pathname === "/cv"}>
-          <FaFileAlt /> CV
-        </Social>
-        <Social href="#contact" rel="noreferrer" $active={pathname === "/"}>
-          <IoMdContact /> Contact
-        </Social>
+        {/* Home/Skills/Contact are scroll anchors of '/' — on /cv they don't
+            do anything and just add noise, so we only show them there. */}
+        {!isCv && (
+          <>
+            <Social href="#home" rel="noreferrer" $active aria-label="Home">
+              <FaHome /> <NavLabel>Home</NavLabel>
+            </Social>
+            <Social href="#tracks" rel="noreferrer" $active aria-label="Skills">
+              <FaLayerGroup /> <NavLabel>Skills</NavLabel>
+            </Social>
+            <Social
+              href="#contact"
+              rel="noreferrer"
+              $active
+              aria-label="Contact"
+            >
+              <IoMdContact /> <NavLabel>Contact</NavLabel>
+            </Social>
+
+            <Divider />
+
+            <CVSocial
+              href="/cv"
+              rel="noreferrer"
+              $active={isCv}
+              aria-label="CV"
+            >
+              <FaFileAlt /> <NavLabel>CV</NavLabel>
+            </CVSocial>
+          </>
+        )}
       </Center>
 
       <Right>

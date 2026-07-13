@@ -34,18 +34,6 @@ const HeroBox = styled(GenericContainer)<{
   }
 `;
 
-const Badge = styled(FadeBox)`
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: ${({ theme }) => theme.badge.bg};
-  color: ${({ theme }) => theme.badge.text};
-  border: ${({ theme }) => theme.badge.border};
-  width: fit-content;
-`;
-
 const Title = styled(FadeBox)`
   font-size: 4.1rem;
   font-family: ${ephesis.style.fontFamily}, serif;
@@ -61,18 +49,29 @@ const Title = styled(FadeBox)`
   }
 `;
 
-const Role = styled(FadeBox)`
-  font-size: 1.6rem;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: 0.7rem;
-  word-spacing: 0.25rem;
-  color: var(--text);
+const Roles = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
 
   @media (max-width: 900px) {
-    font-size: 1.2rem;
-    letter-spacing: 0.5rem;
     width: 100%;
+    align-items: center;
+  }
+`;
+
+const RoleLine = styled(FadeBox)`
+  font-family: ${raleway.style.fontFamily}, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.15rem;
+  color: ${({ theme }) => theme.muted};
+
+  @media (max-width: 900px) {
+    font-size: 0.92rem;
+    letter-spacing: 0.1rem;
     text-align: center;
   }
 `;
@@ -108,16 +107,6 @@ export default function HeroSection({ id }: { id: string }) {
   return (
     <Section id={id}>
       <Inner className="content-surface">
-        {/* <Badge
-          $inView={inView}
-          $direction="down"
-          $duration={themeConfig.animation.general_duration + 1}
-          $delay={1}
-          ref={ref}
-        >
-          {heroContent_hero.badge}
-        </Badge> */}
-
         <HeroBox $portion={2}>
           <HeroBox $portion={1} $isColumn={true} style={{ gap: "0.5rem" }}>
             <Title
@@ -129,15 +118,21 @@ export default function HeroSection({ id }: { id: string }) {
             >
               {heroContent_hero.Title}
             </Title>
-            <Role
-              $inView={inView}
-              $direction="fade"
-              $duration={themeConfig.animation.general_duration + 1}
-              $delay={0.5}
-              ref={ref}
-            >
-              {heroContent_hero.role}
-            </Role>
+
+            <Roles>
+              {heroContent_hero.roles.map((role, i) => (
+                <RoleLine
+                  key={role}
+                  $inView={inView}
+                  $direction="fade"
+                  $duration={themeConfig.animation.general_duration + 1}
+                  $delay={0.4 + i * 0.15}
+                  ref={ref}
+                >
+                  {role}
+                </RoleLine>
+              ))}
+            </Roles>
           </HeroBox>
 
           <HeroBox $portion={1} $isColumn={false}>

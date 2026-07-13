@@ -14,7 +14,8 @@ export default function CVView({ markdown }: { markdown: string }) {
     // so it can retain whatever scrollTop it had on '/' — reset it here or
     // this view can render mid-scroll and look like it "opened inside Home".
     const scrollEl = document.getElementById("snap-container");
-    if (scrollEl) scrollEl.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    if (scrollEl)
+      scrollEl.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
 
   return (
@@ -38,9 +39,9 @@ export default function CVView({ markdown }: { markdown: string }) {
 }
 
 const Wrapper = styled.div`
-  max-width: 820px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 6rem 1.5rem 4rem;
+  padding: 2rem 1.5rem 4rem;
 
   @media (max-width: 900px) {
     padding: 5.5rem 1rem 3rem;
