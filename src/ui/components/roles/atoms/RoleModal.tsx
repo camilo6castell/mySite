@@ -28,7 +28,7 @@ type Track = {
   relatedProjectTitles: string[];
 };
 
-export default function TrackModal({
+export default function RoleModal({
   track,
   projects,
   onClose,
@@ -95,7 +95,7 @@ export default function TrackModal({
 
         <Divider />
 
-        <ProjectsHeading>Proyectos relacionados</ProjectsHeading>
+        <ProjectsHeading>Related projects</ProjectsHeading>
 
         <ProjectList>
           {relatedProjects.map((project) => (
@@ -178,7 +178,7 @@ const CloseButton = styled.button`
 `;
 
 const Title = styled.h2`
-  font-family: ${ephesis.style.fontFamily}, serif;
+  font-family: ${raleway.style.fontFamily}, serif;
   font-size: 2.6rem;
   color: var(--text);
   margin: 0 0 0.8rem;
@@ -197,9 +197,9 @@ const Chip = styled.span`
   font-weight: 600;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: ${({ theme }) => theme.badge.bg};
-  color: ${({ theme }) => theme.badge.text};
-  border: ${({ theme }) => theme.badge.border};
+  background: var(--badge-bullets-bg);
+  color: var(--badge-bullets-text);
+  border: var(--badge-bullets-border);
 `;
 
 const Pitch = styled.p`

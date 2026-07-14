@@ -12,6 +12,7 @@ import {
 import { FadeBox } from "@/ui/styles/keyframes";
 import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";
+import Section from "../layout/Section";
 
 /* ============================
    ICONS
@@ -27,11 +28,11 @@ const ICONS: Record<string, React.ReactNode> = {
    COMPONENT
 ============================ */
 
-const ContactSection: React.FC = () => {
+const ContactSection = ({ id }: { id: string }) => {
   const { ref, inView } = useInView(0.3);
 
   return (
-    <Container id="contact">
+    <Section id={id}>
       <FadeBox
         $inView={inView}
         $direction="right"
@@ -93,14 +94,14 @@ const ContactSection: React.FC = () => {
                 ))}
               </ButtonRow>
 
-              <CVLink href="/cv">
+              {/* <CVLink href="/cv">
                 View full CV <FaArrowRight />
-              </CVLink>
+              </CVLink> */}
             </Info>
           </Top>
         </Card>
       </Wrapper>
-    </Container>
+    </Section>
   );
 };
 
@@ -110,21 +111,21 @@ export default ContactSection;
    STYLES
 ============================ */
 
-const Container = styled.section`
-  width: fit-content;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 7rem 1.5rem 5rem;
+// const Container = styled.section`
+//   width: fit-content;
+//   max-width: 1300px;
+//   margin: 0 auto;
+//   padding: 7rem 1.5rem 5rem;
 
-  @media (max-width: 900px) {
-    padding: 5rem 1rem 4rem;
-    justify-content: center;
-  }
+//   @media (max-width: 900px) {
+//     padding: 5rem 1rem 4rem;
+//     justify-content: center;
+//   }
 
-  @media (max-width: 480px) {
-    padding: 4rem 0.9rem 3rem;
-  }
-`;
+//   @media (max-width: 480px) {
+//     padding: 4rem 0.9rem 3rem;
+//   }
+// `;
 
 const Wrapper = styled.div`
   display: flex;
@@ -134,8 +135,8 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   color: var(--text);
-  margin-bottom: 1.5rem;
-  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 3vw, 2.5rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
 
@@ -253,8 +254,8 @@ const Info = styled.div`
 `;
 
 const Name = styled.h3`
-  margin: 0;
-  font-size: clamp(2rem, 7vw, 4rem);
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   line-height: 0.95;
   font-weight: 800;
   letter-spacing: -0.06em;

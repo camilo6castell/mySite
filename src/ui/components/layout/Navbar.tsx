@@ -69,6 +69,10 @@ const NavLabel = styled.span`
   }
 `;
 
+const NavLabelCV = styled(NavLabel)`
+  color: var(--badge-suggestion-text);
+`;
+
 const IconContainer = styled.a`
   display: flex;
   position: relative;
@@ -114,11 +118,14 @@ const Social = styled(Link)<{ $active?: boolean }>`
   }
 `;
 
-const CVSocial = styled(Social)`
+const CVLink = styled(Social)`
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid var(--border-card);
-  background: var(--bg-card);
+  border: 1px solid var(--badge-suggestion-border);
+  background: var(--badge-suggestion-bg);
+  svg {
+    fill: var(--badge-suggestion-text);
+  }
 `;
 
 const Toggle = styled.button`
@@ -217,7 +224,7 @@ export default function Navbar() {
         <Social href="#home" rel="noreferrer" $active aria-label="Home">
           <FaHome /> <NavLabel>Home</NavLabel>
         </Social>
-        <Social href="#tracks" rel="noreferrer" $active aria-label="Roles">
+        <Social href="#roles" rel="noreferrer" $active aria-label="Roles">
           <FaLayerGroup /> <NavLabel>Roles</NavLabel>
         </Social>
         <Social href="#contact" rel="noreferrer" $active aria-label="Contact">
@@ -226,9 +233,9 @@ export default function Navbar() {
 
         <Divider />
 
-        <CVSocial href="/cv" rel="noreferrer" $active={isCv} aria-label="CV">
-          <FaFileAlt /> <NavLabel>CV</NavLabel>
-        </CVSocial>
+        <CVLink href="/cv" rel="noreferrer" $active={isCv} aria-label="CV">
+          <FaFileAlt /> <NavLabelCV>CV</NavLabelCV>
+        </CVLink>
       </Center>
 
       <Right>

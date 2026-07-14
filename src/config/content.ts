@@ -45,7 +45,7 @@ export const heroContent_hero = {
   DescTwo:
     "I'm a backend and automation engineer driven by a simple purpose: eliminate friction. I enjoy digging into complex workflows and finding creative ways to reduce manual effort, improve reliability, and streamline business processes. My sweet spot sits at the intersection of solid backend engineering, intelligent automation, and large language models.",
   DescThree:
-    "With a background in Psychology that evolved naturally into software development, I see automation not just as a technical fix, but a human one — my goal isn't to replace judgment, it's to enhance it. I'm currently looking for new challenges where I can combine backend engineering, automation, and AI to build products or optimize internal systems with real, measurable impact.",
+    "With a background in Psychology that evolved naturally into software development, I see automation not just as a technical fix, but a human one, my goal isn't to replace judgment, it's to enhance it. I'm currently looking for new challenges where I can combine backend engineering, automation, and AI to build products or optimize internal systems with real, measurable impact.",
   heroImage: "/images/home-photo.jpg",
 };
 
@@ -84,7 +84,7 @@ export const projectsContent_projectList = {
    `relatedProjectTitles` must match a `title` in projectsContent_projectList.projects.
 ============================ */
 export const tracksContent_tracks = {
-  sectionHeading: "¿Qué puedo resolver por ti?",
+  sectionHeading: "What I can do for you",
   tracks: [
     {
       slug: "ai-llm",
@@ -98,7 +98,7 @@ export const tracksContent_tracks = {
         "Prompt Engineering",
       ],
       pitch:
-        "Diseño e implemento sistemas de IA aplicada de punta a punta: pipelines RAG locales, orquestación multi-modelo con LangGraph, embeddings y recuperación semántica, y arquitecturas donde el modelo de lenguaje es un componente controlado dentro de un sistema mayor — no una caja negra. Trabajo tanto con modelos locales (Ollama, Qwen) como con proveedores en la nube, priorizando privacidad, trazabilidad y control sobre el pipeline completo.",
+        "I design and implement end-to-end applied AI systems: local RAG pipelines, multi-model orchestration with LangGraph, embeddings and semantic retrieval, and architectures where the language model is a controlled component within a larger system — not a black box. I work with both local models (Ollama, Qwen) and cloud providers, prioritizing privacy, traceability, and control over the entire pipeline.",
       relatedProjectTitles: ["MyAssistant"],
     },
     {
@@ -111,7 +111,7 @@ export const tracksContent_tracks = {
         "Fault-Tolerant Systems",
       ],
       pitch:
-        "Construyo sistemas de automatización resilientes que operan sin supervisión: desde bots de navegador con recuperación ante fallos y anti-detección, hasta flujos de trabajo de bajo código en entornos empresariales (Power Automate, Power Apps). Mi enfoque prioriza la observabilidad y la tolerancia a fallos — cada automatización que diseño está pensada para fallar de forma controlada y recuperarse sola.",
+        "I build resilient automation systems that operate unattended: from failover and anti-detection browser bots to low-code workflows in enterprise environments (Power Automate, Power Apps). My approach prioritizes observability and fault tolerance—every automation I design is intended to fail in a controlled manner and recover on its own.",
       relatedProjectTitles: ["Gymbot"],
     },
     {
@@ -125,7 +125,7 @@ export const tracksContent_tracks = {
         "Software Architecture",
       ],
       pitch:
-        "Desarrollo aplicaciones completas de extremo a extremo: APIs seguras en Java/Spring Boot, SPAs en React con arquitecturas de estado bien pensadas, y una atención particular a la seguridad y la integridad de los datos. Me interesa especialmente el diseño zero-trust y la arquitectura limpia (Hexagonal, DDD) por encima de soluciones rápidas y desechables.",
+        "I develop complete end-to-end applications: secure APIs in Java/Spring Boot, SPAs in React with well-thought-out state architectures, and a particular focus on security and data integrity. I am especially interested in zero-trust design and clean architecture (Hexagonal, DDD) over quick and disposable solutions.",
       relatedProjectTitles: ["CryptoMessage"],
     },
   ],

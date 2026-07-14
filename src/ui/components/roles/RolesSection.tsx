@@ -4,8 +4,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import Section from "../layout/Section";
 import { GenericContainer } from "../layout/GenericContainer";
-import TrackCard from "./atoms/RoleCard";
-import TrackModal from "./atoms/RoleModal";
+import RoleCard from "./atoms/RoleCard";
+import RoleModal from "./atoms/RoleModal";
 import {
   tracksContent_tracks,
   projectsContent_projectList,
@@ -45,14 +45,14 @@ export default function TracksSection({ id }: { id: string }) {
               $duration={themeConfig.animation.general_duration}
               $delay={0.2 + i * 0.15}
             >
-              <TrackCard track={track} onOpen={() => setOpenSlug(track.slug)} />
+              <RoleCard track={track} onOpen={() => setOpenSlug(track.slug)} />
             </FadeBox>
           ))}
         </Grid>
       </Inner>
 
       {openTrack && (
-        <TrackModal
+        <RoleModal
           track={openTrack}
           projects={projects}
           onClose={() => setOpenSlug(null)}

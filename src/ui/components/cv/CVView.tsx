@@ -23,11 +23,11 @@ export default function CVView({ markdown }: { markdown: string }) {
     <Wrapper className="content-surface">
       <TopBar>
         <BackLink href="/">
-          <FaArrowLeft /> Volver al portafolio
+          <FaArrowLeft /> Back to portfolio
         </BackLink>
-        <DownloadLink href="/cv/camilo-castellanos-cv.pdf" download>
+        {/* <DownloadLink href="/cv/camilo-castellanos-cv.pdf" download>
           <FaDownload /> Descargar PDF
-        </DownloadLink>
+        </DownloadLink> */}
       </TopBar>
 
       <Sheet>
@@ -83,9 +83,9 @@ const DownloadLink = styled.a`
   ${linkBase}
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: ${({ theme }) => theme.badge.bg};
-  color: ${({ theme }) => theme.badge.text};
-  border: ${({ theme }) => theme.badge.border};
+  background: var(--badge-suggestion-bg);
+  color: var(--badge-suggestion-text);
+  border: var(--badge-suggestion-border);
 
   &:hover {
     filter: brightness(1.05);
@@ -96,9 +96,10 @@ const Sheet = styled.div`
   background: ${({ theme }) => theme.paper.bg};
   border: 1px solid ${({ theme }) => theme.paper.border};
   border-radius: 14px;
-  box-shadow:
+  box-shadow: 0 50px 100px black;
+  /* box-shadow:
     0 1px 2px ${({ theme }) => theme.paper.shadow},
-    0 18px 40px ${({ theme }) => theme.paper.shadow};
+    0 18px 40px ${({ theme }) => theme.paper.shadow}; */
   padding: 3rem 3rem 3.5rem;
 
   @media (max-width: 900px) {
@@ -114,7 +115,7 @@ const MarkdownBox = styled.div`
 
   h1 {
     font-family: ${montserrat.style.fontFamily}, serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 0.3rem;
   }
 

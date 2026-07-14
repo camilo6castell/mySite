@@ -23,9 +23,19 @@ const GlobalStyle = createGlobalStyle`
     --border-card: ${({ theme }) => theme.borderCard};
     --shadow-card: ${({ theme }) => theme.shadowCard};
     --shadow-card-high-contrast: ${({ theme }) => theme.shadowCardHighContrast};
-    --badge-bg: ${({ theme }) => theme.badge.bg};
-    --badge-text: ${({ theme }) => theme.badge.text};
-    --badge-border: ${({ theme }) => theme.badge.border};
+
+    --badge-suggestion-bg: ${({ theme }) => theme.badges.suggestion.bg};
+    --badge-suggestion-text: ${({ theme }) => theme.badges.suggestion.text};
+    --badge-suggestion-border: ${({ theme }) => theme.badges.suggestion.border};
+
+    --badge-available-bg: ${({ theme }) => theme.badges.available.bg};
+    --badge-available-text: ${({ theme }) => theme.badges.available.text};
+    --badge-available-border: ${({ theme }) => theme.badges.available.border};
+
+    --badge-bullets-bg: ${({ theme }) => theme.badges.bullets.bg};
+    --badge-bullets-text: ${({ theme }) => theme.badges.bullets.text};
+    --badge-bullets-border: ${({ theme }) => theme.badges.bullets.border};
+
   }
 
   #snap-container {

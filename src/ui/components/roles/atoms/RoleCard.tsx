@@ -12,7 +12,7 @@ type Track = {
   relatedProjectTitles: string[];
 };
 
-export default function TrackCard({
+export default function RoleCard({
   track,
   onOpen,
 }: {
@@ -27,7 +27,7 @@ export default function TrackCard({
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") onOpen();
       }}
-      aria-label={`Ver detalle de ${track.title}`}
+      aria-label={`See details of ${track.title}`}
     >
       <Accent />
       <Title>{track.title}</Title>
@@ -39,7 +39,7 @@ export default function TrackCard({
       </Chips>
 
       <Cta>
-        Ver detalle <FaArrowRight />
+        See details <FaArrowRight />
       </Cta>
     </Card>
   );
@@ -85,7 +85,7 @@ const Accent = styled.span`
   background: linear-gradient(
     90deg,
     ${({ theme }) => theme.projectCard.link},
-    ${({ theme }) => theme.badge.text}
+    var(--badge-bullets-text)
   );
   opacity: 0.85;
 `;
@@ -110,9 +110,9 @@ const Chip = styled.span`
   font-weight: 600;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
-  background: ${({ theme }) => theme.badge.bg};
-  color: ${({ theme }) => theme.badge.text};
-  border: ${({ theme }) => theme.badge.border};
+  background: var(--badge-bullets-bg);
+  color: var(--badge-bullets-text);
+  border: var(--badge-bullets-border);
   white-space: nowrap;
 `;
 

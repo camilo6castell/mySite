@@ -6,20 +6,32 @@ export const themeConfig: ThemeConfigType = {
       text: "#07103a",
       muted: "#444b56",
       shadowColor: "rgba(0, 0, 0, 0.3)",
-      bgCard: "rgba(218, 218, 218, 0.82)",
-      borderCard: "rgba(15, 23, 36, 0.06)",
-      shadowCard: "rgba(0, 0, 0, 0.18)",
+      bgCard: "rgba(255, 255, 255, 0.65)",
+      borderCard: "rgba(15, 23, 36, 0.54)",
+      shadowCard: "rgba(73, 63, 76, 0.38)",
       shadowCardHighContrast: "rgb(0, 0, 0)",
       rightNavDotsColor: "rgba(0, 0, 0, 0.43)",
       paper: {
-        bg: "#eef0f5",
+        bg: "#fdfdfd6e",
         border: "rgba(15, 23, 36, 0.08)",
         shadow: "rgba(15, 23, 42, 0.22)",
       },
-      badge: {
-        bg: "rgba(28, 255, 191, 0.21);",
-        text: "#017a58ff",
-        border: "1px solid rgba(6,95,70,0.12)",
+      badges: {
+        available: {
+          bg: "rgba(28, 255, 191, 0.21);",
+          text: "rgb(0, 86, 108)",
+          border: "1px solid rgba(6,95,70,0.12)",
+        },
+        suggestion: {
+          bg: "rgba(0, 172, 177, 0.93);",
+          text: "rgb(241, 211, 251)",
+          border: "1px solid rgba(2, 91, 99, 0.47)",
+        },
+        bullets: {
+          bg: "rgba(0, 27, 31, 0.73);",
+          text: "rgb(252, 230, 255)",
+          border: "1px solid rgba(255, 255, 255, 0.12)",
+        },
       },
       heroImage: {
         height: "10rem",
@@ -39,7 +51,7 @@ export const themeConfig: ThemeConfigType = {
       bgVideoFilter: "invert(0) brightness(0.6) saturate(4) contrast(1.2)",
       muted: "#a3b4c9",
       shadowColor: "rgba(255, 255, 255, 0.4)",
-      bgCard: "rgba(67, 67, 67, 0.75)",
+      bgCard: "rgba(37, 37, 37, 0.75)",
       borderCard: "rgba(207, 207, 207, 0.19)",
       shadowCard: "rgba(221, 221, 221, 0.16)",
       shadowCardHighContrast: "rgba(28, 28, 28, 0.72)",
@@ -49,10 +61,22 @@ export const themeConfig: ThemeConfigType = {
         border: "rgba(207, 207, 207, 0.14)",
         shadow: "rgba(0, 0, 0, 0.45)",
       },
-      badge: {
-        bg: "rgba(6, 95, 70, 0.33)",
-        text: "#57d4b0ff",
-        border: "1px solid rgba(95, 101, 99, 0.32)",
+      badges: {
+        available: {
+          bg: "rgba(28, 255, 191, 0.21);",
+          text: "#017a58ff",
+          border: "1px solid rgba(6,95,70,0.12)",
+        },
+        suggestion: {
+          bg: "rgba(255, 255, 255, 0.82);",
+          text: "rgb(0, 0, 0)",
+          border: "1px solid rgba(139, 144, 117, 0.57)",
+        },
+        bullets: {
+          bg: "rgba(33, 225, 255, 0.18);",
+          text: "rgb(255, 255, 255)",
+          border: "1px solid rgba(0, 255, 234, 0.12)",
+        },
       },
       heroImage: {
         height: "10rem",
@@ -116,7 +140,11 @@ export interface ThemeColors {
   borderCard: string;
   shadowCard: string;
   shadowCardHighContrast: string;
-  badge: Badge;
+  badges: {
+    available: Badge;
+    suggestion: Badge;
+    bullets: Badge;
+  };
   heroImage: HeroImage;
   projectCard: ProjectCard;
   rightNavDotsColor: string;
