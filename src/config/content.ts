@@ -1,6 +1,6 @@
-import { cryptomessage } from "./projectsContent/cryptoMessage/cryptoMessage";
-import { gymbot } from "./projectsContent/gymbot/gymbot";
-import { ragAiMultiContext } from "./projectsContent/ragAiMultiContext/ragAiMultiContext";
+import { cryptomessage } from "./projects/cryptoMessage/cryptoMessage";
+import { gymbot } from "./projects/gymbot/gymbot";
+import { ragAiMultiContext } from "./projects/ragAiMultiContext/ragAiMultiContext";
 
 export const metadataContent_layout = {
   metadataBase: new URL(

@@ -4,9 +4,12 @@ import { useState } from "react";
 import styled from "styled-components";
 import Section from "../layout/Section";
 import { GenericContainer } from "../layout/GenericContainer";
-import TrackCard from "./atoms/TrackCard";
-import TrackModal from "./atoms/TrackModal";
-import { tracksContent_tracks, projectsContent_projectList } from "@/config/content";
+import TrackCard from "./atoms/RoleCard";
+import TrackModal from "./atoms/RoleModal";
+import {
+  tracksContent_tracks,
+  projectsContent_projectList,
+} from "@/config/content";
 import { FadeBox } from "@/ui/styles/keyframes";
 import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";

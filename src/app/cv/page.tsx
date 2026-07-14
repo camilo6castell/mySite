@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function CVPage() {
-  const filePath = path.join(process.cwd(), "src/content/cv.md");
+  const filePath = path.join(process.cwd(), "src/config/cv/cv.md");
   const markdown = fs.readFileSync(filePath, "utf8");
 
   return <CVView markdown={markdown} />;
