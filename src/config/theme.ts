@@ -99,9 +99,9 @@ export const themeConfig: ThemeConfigType = {
     body: "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto",
   },
   sectionColors: {
-    home: "rgb(255, 255, 255)",
-    tracks: "#ffffff",
-    contact: "#007442ff",
+    home: "rgb(131, 141, 67)",
+    roles: "#62d3ec",
+    contact: "rgb(93, 50, 92)",
   },
 };
 

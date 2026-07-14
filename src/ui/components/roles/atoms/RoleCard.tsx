@@ -46,6 +46,9 @@ export default function RoleCard({
 }
 
 const Card = styled.div`
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
   position: relative;
   cursor: pointer;
   display: flex;
@@ -95,13 +98,14 @@ const Title = styled.h3`
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
-  margin: 0;
+  margin: 0 0 1rem;
 `;
 
 const Chips = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 1.3rem;
 `;
 
 const Chip = styled.span`
@@ -120,11 +124,14 @@ const Cta = styled.span`
   margin-top: auto;
   display: inline-flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
   font-family: ${montserrat.style.fontFamily}, sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: ${({ theme }) => theme.projectCard.link};
+  text-align: left;
+  width: 100%;
 
   svg {
     font-size: 0.75rem;

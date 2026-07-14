@@ -63,7 +63,7 @@ export default function TracksSection({ id }: { id: string }) {
 }
 
 const Inner = styled(GenericContainer)`
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
   gap: 2rem;
