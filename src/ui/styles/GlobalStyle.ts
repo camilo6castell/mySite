@@ -18,18 +18,26 @@ const GlobalStyle = createGlobalStyle`
     --text-night: ${themeConfig.colors.darkTheme.text};
     --muted: ${({ theme }) => theme.muted};
     --section-accent: transparent;
+    --shadow-color: ${({ theme }) => theme.shadowColor};
+    --bg-card: ${({ theme }) => theme.bgCard};
+    --border-card: ${({ theme }) => theme.borderCard};
+    --shadow-card: ${({ theme }) => theme.shadowCard};
+    --shadow-card-high-contrast: ${({ theme }) => theme.shadowCardHighContrast};
+    --badge-bg: ${({ theme }) => theme.badge.bg};
+    --badge-text: ${({ theme }) => theme.badge.text};
+    --badge-border: ${({ theme }) => theme.badge.border};
   }
 
   #snap-container {
     height: 100%;
-    width: 100%;    
+    width: 100%;
 
     min-width: 480px;
     min-height: 930px;
-    
+
     /* background: var(--bg); */
     backdrop-filter: blur(10px);
-    
+
     color: var(--text);
 
     overflow-y: auto;
@@ -39,9 +47,11 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing:grayscale;
     -webkit-overflow-scrolling: touch;
     text-rendering: optimizeLegibility;
-    text-shadow: 0 2px 12px ${({ theme }) => theme.shadowColor};
+    text-shadow: 0 2px 12px var(--shadow-color);
 
-    z-index: -10;
+    z-index: 1;
+
+    /* position: fixed; */
   }
 
   section {

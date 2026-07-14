@@ -2,11 +2,11 @@ export const themeConfig: ThemeConfigType = {
   colors: {
     lightTheme: {
       bg: "#f8fafc",
-      bgVideoFilter: "invert(1) brightness(1.1) saturate(3) contrast(0.7)",
+      bgVideoFilter: "invert(1) brightness(1.1) saturate(3) contrast(1.3)",
       text: "#07103a",
       muted: "#444b56",
       shadowColor: "rgba(0, 0, 0, 0.3)",
-      bgCard: "rgba(255, 255, 255, 0.75)",
+      bgCard: "rgba(218, 218, 218, 0.82)",
       borderCard: "rgba(15, 23, 36, 0.06)",
       shadowCard: "rgba(0, 0, 0, 0.18)",
       shadowCardHighContrast: "rgb(0, 0, 0)",
@@ -36,10 +36,10 @@ export const themeConfig: ThemeConfigType = {
     darkTheme: {
       bg: "#07103a",
       text: "#e6eef8",
-      bgVideoFilter: "invert(0) brightness(0.4) saturate(4) contrast(0.9)",
+      bgVideoFilter: "invert(0) brightness(0.6) saturate(4) contrast(1.2)",
       muted: "#a3b4c9",
       shadowColor: "rgba(255, 255, 255, 0.4)",
-      bgCard: "rgba(29, 29, 29, 0.75)",
+      bgCard: "rgba(67, 67, 67, 0.75)",
       borderCard: "rgba(207, 207, 207, 0.19)",
       shadowCard: "rgba(221, 221, 221, 0.16)",
       shadowCardHighContrast: "rgba(28, 28, 28, 0.72)",

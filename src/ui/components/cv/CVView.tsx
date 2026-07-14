@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { FaDownload, FaArrowLeft } from "react-icons/fa";
-import { ephesis, raleway, montserrat } from "@/ui/styles/fonts";
+import { raleway, montserrat } from "@/ui/styles/fonts";
 
 export default function CVView({ markdown }: { markdown: string }) {
   useEffect(() => {
@@ -16,6 +16,7 @@ export default function CVView({ markdown }: { markdown: string }) {
     const scrollEl = document.getElementById("snap-container");
     if (scrollEl)
       scrollEl.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    // if (scrollEl) scrollEl.style.position = "fixed"; // Ensure the CVView content is above the background waves
   }, []);
 
   return (
@@ -44,7 +45,7 @@ const Wrapper = styled.div`
   padding: 2rem 1.5rem 4rem;
 
   @media (max-width: 900px) {
-    padding: 5.5rem 1rem 3rem;
+    padding: 1.5rem 1rem 3rem;
   }
 `;
 
@@ -54,6 +55,9 @@ const TopBar = styled.div`
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 2rem;
+  position: relative; /* Added for potential stacking context management */
+  z-index: 1000; /* Added to ensure it's on top if other elements conflict */
+
   flex-wrap: wrap;
 `;
 
@@ -109,7 +113,7 @@ const MarkdownBox = styled.div`
   line-height: 1.7;
 
   h1 {
-    font-family: ${ephesis.style.fontFamily}, serif;
+    font-family: ${montserrat.style.fontFamily}, serif;
     font-size: 3rem;
     margin-bottom: 0.3rem;
   }

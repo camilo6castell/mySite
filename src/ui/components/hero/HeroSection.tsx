@@ -41,6 +41,9 @@ const Title = styled(FadeBox)`
   flex-wrap: wrap;
   line-height: 1;
   color: var(--text);
+  text-shadow: 0 2px 12px var(--shadow-color);
+  width: 100%;
+  text-align: center;
 
   @media (max-width: 900px) {
     font-size: 3rem;
@@ -54,6 +57,7 @@ const Roles = styled.div`
   flex-direction: column;
   gap: 0.35rem;
   margin-top: 0.3rem;
+  width: 100%;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -66,8 +70,11 @@ const RoleLine = styled(FadeBox)`
   font-size: 1.05rem;
   font-weight: 500;
   line-height: 1.3;
-  letter-spacing: 0.15rem;
-  color: ${({ theme }) => theme.muted};
+  letter-spacing: 0.3rem;
+  color: var(--muted);
+  text-shadow: 0 2px 12px var(--shadow-color);
+  text-align: center;
+  width: 100%;
 
   @media (max-width: 900px) {
     font-size: 0.92rem;
@@ -81,6 +88,7 @@ const Desc = styled(FadeBox)`
   color: var(--text);
   font-size: 1.2rem;
   font-family: ${montserrat.style.fontFamily}, sans-serif;
+  text-shadow: 0 2px 12px var(--shadow-color);
 
   @media (max-width: 900px) {
     font-size: 1.1rem;

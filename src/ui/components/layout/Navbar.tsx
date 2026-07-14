@@ -1,5 +1,5 @@
 "use client";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -29,6 +29,7 @@ const Left = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+  color: var(--text);
 `;
 const Center = styled.div`
   flex: 1;
@@ -53,8 +54,8 @@ const Right = styled.div`
 const Divider = styled.span`
   width: 1px;
   height: 1.4rem;
-  background: ${({ theme }) => theme.borderCard};
-  opacity: 0.8;
+  background: var(--muted);
+  opacity: 0.5;
 
   @media (max-width: 560px) {
     height: 1.1rem;
@@ -62,6 +63,7 @@ const Divider = styled.span`
 `;
 
 const NavLabel = styled.span`
+  color: var(--text);
   @media (max-width: 560px) {
     display: none;
   }
@@ -115,8 +117,8 @@ const Social = styled(Link)<{ $active?: boolean }>`
 const CVSocial = styled(Social)`
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid ${({ theme }) => theme.borderCard};
-  background: ${({ theme }) => theme.bgCard};
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
 `;
 
 const Toggle = styled.button`
@@ -166,7 +168,12 @@ export default function Navbar() {
   const { theme, toggleTheme } = useThemeContext();
   const isDark = theme === "dark";
   const pathname = usePathname();
-  const isCv = pathname === "/cv";
+
+  const [isCv, setIsCv] = useState(pathname === "/cv");
+
+  useEffect(() => {
+    setIsCv(pathname === "/cv");
+  }, [pathname]);
 
   return (
     <Bar
@@ -177,6 +184,7 @@ export default function Navbar() {
       ref={ref}
       role="navigation"
       aria-label="Main navigation"
+      style={isCv ? { display: "none" } : {}}
     >
       <Left>
         <IconTransition
@@ -201,42 +209,26 @@ export default function Navbar() {
             />
           }
           href="/"
-          iconSize={"2.6rem"}
+          iconSize={"2.1rem"}
         />
       </Left>
 
       <Center>
-        {/* Home/Skills/Contact are scroll anchors of '/' — on /cv they don't
-            do anything and just add noise, so we only show them there. */}
-        {!isCv && (
-          <>
-            <Social href="#home" rel="noreferrer" $active aria-label="Home">
-              <FaHome /> <NavLabel>Home</NavLabel>
-            </Social>
-            <Social href="#tracks" rel="noreferrer" $active aria-label="Skills">
-              <FaLayerGroup /> <NavLabel>Skills</NavLabel>
-            </Social>
-            <Social
-              href="#contact"
-              rel="noreferrer"
-              $active
-              aria-label="Contact"
-            >
-              <IoMdContact /> <NavLabel>Contact</NavLabel>
-            </Social>
+        <Social href="#home" rel="noreferrer" $active aria-label="Home">
+          <FaHome /> <NavLabel>Home</NavLabel>
+        </Social>
+        <Social href="#tracks" rel="noreferrer" $active aria-label="Roles">
+          <FaLayerGroup /> <NavLabel>Roles</NavLabel>
+        </Social>
+        <Social href="#contact" rel="noreferrer" $active aria-label="Contact">
+          <IoMdContact /> <NavLabel>Contact</NavLabel>
+        </Social>
 
-            <Divider />
+        <Divider />
 
-            <CVSocial
-              href="/cv"
-              rel="noreferrer"
-              $active={isCv}
-              aria-label="CV"
-            >
-              <FaFileAlt /> <NavLabel>CV</NavLabel>
-            </CVSocial>
-          </>
-        )}
+        <CVSocial href="/cv" rel="noreferrer" $active={isCv} aria-label="CV">
+          <FaFileAlt /> <NavLabel>CV</NavLabel>
+        </CVSocial>
       </Center>
 
       <Right>

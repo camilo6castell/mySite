@@ -39,7 +39,7 @@ export const heroContent_hero = {
   roles: [
     "Software Automation Engineer",
     "AI Developer",
-    "Backend Engineer",
+    "Full Stack Engineer",
   ],
   DescOne: "Automating the routine, so humans can shine.",
   DescTwo:
