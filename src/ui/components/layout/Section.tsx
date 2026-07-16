@@ -5,7 +5,8 @@ import { GenericContainer } from "./GenericContainer";
 const Wrap = styled(GenericContainer)`
   scroll-snap-align: start;
   padding: 1rem;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   /* background-color: aliceblue; */
   width: 100dvw;
   height: 100dvh;

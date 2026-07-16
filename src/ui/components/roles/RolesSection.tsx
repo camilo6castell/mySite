@@ -82,12 +82,13 @@ export default function TracksSection({ id }: { id: string }) {
 
 const Inner = styled(GenericContainer)`
   max-width: 1400px;
-  margin: 0 auto;
+  margin: auto;
   padding: 2rem;
   gap: 2rem;
   width: 100%;
   height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   @media (max-width: 900px) {
     padding: 1.2rem 0;

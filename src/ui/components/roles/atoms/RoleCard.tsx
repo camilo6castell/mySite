@@ -73,9 +73,9 @@ const Card = styled.div`
   gap: 1.2rem;
   padding: 1.9rem 1.6rem 1.5rem;
   border-radius: 18px;
-  background: ${({ theme }) => theme.bgCard};
-  border: 1px solid ${({ theme }) => theme.borderCard};
-  box-shadow: 0 4px 16px ${({ theme }) => theme.shadowCard};
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 4px 16px var(--shadow-card);
   overflow: hidden;
   transition:
     transform 0.25s ease,
@@ -86,7 +86,7 @@ const Card = styled.div`
   &:hover,
   &:focus-visible {
     transform: translateY(-5px);
-    box-shadow: 0 14px 32px ${({ theme }) => theme.projectCard.hoverShadow};
+    box-shadow: 0 14px 32px var(--project-card-hover-shadow);
     border-color: var(--badge-suggestion-bg);
   }
 
@@ -118,6 +118,7 @@ const Header = styled.div`
 
 const Title = styled.h3`
   font-family: ${raleway.style.fontFamily}, sans-serif;
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
@@ -126,6 +127,7 @@ const Title = styled.h3`
 
 const Pitch = styled.p`
   font-family: ${montserrat.style.fontFamily}, sans-serif;
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--text);
@@ -145,6 +147,7 @@ const Chips = styled.div`
 
 const Chip = styled.span<{ $muted?: boolean }>`
   font-family: ${raleway.style.fontFamily}, sans-serif;
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.5px;
@@ -174,6 +177,7 @@ const Footer = styled.div`
 
 const Meta = styled.span`
   font-family: ${montserrat.style.fontFamily}, sans-serif;
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 0.78rem;
   color: var(--text);
   opacity: 0.6;
@@ -185,6 +189,7 @@ const Cta = styled.span`
   align-items: center;
   gap: 0.5rem;
   font-family: ${montserrat.style.fontFamily}, sans-serif;
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 0.85rem;
   font-weight: 700;
   color: ${({ theme }) => theme.projectCard.link};

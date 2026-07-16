@@ -16,6 +16,10 @@ const Inner = styled.div`
 
   max-width: 1000px;
   gap: 1rem;
+
+  @media (max-width: 900px) {
+    padding: 1rem;
+  }
 `;
 
 const HeroBox = styled(GenericContainer)<{
@@ -108,6 +112,10 @@ const HeroImage = styled(FadeBox)`
   width: 100%;
   height: ${({ theme }) =>
     theme.heroImage.height}; /* asegura que no colapse a 0px */
+
+  @media (max-width: 900px) {
+    margin: 0;
+  }
 `;
 
 export default function HeroSection({ id }: { id: string }) {

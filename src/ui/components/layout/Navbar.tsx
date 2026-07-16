@@ -38,10 +38,10 @@ const Center = styled.div`
   justify-content: center;
   gap: 3rem;
   @media (max-width: 900px) {
-    gap: 1.4rem;
+    gap: 2.3rem;
   }
   @media (max-width: 560px) {
-    gap: 1.1rem;
+    gap: 2rem;
   }
 `;
 const Right = styled.div`
@@ -107,14 +107,25 @@ const Social = styled(Link)<{ $active?: boolean }>`
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+  white-space: nowrap;
   opacity: ${({ $active }) => ($active ? 1 : 0.7)};
 
   svg {
     fill: var(--text);
+    width: 1.35rem;
+    height: 1.35rem;
+    flex-shrink: 0;
   }
 
   &:hover {
     opacity: 1;
+  }
+
+  @media (max-width: 560px) {
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 `;
 

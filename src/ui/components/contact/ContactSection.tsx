@@ -112,7 +112,8 @@ const Wrapper = styled.div`
 const Title = styled.h2`
   color: var(--text);
   margin-bottom: 2rem;
-  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-size: 1.8rem;
+  text-shadow: 0 2px 12px var(--shadow-color);
   line-height: 0.95;
   letter-spacing: -0.05em;
 
@@ -211,6 +212,7 @@ const MiniStatus = styled.div`
   background: ${({ theme }) => theme.bgCard};
   border: 1px solid ${({ theme }) => theme.borderCard};
   color: var(--muted);
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 0.8rem;
   font-weight: 600;
 `;
@@ -243,6 +245,7 @@ const Info = styled.div`
 const Name = styled.h3`
   margin: 0 0 0.5rem;
   font-size: clamp(1.5rem, 5vw, 3rem);
+  text-shadow: 0 2px 12px var(--shadow-color);
   line-height: 0.95;
   font-weight: 800;
   letter-spacing: -0.06em;
@@ -258,6 +261,7 @@ const Name = styled.h3`
 const Role = styled.p`
   margin-top: 0.8rem;
   color: ${({ theme }) => theme.text};
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-size: 1.05rem;
   opacity: 0.92;
   font-weight: 500;
@@ -271,6 +275,7 @@ const Role = styled.p`
 const Location = styled.p`
   margin-top: 0.35rem;
   color: ${({ theme }) => theme.muted};
+  text-shadow: 0 2px 12px var(--shadow-color);
   opacity: 0.72;
   font-size: 0.88rem;
   line-height: 1.5;
@@ -279,6 +284,7 @@ const Location = styled.p`
 const Bio = styled.p`
   margin-top: 1.4rem;
   color: ${({ theme }) => theme.muted};
+  text-shadow: 0 2px 12px var(--shadow-color);
   line-height: 1.75;
   max-width: 580px;
   font-size: 0.96rem;
@@ -302,9 +308,10 @@ const ContactButton = styled.a`
   gap: 0.55rem;
   padding: 0.8rem 1.2rem;
   border-radius: 999px;
-  background: ${({ theme }) => theme.bgCard};
-  border: 1px solid ${({ theme }) => theme.borderCard};
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
   color: var(--text);
+  text-shadow: 0 2px 12px var(--shadow-color);
   font-weight: 600;
   font-size: 0.92rem;
   transition:
@@ -312,10 +319,14 @@ const ContactButton = styled.a`
     border-color 0.2s ease,
     background 0.2s ease;
 
+  svg {
+    fill: var(--text);
+  }
+
   &:hover {
     transform: translateY(-2px);
-    border-color: ${({ theme }) => theme.projectCard.link};
-    background: ${({ theme }) => theme.bg};
+    border-color: var(--project-card-link);
+    background: var(--bg);
   }
 
   @media (max-width: 480px) {

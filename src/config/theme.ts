@@ -1,12 +1,13 @@
 export const themeConfig: ThemeConfigType = {
   colors: {
     lightTheme: {
-      bg: "#f8fafc",
+      bg: "linear-gradient(23deg,rgba(235, 235, 235, 0.96) 20%, rgba(250, 247, 240, 1) 77%, rgba(223, 245, 243, 0.98) 97%)",
       bgVideoFilter: "invert(1) brightness(1.1) saturate(3) contrast(1.3)",
       text: "#07103a",
       muted: "#444b56",
       shadowColor: "rgba(0, 0, 0, 0.3)",
-      bgCard: "rgba(255, 255, 255, 0.65)",
+      bgCard:
+        "linear-gradient(23deg,rgba(237, 235, 235, 0.96) 0%, rgba(237, 237, 237, 0.95) 28%, rgba(255, 255, 255, 0.98) 97%)",
       borderCard: "rgba(15, 23, 36, 0.54)",
       shadowCard: "rgba(73, 63, 76, 0.51)",
       shadowCardHighContrast: "rgb(0, 0, 0)",
@@ -51,7 +52,8 @@ export const themeConfig: ThemeConfigType = {
       bgVideoFilter: "invert(0) brightness(0.6) saturate(4) contrast(1.2)",
       muted: "#a3b4c9",
       shadowColor: "rgba(255, 255, 255, 0.4)",
-      bgCard: "rgba(27, 27, 23, 0.74)",
+      bgCard:
+        "linear-gradient(23deg,rgba(31, 31, 31, 0.88) 1%, rgba(26, 26, 26, 1) 24%, rgba(33, 33, 33, 1) 78%, rgba(56, 56, 56, 0.96) 97%)",
       borderCard: "rgba(207, 207, 207, 0.42)",
       shadowCard: "rgba(221, 221, 221, 0.24)",
       shadowCardHighContrast: "rgba(28, 28, 28, 0.72)",

@@ -23,6 +23,8 @@ const GlobalStyle = createGlobalStyle`
     --border-card: ${({ theme }) => theme.borderCard};
     --shadow-card: ${({ theme }) => theme.shadowCard};
     --shadow-card-high-contrast: ${({ theme }) => theme.shadowCardHighContrast};
+    --project-card-hover-shadow: ${({ theme }) => theme.projectCard.hoverShadow};
+    --project-card-link: ${({ theme }) => theme.projectCard.link};
 
     --badge-suggestion-bg: ${({ theme }) => theme.badges.suggestion.bg};
     --badge-suggestion-text: ${({ theme }) => theme.badges.suggestion.text};
@@ -41,9 +43,6 @@ const GlobalStyle = createGlobalStyle`
   #snap-container {
     height: 100dvh;
     width: 100dvw;
-
-    min-width: 480px;
-    min-height: 930px;
 
     /* background: var(--bg); */
     backdrop-filter: blur(10px);
