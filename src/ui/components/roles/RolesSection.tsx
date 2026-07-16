@@ -6,6 +6,7 @@ import Section from "../layout/Section";
 import { GenericContainer } from "../layout/GenericContainer";
 import RoleCard from "./atoms/RoleCard";
 import RoleModal from "./atoms/RoleModal";
+import RoleAccordionItem from "./atoms/RoleAccordionItem";
 import {
   tracksContent_tracks,
   projectsContent_projectList,
@@ -18,6 +19,7 @@ import { raleway } from "@/ui/styles/fonts";
 export default function TracksSection({ id }: { id: string }) {
   const { ref, inView } = useInView(0.3);
   const [openSlug, setOpenSlug] = useState<string | null>(null);
+  const [expandedSlug, setExpandedSlug] = useState<string | null>(null);
 
   const tracks = tracksContent_tracks.tracks;
   const projects = projectsContent_projectList.projects;
@@ -36,7 +38,7 @@ export default function TracksSection({ id }: { id: string }) {
           {tracksContent_tracks.sectionHeading}
         </Heading>
 
-        <Grid>
+        <DesktopGrid>
           {tracks.map((track, i) => (
             <FadeBox
               key={track.slug}
@@ -48,7 +50,23 @@ export default function TracksSection({ id }: { id: string }) {
               <RoleCard track={track} onOpen={() => setOpenSlug(track.slug)} />
             </FadeBox>
           ))}
-        </Grid>
+        </DesktopGrid>
+
+        <MobileAccordion>
+          {tracks.map((track) => (
+            <RoleAccordionItem
+              key={track.slug}
+              track={track}
+              projects={projects}
+              isOpen={expandedSlug === track.slug}
+              onToggle={() =>
+                setExpandedSlug((prev) =>
+                  prev === track.slug ? null : track.slug,
+                )
+              }
+            />
+          ))}
+        </MobileAccordion>
       </Inner>
 
       {openTrack && (
@@ -67,9 +85,14 @@ const Inner = styled(GenericContainer)`
   margin: 0 auto;
   padding: 2rem;
   gap: 2rem;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
 
   @media (max-width: 900px) {
-    padding: 1rem;
+    padding: 1.2rem 0;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -82,16 +105,32 @@ const Heading = styled(FadeBox)`
 
   @media (max-width: 900px) {
     font-size: 1.4rem;
+    padding: 0 1.2rem;
   }
 `;
 
-const Grid = styled.div`
+const DesktopGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   width: 100%;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    display: none;
+  }
+`;
+
+const MobileAccordion = styled.div`
+  display: none;
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0 1.2rem;
   }
 `;

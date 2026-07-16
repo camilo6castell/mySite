@@ -8,7 +8,7 @@ export const themeConfig: ThemeConfigType = {
       shadowColor: "rgba(0, 0, 0, 0.3)",
       bgCard: "rgba(255, 255, 255, 0.65)",
       borderCard: "rgba(15, 23, 36, 0.54)",
-      shadowCard: "rgba(73, 63, 76, 0.38)",
+      shadowCard: "rgba(73, 63, 76, 0.51)",
       shadowCardHighContrast: "rgb(0, 0, 0)",
       rightNavDotsColor: "rgba(0, 0, 0, 0.43)",
       paper: {
@@ -28,7 +28,7 @@ export const themeConfig: ThemeConfigType = {
           border: "1px solid rgba(2, 91, 99, 0.47)",
         },
         bullets: {
-          bg: "rgba(0, 27, 31, 0.73);",
+          bg: "rgba(1, 78, 90, 0.73);",
           text: "rgb(252, 230, 255)",
           border: "1px solid rgba(255, 255, 255, 0.12)",
         },
@@ -46,14 +46,14 @@ export const themeConfig: ThemeConfigType = {
       },
     },
     darkTheme: {
-      bg: "#07103a",
+      bg: "#1a2a6a",
       text: "#e6eef8",
       bgVideoFilter: "invert(0) brightness(0.6) saturate(4) contrast(1.2)",
       muted: "#a3b4c9",
       shadowColor: "rgba(255, 255, 255, 0.4)",
-      bgCard: "rgba(37, 37, 37, 0.75)",
-      borderCard: "rgba(207, 207, 207, 0.19)",
-      shadowCard: "rgba(221, 221, 221, 0.16)",
+      bgCard: "rgba(27, 27, 23, 0.74)",
+      borderCard: "rgba(207, 207, 207, 0.42)",
+      shadowCard: "rgba(221, 221, 221, 0.24)",
       shadowCardHighContrast: "rgba(28, 28, 28, 0.72)",
       rightNavDotsColor: "rgba(255,255,255,0.43)",
       paper: {
@@ -63,12 +63,12 @@ export const themeConfig: ThemeConfigType = {
       },
       badges: {
         available: {
-          bg: "rgba(28, 255, 191, 0.21);",
-          text: "#017a58ff",
-          border: "1px solid rgba(6,95,70,0.12)",
+          bg: "rgba(19, 110, 124, 0.53);",
+          text: "rgb(255, 255, 255)",
+          border: "1px solid rgba(3, 255, 184, 0.49)",
         },
         suggestion: {
-          bg: "rgba(255, 255, 255, 0.82);",
+          bg: "rgb(254, 252, 210);",
           text: "rgb(0, 0, 0)",
           border: "1px solid rgba(139, 144, 117, 0.57)",
         },

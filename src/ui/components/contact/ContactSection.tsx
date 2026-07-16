@@ -2,13 +2,7 @@
 
 import styled from "styled-components";
 import { contactContent_contact, heroContent_hero } from "@/config/content";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaWhatsapp,
-  FaEnvelope,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { FadeBox } from "@/ui/styles/keyframes";
 import { useInView } from "@/hooks/useInView";
 import { themeConfig } from "@/config/theme";
@@ -65,6 +59,8 @@ const ContactSection = ({ id }: { id: string }) => {
               )}
             </LeftColumn>
 
+            <Divider />
+
             <Info>
               <Name>{contactContent_contact.name}</Name>
 
@@ -74,7 +70,7 @@ const ContactSection = ({ id }: { id: string }) => {
 
               <Bio>
                 Backend and automation engineer driven by a simple purpose:
-                eliminate friction — through solid backend engineering,
+                eliminate friction through solid backend engineering,
                 intelligent automation, and large language models.
               </Bio>
 
@@ -93,10 +89,6 @@ const ContactSection = ({ id }: { id: string }) => {
                   </ContactButton>
                 ))}
               </ButtonRow>
-
-              {/* <CVLink href="/cv">
-                View full CV <FaArrowRight />
-              </CVLink> */}
             </Info>
           </Top>
         </Card>
@@ -110,22 +102,6 @@ export default ContactSection;
 /* ============================
    STYLES
 ============================ */
-
-// const Container = styled.section`
-//   width: fit-content;
-//   max-width: 1300px;
-//   margin: 0 auto;
-//   padding: 7rem 1.5rem 5rem;
-
-//   @media (max-width: 900px) {
-//     padding: 5rem 1rem 4rem;
-//     justify-content: center;
-//   }
-
-//   @media (max-width: 480px) {
-//     padding: 4rem 0.9rem 3rem;
-//   }
-// `;
 
 const Wrapper = styled.div`
   display: flex;
@@ -212,7 +188,7 @@ const Avatar = styled.img`
   height: 190px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid ${({ theme }) => theme.borderCard};
   box-shadow: 0 0 40px ${({ theme }) => theme.shadowCard};
 
   @media (max-width: 900px) {
@@ -232,8 +208,8 @@ const MiniStatus = styled.div`
   gap: 0.55rem;
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: ${({ theme }) => theme.bgCard};
+  border: 1px solid ${({ theme }) => theme.borderCard};
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 600;
@@ -243,8 +219,19 @@ const StatusDot = styled.div`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 12px #4ade80;
+  background: var(--badge-available-text);
+  box-shadow: 0 0 12px var(--badge-available-text);
+`;
+
+const Divider = styled.div`
+  width: 1px;
+  align-self: stretch;
+  background: ${({ theme }) => theme.borderCard};
+
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 1px;
+  }
 `;
 
 const Info = styled.div`
@@ -328,31 +315,11 @@ const ContactButton = styled.a`
   &:hover {
     transform: translateY(-2px);
     border-color: ${({ theme }) => theme.projectCard.link};
-    background: rgba(255, 255, 255, 0.03);
+    background: ${({ theme }) => theme.bg};
   }
 
   @media (max-width: 480px) {
     flex: 1 1 calc(50% - 0.35rem);
     justify-content: center;
-  }
-`;
-
-const CVLink = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.3rem;
-  color: ${({ theme }) => theme.projectCard.link};
-  font-weight: 600;
-  font-size: 0.9rem;
-  width: fit-content;
-
-  svg {
-    font-size: 0.75rem;
-    transition: transform 0.2s ease;
-  }
-
-  &:hover svg {
-    transform: translateX(3px);
   }
 `;

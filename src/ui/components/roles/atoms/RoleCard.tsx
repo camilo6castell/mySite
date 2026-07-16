@@ -1,6 +1,6 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { montserrat, raleway } from "@/ui/styles/fonts";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -12,6 +12,8 @@ type Track = {
   relatedProjectTitles: string[];
 };
 
+const MAX_VISIBLE_CHIPS = 4;
+
 export default function RoleCard({
   track,
   onOpen,
@@ -19,6 +21,10 @@ export default function RoleCard({
   track: Track;
   onOpen: () => void;
 }) {
+  const visibleCompetencies = track.competencies.slice(0, MAX_VISIBLE_CHIPS);
+  const extraCount = track.competencies.length - visibleCompetencies.length;
+  const relatedCount = track.relatedProjectTitles.length;
+
   return (
     <Card
       role="button"
@@ -30,31 +36,42 @@ export default function RoleCard({
       aria-label={`See details of ${track.title}`}
     >
       <Accent />
-      <Title>{track.title}</Title>
+
+      <Header>
+        <Title>{track.title}</Title>
+        {track.pitch && <Pitch>{track.pitch}</Pitch>}
+      </Header>
 
       <Chips>
-        {track.competencies.map((c) => (
+        {visibleCompetencies.map((c) => (
           <Chip key={c}>{c}</Chip>
         ))}
+        {extraCount > 0 && <Chip $muted>+{extraCount}</Chip>}
       </Chips>
 
-      <Cta>
-        See details <FaArrowRight />
-      </Cta>
+      <Footer>
+        {relatedCount > 0 && (
+          <Meta>
+            {relatedCount} related project{relatedCount > 1 ? "s" : ""}
+          </Meta>
+        )}
+        <Cta>
+          See details <FaArrowRight />
+        </Cta>
+      </Footer>
     </Card>
   );
 }
 
 const Card = styled.div`
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   height: 100%;
   position: relative;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  padding: 1.8rem 1.6rem 1.5rem;
+  gap: 1.2rem;
+  padding: 1.9rem 1.6rem 1.5rem;
   border-radius: 18px;
   background: ${({ theme }) => theme.bgCard};
   border: 1px solid ${({ theme }) => theme.borderCard};
@@ -70,7 +87,7 @@ const Card = styled.div`
   &:focus-visible {
     transform: translateY(-5px);
     box-shadow: 0 14px 32px ${({ theme }) => theme.projectCard.hoverShadow};
-    border-color: ${({ theme }) => theme.projectCard.link};
+    border-color: var(--badge-suggestion-bg);
   }
 
   &:hover svg,
@@ -87,10 +104,16 @@ const Accent = styled.span`
   height: 4px;
   background: linear-gradient(
     90deg,
-    ${({ theme }) => theme.projectCard.link},
-    var(--badge-bullets-text)
+    var(--badge-suggestion-bg),
+    var(--badge-suggestion-text)
   );
   opacity: 0.85;
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 `;
 
 const Title = styled.h3`
@@ -98,40 +121,74 @@ const Title = styled.h3`
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
-  margin: 0 0 1rem;
+  margin: 0;
+`;
+
+const Pitch = styled.p`
+  font-family: ${montserrat.style.fontFamily}, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+  opacity: 0.72;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 const Chips = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.3rem;
 `;
 
-const Chip = styled.span`
-  font-family: ${montserrat.style.fontFamily}, sans-serif;
+const Chip = styled.span<{ $muted?: boolean }>`
+  font-family: ${raleway.style.fontFamily}, sans-serif;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 900;
+  letter-spacing: 0.5px;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
+  white-space: nowrap;
   background: var(--badge-bullets-bg);
   color: var(--badge-bullets-text);
   border: var(--badge-bullets-border);
+
+  ${({ $muted }) =>
+    $muted &&
+    css`
+      opacity: 0.65;
+    `}
+`;
+
+const Footer = styled.div`
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid ${({ theme }) => theme.borderCard};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+`;
+
+const Meta = styled.span`
+  font-family: ${montserrat.style.fontFamily}, sans-serif;
+  font-size: 0.78rem;
+  color: var(--text);
+  opacity: 0.6;
   white-space: nowrap;
 `;
 
 const Cta = styled.span`
-  margin-top: auto;
   display: inline-flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 0.5rem;
   font-family: ${montserrat.style.fontFamily}, sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: ${({ theme }) => theme.projectCard.link};
-  text-align: left;
-  width: 100%;
+  white-space: nowrap;
 
   svg {
     font-size: 0.75rem;

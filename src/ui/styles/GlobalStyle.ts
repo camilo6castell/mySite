@@ -39,8 +39,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #snap-container {
-    height: 100%;
-    width: 100%;
+    height: 100dvh;
+    width: 100dvw;
 
     min-width: 480px;
     min-height: 930px;

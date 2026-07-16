@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
-import { ephesis, montserrat, raleway } from "@/ui/styles/fonts";
+import { montserrat, raleway } from "@/ui/styles/fonts";
+import { FadeBox } from "@/ui/styles/keyframes";
 
 type Repo = {
   name: string;
@@ -78,58 +79,69 @@ export default function RoleModal({
       aria-modal="true"
       aria-label={track.title}
     >
-      <Panel>
+      <Panel $inView $direction="up" $duration={0.35} $delay={0}>
         <CloseButton onClick={onClose} aria-label="Cerrar">
           <FaTimes />
         </CloseButton>
 
-        <Title>{track.title}</Title>
+        <Header>
+          <Title>{track.title}</Title>
 
-        <Competencies>
-          {track.competencies.map((c) => (
-            <Chip key={c}>{c}</Chip>
-          ))}
-        </Competencies>
+          <Competencies>
+            {track.competencies.map((c) => (
+              <Chip key={c}>{c}</Chip>
+            ))}
+          </Competencies>
 
-        <Pitch>{track.pitch}</Pitch>
+          <Pitch>{track.pitch}</Pitch>
+        </Header>
 
         <Divider />
 
-        <ProjectsHeading>Related projects</ProjectsHeading>
+        <ProjectsHeading>
+          Related projects
+          {relatedProjects.length > 0 && (
+            <Count>{relatedProjects.length}</Count>
+          )}
+        </ProjectsHeading>
 
-        <ProjectList>
-          {relatedProjects.map((project) => (
-            <ProjectBlock key={project.title}>
-              <h4>{project.title}</h4>
-              <p>{project.summary}</p>
+        {relatedProjects.length === 0 ? (
+          <EmptyState>No hay proyectos relacionados todavía.</EmptyState>
+        ) : (
+          <ProjectList>
+            {relatedProjects.map((project) => (
+              <ProjectBlock key={project.title}>
+                <h4>{project.title}</h4>
+                <p>{project.summary}</p>
 
-              {project.repos.map((repo) => (
-                <RepoRow key={repo.name}>
-                  <RepoHead>
-                    <span>{repo.name}</span>
-                    <RepoLinks>
-                      {repo.repo && (
-                        <a href={repo.repo} target="_blank" rel="noreferrer">
-                          <FaGithub /> Repo
-                        </a>
-                      )}
-                      {repo.demo && (
-                        <a href={repo.demo} target="_blank" rel="noreferrer">
-                          <FaExternalLinkAlt /> Demo
-                        </a>
-                      )}
-                    </RepoLinks>
-                  </RepoHead>
-                  <TechTags>
-                    {repo.tech.map((t) => (
-                      <Tag key={t}>{t}</Tag>
-                    ))}
-                  </TechTags>
-                </RepoRow>
-              ))}
-            </ProjectBlock>
-          ))}
-        </ProjectList>
+                {project.repos.map((repo) => (
+                  <RepoRow key={repo.name}>
+                    <RepoHead>
+                      <RepoName>{repo.name}</RepoName>
+                      <RepoLinks>
+                        {repo.repo && (
+                          <a href={repo.repo} target="_blank" rel="noreferrer">
+                            <FaGithub /> Repo
+                          </a>
+                        )}
+                        {repo.demo && (
+                          <a href={repo.demo} target="_blank" rel="noreferrer">
+                            <FaExternalLinkAlt /> Demo
+                          </a>
+                        )}
+                      </RepoLinks>
+                    </RepoHead>
+                    <TechTags>
+                      {repo.tech.map((t) => (
+                        <Tag key={t}>{t}</Tag>
+                      ))}
+                    </TechTags>
+                  </RepoRow>
+                ))}
+              </ProjectBlock>
+            ))}
+          </ProjectList>
+        )}
       </Panel>
     </Overlay>,
     document.body,
@@ -148,7 +160,7 @@ const Overlay = styled.div`
   padding: 2rem 1rem;
 `;
 
-const Panel = styled.div`
+const Panel = styled(FadeBox)`
   position: relative;
   width: 100%;
   max-width: 780px;
@@ -163,32 +175,50 @@ const Panel = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
-  border: none;
-  font-size: 1.3rem;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 1.05rem;
   color: var(--text);
   cursor: pointer;
   opacity: 0.7;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     opacity: 1;
+    background: ${({ theme }) => theme.bgCard};
+    border-color: ${({ theme }) => theme.borderCard};
   }
+`;
+
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 const Title = styled.h2`
   font-family: ${raleway.style.fontFamily}, serif;
   font-size: 2.6rem;
   color: var(--text);
-  margin: 0 0 0.8rem;
+  margin: 0;
 `;
 
 const Competencies = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.3rem;
 `;
 
 const Chip = styled.span`
@@ -207,6 +237,8 @@ const Pitch = styled.p`
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--text);
+  opacity: 0.9;
+  margin: 0;
 `;
 
 const Divider = styled.hr`
@@ -216,10 +248,32 @@ const Divider = styled.hr`
 `;
 
 const ProjectsHeading = styled.h3`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: ${raleway.style.fontFamily}, sans-serif;
   font-size: 1.1rem;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
+`;
+
+const Count = styled.span`
+  font-family: ${montserrat.style.fontFamily}, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--badge-bullets-bg);
+  color: var(--badge-bullets-text);
+  border: var(--badge-bullets-border);
+`;
+
+const EmptyState = styled.p`
+  font-family: ${montserrat.style.fontFamily}, sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.6;
+  margin: 0;
 `;
 
 const ProjectList = styled.div`
@@ -250,16 +304,23 @@ const RepoRow = styled.div`
   background: ${({ theme }) => theme.bgCard};
   border: 1px solid ${({ theme }) => theme.borderCard};
   margin-bottom: 0.7rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const RepoHead = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: 600;
-  color: var(--text);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+`;
+
+const RepoName = styled.span`
+  font-weight: 600;
+  color: var(--text);
 `;
 
 const RepoLinks = styled.div`
@@ -287,9 +348,10 @@ const TechTags = styled.div`
 
 const Tag = styled.span`
   font-size: 0.75rem;
-  color: ${({ theme }) => theme.projectCard.tech};
-  background: transparent;
-  border: 1px solid ${({ theme }) => theme.borderCard};
+  letter-spacing: 0.7px;
+  color: var(--badge-available-text);
+  background: var(--badge-available-bg);
+  border: var(--badge-available-border);
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
 `;

@@ -7,6 +7,8 @@ const Wrap = styled(GenericContainer)`
   padding: 1rem;
   overflow: hidden;
   /* background-color: aliceblue; */
+  width: 100dvw;
+  height: 100dvh;
 
   @media (max-width: 900px) {
     padding: 3rem 0.5rem 0.5rem 0.5rem;
