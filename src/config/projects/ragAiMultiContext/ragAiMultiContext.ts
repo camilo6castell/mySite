@@ -39,7 +39,7 @@ export const ragAiMultiContext = {
         "readability-lxml",
       ],
       repo: "https://github.com/camilo6castell/my-assistant",
-      demo: "",
+      demo: "https://my-assistant-rag.vercel.app/",
     },
   ],
 };
