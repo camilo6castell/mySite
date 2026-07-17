@@ -17,7 +17,7 @@ export const cryptomessage = {
     "End-to-end encryption enforced entirely on the client using Web Crypto API",
     "Per-recipient ciphertext model (each message encrypted for every participant)",
     "Private key encrypted with AES-GCM using PBKDF2-derived passphrase",
-    "Keys live only in memory — never stored in localStorage or sent in plaintext",
+    "Keys live only in memory and never stored in localStorage or sent in plaintext",
     "Stateless backend acting strictly as a ciphertext relay (zero-knowledge server)",
     "JWT-based authentication with secure key lifecycle and session rehydration",
   ],

@@ -98,7 +98,7 @@ export const tracksContent_tracks = {
         "Prompt Engineering",
       ],
       pitch:
-        "I design and implement end-to-end applied AI systems: local RAG pipelines, multi-model orchestration with LangGraph, embeddings and semantic retrieval, and architectures where the language model is a controlled component within a larger system — not a black box. I work with both local models (Ollama, Qwen) and cloud providers, prioritizing privacy, traceability, and control over the entire pipeline.",
+        "I design and implement end-to-end applied AI systems: local RAG pipelines, multi-model orchestration with LangGraph, embeddings and semantic retrieval, and architectures where the language model is a controlled component within a larger system, not a black box. I work with both local models (Ollama, Qwen) and cloud providers, prioritizing privacy, traceability, and control over the entire pipeline.",
       relatedProjectTitles: ["MyAssistant"],
     },
     {
@@ -111,7 +111,7 @@ export const tracksContent_tracks = {
         "Fault-Tolerant Systems",
       ],
       pitch:
-        "I build resilient automation systems that operate unattended: from failover and anti-detection browser bots to low-code workflows in enterprise environments (Power Automate, Power Apps). My approach prioritizes observability and fault tolerance—every automation I design is intended to fail in a controlled manner and recover on its own.",
+        "I build resilient automation systems that operate unattended: from failover and anti-detection browser bots to low-code workflows in enterprise environments (Power Automate, Power Apps). My approach prioritizes observability and fault tolerance: every automation I design is intended to fail in a controlled manner and recover on its own.",
       relatedProjectTitles: ["Gymbot"],
     },
     {

@@ -62,7 +62,7 @@ Java, Spring Boot, React, Angular, MySQL, MongoDB
 
 - Fully local RAG platform indexing thousands of private documents across isolated FAISS vector spaces, exposed through a production-ready FastAPI layer.
 - Adaptive LangGraph retrieval graph with confidence-based conditional routing: low-similarity queries are automatically reformulated before retrieval is retried.
-- Multi-provider, provider-per-node architecture — local Qwen for generation, Gemini for reformulation and review — swappable via environment variables, no graph code changes required.
+- Multi-provider, provider-per-node architecture, local Qwen for generation, Gemini for reformulation and review, swappable via environment variables, no graph code changes required.
 - Review node that checks generated answers against retrieved chunks for hallucinations and source attribution, with a bounded correction loop and silent fail-safe.
 - End-to-end ingestion pipelines (PDF, HTML, TXT, web crawling), semantic chunking, and cosine-similarity retrieval using BAAI/bge-small-en-v1.5 embeddings.
 - Dual-mode prompt orchestration: strict evidence-only (HARD) vs. interpretive multi-source synthesis (SOFT).
@@ -82,7 +82,9 @@ Java, Spring Boot, React, Angular, MySQL, MongoDB
 
 - Privacy-first, end-to-end encrypted messaging platform implementing zero-trust principles; the server only ever stores ciphertext.
 - Client-side cryptography via the Web Crypto API: RSA-OAEP (2048-bit) for key generation and per-recipient encryption, AES-GCM (256-bit) + PBKDF2 (65,536 iterations) for private-key protection.
-- Private keys live only in module-scoped memory — never in localStorage or session storage — to mitigate XSS/data-leakage.
+- Private keys live only in module-scoped memory, never in localStorage or session storage —
+
+, to mitigate XSS/data-leakage.
 - Stateless authentication with Spring Security + JWT, scheduled data-retention workflows enforcing irreversible deletion policies.
 - React Router v6 guard pipeline with async JWT validation and passphrase-driven key derivation on session restore.
 - Documented REST API (OpenAPI/Swagger), Dockerized multi-environment deployment via Spring Profiles.
