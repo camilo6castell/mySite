@@ -51,7 +51,7 @@ export const cryptomessage = {
         "Vite",
       ],
       repo: "https://github.com/camilo6castell/cryptomessage-client",
-      demo: "https://cryptomessage-client.vercel.app/login",
+      demo: "https://cryptomessage-client.vercel.app/",
     },
   ],
 };
