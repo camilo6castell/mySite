@@ -25,7 +25,7 @@ export const ragAiMultiContext = {
 
   repos: [
     {
-      name: "RAG System",
+      name: "Ragsody",
       description:
         "Local RAG pipeline with multi-query expansion, FAISS vector search, cosine re-ranking, and Ollama LLM inference. Supports multi-context semantic isolation and three ingestion modes: local documents, single URL, and domain crawling.",
       tech: [
@@ -38,8 +38,8 @@ export const ragAiMultiContext = {
         "BeautifulSoup4",
         "readability-lxml",
       ],
-      repo: "https://github.com/camilo6castell/my-assistant",
-      demo: "https://my-assistant-rag.vercel.app/",
+      repo: "https://github.com/camilo6castell/ragsody_server",
+      demo: "https://ragsody.vercel.app/",
     },
   ],
 };

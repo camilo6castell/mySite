@@ -56,6 +56,9 @@ chrome-user-data
 *.swp
 *.swo
 
+.agents/
+skills-lock.json
+
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx
